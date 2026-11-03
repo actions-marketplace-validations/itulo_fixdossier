@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sample security record: Canop/dysk</title>
+  <meta name="description" content="A fixdossier security record for Canop/dysk, generated 2026-11-03 from public GitHub advisory, release and commit data. Not requested or endorsed by the project." />
+  <link rel="canonical" href="https://fixdossier.dev/docs/samples/Canop-dysk.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="fixdossier" />
+  <meta property="og:title" content="Sample security record: Canop/dysk" />
+  <meta property="og:description" content="A fixdossier security record for Canop/dysk, generated 2026-11-03 from public GitHub advisory, release and commit data. Not requested or endorsed by the project." />
+  <meta property="og:url" content="https://fixdossier.dev/docs/samples/Canop-dysk.html" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css?v=2" />
+  <style>
+    .doc h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); line-height: 1.2; letter-spacing: -0.03em; margin: 0.4rem 0 1rem; }
+    .doc h2 { margin-top: 2.4rem; }
+    .doc h3 { font-size: 1.05rem; margin: 1.6rem 0 0.5rem; }
+    .doc p, .doc li { color: var(--muted); }
+    .doc p strong, .doc li strong { color: var(--text); }
+    .doc :not(pre) > code { font-family: var(--mono); font-size: 0.85em; background: var(--bg-elev); padding: 0.1rem 0.35rem; border-radius: 4px; color: var(--text); }
+    .doc .pre-wrap, .doc .table-scroll { margin: 1rem 0 1.25rem; }
+    .doc table { min-width: 0; }
+    .doc ul, .doc ol { padding-left: 1.2rem; }
+    .doc li + li { margin-top: 0.35rem; }
+    .crumbs { font-size: 0.85rem; color: var(--faint); }
+    .doc-index { columns: 2; list-style: none; padding: 0 !important; }
+    @media (max-width: 560px) { .doc-index { columns: 1; } }
+    .sample { border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); padding: 1.2rem 1.4rem; margin: 1.2rem 0; }
+    .sample h3 { margin: 0 0 0.3rem; font-size: 1.15rem; }
+    .sample .meta { font-size: 0.82rem; color: var(--faint); margin: 0 0 0.9rem; }
+    .sample .links { font-size: 0.9rem; margin: 0.8rem 0 0; }
+    .sample .links a + a::before { content: "·"; color: var(--faint); margin: 0 0.5rem; }
+    .stats { margin-bottom: 0.6rem; }
+    .stat { min-width: 6.5rem; }
+    .record h1 { font-size: 1.5rem; }
+    .record table { font-size: 0.82rem; }
+    .record td { vertical-align: top; }
+  </style>
+  <script>
+    (function () {
+      var saved = localStorage.getItem('fixdossier_theme');
+      if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="../../"><span class="brand-mark" aria-hidden="true">fd</span> fixdossier</a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
+      <nav class="nav-links" id="primary-nav" aria-label="Primary">
+        <a href="../../">Home</a>
+        <a href="../../docs/">Docs</a>
+        <a href="https://github.com/itulo/fixdossier">GitHub</a>
+        <button class="btn-icon" id="theme-btn" type="button" title="Toggle light/dark theme" aria-label="Toggle light/dark theme">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section>
+      <article class="wrap doc">
+        <p class="crumbs"><a href="../../">fixdossier</a> / <a href="../">Docs</a> / <a href="./">Sample records</a> / Canop/dysk</p>
+        <h1>Sample security record: Canop/dysk</h1>
+        <div class="table-scroll" role="region" aria-label="Run details" tabindex="0"><table><tbody>
+<tr><th>Repository</th><td><a href="https://github.com/Canop/dysk">github.com/Canop/dysk</a></td></tr>
+<tr><th>Generated</th><td>2026-11-03T10:35:22.459Z</td></tr>
+<tr><th>fixdossier</th><td>v0.1.2 (commit <code>f5d6fc5</code>), run locally with <code>max_pages=10</code></td></tr>
+<tr><th>Files</th><td><a href="Canop-dysk/SECURITY-RECORD.md">SECURITY-RECORD.md</a> · <a href="Canop-dysk/security-record.json">security-record.json</a></td></tr>
+</tbody></table></div>
+        <p class="sample-note"><strong>Canop/dysk</strong> did not request, review or endorse this record, and no claim is made that the project uses fixdossier. It was generated from public GitHub data only (published security advisories, releases, tags, merged pull requests and commit messages).</p>
+        <p class="sample-note"><strong>Disclosure:</strong> the one fix in this record (dysk pull request <a href="https://github.com/Canop/dysk/pull/126">#126</a>) was contributed by Italo Armenti, who also maintains fixdossier. The dysk maintainer merged it as an ordinary contribution. That does not mean the project reviewed or endorsed this record.</p>
+        <p>Below is the generated <code>SECURITY-RECORD.md</code>, rendered as-is. Rows labelled <code>date heuristic</code> and all keyword commit rows are automatic guesses that the project’s maintainers would need to confirm. See <a href="../what-the-record-covers.html">what the record covers</a>.</p>
+        <div class="record">
+<h1>Security record — Canop/dysk</h1>
+<p><em>Generated 2026-11-03T10:35:22.459Z by fixdossier from GitHub data (releases, tags, security advisories, merged Dependabot/Renovate PRs, commit messages). Automatically compiled; review before relying on it. Not legal advice.</em></p>
+<h2>Summary</h2>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Published GitHub security advisories</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Commits that look like security fixes</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Merged bot dependency updates (security-flagged)</td>
+<td>0 (0)</td>
+</tr>
+<tr>
+<td>Releases</td>
+<td>52</td>
+</tr>
+<tr>
+<td>Fixes not yet in a release</td>
+<td>0</td>
+</tr>
+</tbody></table></div>
+<h2>Security fixes (newest first)</h2>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Type</th>
+<th>IDs</th>
+<th>Fix</th>
+<th>Shipped in</th>
+<th>Release date</th>
+<th>How mapped</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2026-11-02</td>
+<td>commit</td>
+<td>—</td>
+<td><a href="https://github.com/Canop/dysk/commit/726f4f554d7c1ede21363c29b593ab130ca28d86">fix terminal escape injection from mount metadata</a></td>
+<td>v3.8.2</td>
+<td>2026-11-02</td>
+<td>date heuristic (first release on/after commit)</td>
+</tr>
+</tbody></table></div>
+<h2>Dependency updates by bots (newest first)</h2>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>Merged</th>
+<th>Bot</th>
+<th>Update</th>
+<th>Security?</th>
+<th>Shipped in</th>
+<th>How mapped</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>—</td>
+<td>—</td>
+<td>None found in the checked range</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2>Releases</h2>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>Release</th>
+<th>Date</th>
+<th>Pre-release</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v3.8.2">v3.8.2</a></td>
+<td>2026-11-02</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v3.8.1">v3.8.1</a></td>
+<td>2026-10-17</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v3.8.0">v3.8.0</a></td>
+<td>2026-10-17</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v3.7.1">v3.7.1</a></td>
+<td>2026-09-27</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v3.7.0">v3.7.0</a></td>
+<td>2026-09-13</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v3.6.1">v3.6.1</a></td>
+<td>2026-05-04</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v3.6.0b">v3.6.0b</a></td>
+<td>2025-12-23</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v3.5.0">v3.5.0</a></td>
+<td>2025-12-02</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v3.4.0">v3.4.0</a></td>
+<td>2025-11-08</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v3.3.0">v3.3.0</a></td>
+<td>2025-11-02</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v3.2.0">v3.2.0</a></td>
+<td>2025-10-29</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v3.1.0">v3.1.0</a></td>
+<td>2025-08-29</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v3.0.0">v3.0.0</a></td>
+<td>2025-08-18</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.10.1">v2.10.1</a></td>
+<td>2025-05-13</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.10.0">v2.10.0</a></td>
+<td>2024-12-21</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.9.1">v2.9.1</a></td>
+<td>2024-09-08</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.9.0">v2.9.0</a></td>
+<td>2024-06-03</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.8.2">v2.8.2</a></td>
+<td>2023-10-16</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.8.1">v2.8.1</a></td>
+<td>2023-10-09</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.8.0">v2.8.0</a></td>
+<td>2023-08-22</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.7.2">v2.7.2</a></td>
+<td>2023-08-03</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.7.1">v2.7.1</a></td>
+<td>2023-07-16</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.7.0">v2.7.0</a></td>
+<td>2023-07-16</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.6.1">v2.6.1</a></td>
+<td>2023-07-02</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.6.0">v2.6.0</a></td>
+<td>2022-10-19</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.5.0">v2.5.0</a></td>
+<td>2022-03-15</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.4.0">v2.4.0</a></td>
+<td>2022-03-04</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.3.1">v2.3.1</a></td>
+<td>2022-03-01</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.3.0">v2.3.0</a></td>
+<td>2022-02-27</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.2.0">v2.2.0</a></td>
+<td>2022-02-26</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.1.1">v2.1.1</a></td>
+<td>2022-02-25</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.1.0">v2.1.0</a></td>
+<td>2022-02-23</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.0.2">v2.0.2</a></td>
+<td>2022-02-23</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.0.1">v2.0.1</a></td>
+<td>2022-02-20</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v2.0.0">v2.0.0</a></td>
+<td>2022-02-20</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v1.4.0">v1.4.0</a></td>
+<td>2022-01-06</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v1.3.1">v1.3.1</a></td>
+<td>2021-12-26</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v1.3.0">v1.3.0</a></td>
+<td>2021-11-03</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v1.2.1">v1.2.1</a></td>
+<td>2021-10-30</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v1.2.0">v1.2.0</a></td>
+<td>2021-10-19</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v1.1.0">v1.1.0</a></td>
+<td>2021-10-08</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v1.0.0">v1.0.0</a></td>
+<td>2021-09-05</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v0.7.6">v0.7.6</a></td>
+<td>2021-07-08</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v0.7.5">v0.7.5</a></td>
+<td>2021-07-01</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v0.7.4">v0.7.4</a></td>
+<td>2021-07-01</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v0.7.3">v0.7.3</a></td>
+<td>2021-06-30</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v0.7.2">v0.7.2</a></td>
+<td>2021-06-29</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v0.7.1">v0.7.1</a></td>
+<td>2021-06-24</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v0.7.0">v0.7.0</a></td>
+<td>2021-06-23</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/dysk/releases/tag/v0.6.0">v0.6.0</a></td>
+<td>2021-06-22</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<hr>
+<p>Mapping notes: <code>advisory patched_versions</code> means each advisory patched range was parsed and matched to the earliest fetched release tag that satisfies it; every matched release is listed. <code>tag commit match</code> means the commit SHA or bot PR merge SHA equals the commit a release tag points at (annotated tags use the peeled commit, not the tag object; a short SHA counts only when it is a unique prefix of one tag commit). <code>date heuristic (first release on/after publish)</code>, <code>date heuristic (first release on/after commit)</code>, and <code>date heuristic (first release on/after merge)</code> are the first stable release published on or after that date, used only when the methods above do not match. That heuristic can be wrong for backports and multi-branch repos. Commit detection uses message keywords (CVE-, GHSA-, security, vuln…) and will miss silent fixes and include some false positives. A docs conventional commit (any scope, with or without a colon) is not a fix candidate unless the message cites a CVE or GHSA.</p>
+
+        </div>
+        <p><a href="./">← All sample records</a></p>
+        <div class="disclaimer" role="note">
+  <p><strong>Not legal advice.</strong> fixdossier is an engineering tool for evidence collection and review support. It is not legal advice and not a compliance certificate. It does not make a product compliant with the PLD, the CRA or anything else, and its output can be incomplete or wrong. Review it, and ask a lawyer about your situation.</p>
+</div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2026 fixdossier · MIT · <a href="https://github.com/itulo/fixdossier">github.com/itulo/fixdossier</a> · <a href="mailto:contact@fixdossier.dev">contact@fixdossier.dev</a></div>
+      <div class="footer-links">
+        <a href="../../docs/">Docs</a>
+        <a href="https://github.com/itulo/fixdossier/blob/main/action.yml">action.yml</a>
+        <a href="https://github.com/itulo/fixdossier/tree/main/examples">Examples</a>
+        <a href="https://github.com/itulo/fixdossier/blob/main/LICENSE">License</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var t = document.getElementById('theme-btn');
+      if (t) t.addEventListener('click', function () {
+        var cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', cur);
+        localStorage.setItem('fixdossier_theme', cur);
+      });
+      var toggle = document.getElementById('nav-toggle'), nav = document.getElementById('primary-nav');
+      if (toggle && nav) toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+    })();
+  </script>
+</body>
+</html>

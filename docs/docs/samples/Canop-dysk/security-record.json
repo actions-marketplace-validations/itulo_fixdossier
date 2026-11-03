@@ -1,0 +1,459 @@
+{
+  "schema": "fixdossier/v1",
+  "repo": "Canop/dysk",
+  "generated_at": "2026-11-03T10:35:22.459Z",
+  "sources_checked": {
+    "releases": 52,
+    "tags": 52,
+    "closed_pulls": 28,
+    "advisories": 0,
+    "commits": 276
+  },
+  "gaps": [],
+  "releases": [
+    {
+      "tag": "v3.8.2",
+      "name": "dysk v3.8.2",
+      "date": "2026-11-02T17:01:26Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v3.8.2",
+      "prerelease": false,
+      "sha": "990df3edc2a1312d2f943064f605025a45691c55"
+    },
+    {
+      "tag": "v3.8.1",
+      "name": "dysk v3.8.1",
+      "date": "2026-10-17T16:16:02Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v3.8.1",
+      "prerelease": false,
+      "sha": "c002b844cfc33d56aaa7a4c46b80b033b07e0dee"
+    },
+    {
+      "tag": "v3.8.0",
+      "name": "dysk v3.8.0",
+      "date": "2026-10-17T06:43:43Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v3.8.0",
+      "prerelease": false,
+      "sha": "ce437e13cfc3f02ce2fdb6d2a4aeb552c0a940eb"
+    },
+    {
+      "tag": "v3.7.1",
+      "name": "dysk v3.7.1",
+      "date": "2026-09-27T14:51:08Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v3.7.1",
+      "prerelease": false,
+      "sha": "557dd25174171fa9e364d99d672eb3d6cbcb89ac"
+    },
+    {
+      "tag": "v3.7.0",
+      "name": "dysk v3.7.0",
+      "date": "2026-09-13T13:17:11Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v3.7.0",
+      "prerelease": false,
+      "sha": "c9f480f21f017822bda46602821f9ce5a41d85ed"
+    },
+    {
+      "tag": "v3.6.1",
+      "name": "dysk v3.6.1",
+      "date": "2026-05-04T16:49:02Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v3.6.1",
+      "prerelease": false,
+      "sha": "b8c61ea5f565759b12785658a1c6a80f3b13722c"
+    },
+    {
+      "tag": "v3.6.0b",
+      "name": "dysk v3.6.0",
+      "date": "2025-12-23T18:15:54Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v3.6.0b",
+      "prerelease": false,
+      "sha": "6eaac2da0c38e7955445098f685c10cf1b3eccb2"
+    },
+    {
+      "tag": "v3.5.0",
+      "name": "dysk v3.5.0",
+      "date": "2025-12-02T12:38:16Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v3.5.0",
+      "prerelease": false,
+      "sha": "84f8295f0a149c2ab889057ab2965d31749620c6"
+    },
+    {
+      "tag": "v3.4.0",
+      "name": "dysk v3.4.0",
+      "date": "2025-11-08T17:25:44Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v3.4.0",
+      "prerelease": false,
+      "sha": "32977dafc87c502c6e53d6467abf5592b933b54a"
+    },
+    {
+      "tag": "v3.3.0",
+      "name": "dysk v3.3.0",
+      "date": "2025-11-02T10:53:16Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v3.3.0",
+      "prerelease": false,
+      "sha": "08ecf8dc4787406581ea1b2e5362d3bf195fcfec"
+    },
+    {
+      "tag": "v3.2.0",
+      "name": "dysk v3.2.0",
+      "date": "2025-10-29T18:05:23Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v3.2.0",
+      "prerelease": false,
+      "sha": "3e4b883b34369f2f67446e96b91cd2075d02c294"
+    },
+    {
+      "tag": "v3.1.0",
+      "name": "dysk v3.1.0",
+      "date": "2025-08-29T07:52:09Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v3.1.0",
+      "prerelease": false,
+      "sha": "6926371e19344e71d7e09a90db772ee83b017b42"
+    },
+    {
+      "tag": "v3.0.0",
+      "name": "dysk v3.0.0",
+      "date": "2025-08-18T13:23:32Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v3.0.0",
+      "prerelease": false,
+      "sha": "02f2ff3aeba1cf3a5f61c1b4a350862f579f3db5"
+    },
+    {
+      "tag": "v2.10.1",
+      "name": "dysk v2.10.1",
+      "date": "2025-05-13T11:01:12Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.10.1",
+      "prerelease": false,
+      "sha": "56322fb475c3f94304c1af2795820ac5bb865cab"
+    },
+    {
+      "tag": "v2.10.0",
+      "name": "dysk v2.10.0",
+      "date": "2024-12-21T10:59:38Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.10.0",
+      "prerelease": false,
+      "sha": "15a3173b60fffebea5f0fb17ac95c7fa81e3dea3"
+    },
+    {
+      "tag": "v2.9.1",
+      "name": "dysk v2.9.1",
+      "date": "2024-09-08T08:40:39Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.9.1",
+      "prerelease": false,
+      "sha": "106440537d0710ea5b75aeae5bb1563289a78fa2"
+    },
+    {
+      "tag": "v2.9.0",
+      "name": "dysk v2.9.0",
+      "date": "2024-06-03T15:26:46Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.9.0",
+      "prerelease": false,
+      "sha": "dc476159b23017d3a3459f1d987eb778d1dc5d05"
+    },
+    {
+      "tag": "v2.8.2",
+      "name": "dysk v2.8.2",
+      "date": "2023-10-16T14:25:06Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.8.2",
+      "prerelease": false,
+      "sha": "eecc8cf86a26e840cdf1c97758a7deb3a4852e63"
+    },
+    {
+      "tag": "v2.8.1",
+      "name": "dysk v2.8.1",
+      "date": "2023-10-09T15:59:19Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.8.1",
+      "prerelease": false,
+      "sha": "48c69a3802cd671bcba3ba471c015f764e9b9ab9"
+    },
+    {
+      "tag": "v2.8.0",
+      "name": "dysk v2.8.0",
+      "date": "2023-08-22T06:02:36Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.8.0",
+      "prerelease": false,
+      "sha": "5086a677523dde41da6965e75e30bc3e1c0f0c8f"
+    },
+    {
+      "tag": "v2.7.2",
+      "name": "dysk v2.7.2",
+      "date": "2023-08-03T18:37:31Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.7.2",
+      "prerelease": false,
+      "sha": "c0caf31c137fe25e33f1cdb7ecd5b3b5512d11f3"
+    },
+    {
+      "tag": "v2.7.1",
+      "name": "dysk v2.7.1",
+      "date": "2023-07-16T17:17:01Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.7.1",
+      "prerelease": false,
+      "sha": "8df476745f0b54f9702b94ec58b9749a054908d3"
+    },
+    {
+      "tag": "v2.7.0",
+      "name": "dysk v2.7.0",
+      "date": "2023-07-16T16:50:10Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.7.0",
+      "prerelease": false,
+      "sha": "cc468aca40cb3b672f2a66172b760a566a667c85"
+    },
+    {
+      "tag": "v2.6.1",
+      "name": "dysk v2.6.1",
+      "date": "2023-07-02T19:25:52Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.6.1",
+      "prerelease": false,
+      "sha": "bbe9b556192b72692af7be7f40cc1c7a46fbd71c"
+    },
+    {
+      "tag": "v2.6.0",
+      "name": "lfs v2.6.0",
+      "date": "2022-10-19T17:18:10Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.6.0",
+      "prerelease": false,
+      "sha": "cb259eec495aa1382162ec4e5092f18057d5e251"
+    },
+    {
+      "tag": "v2.5.0",
+      "name": "lfs v2.5.0",
+      "date": "2022-03-15T18:47:34Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.5.0",
+      "prerelease": false,
+      "sha": "6ae3cc9e2e9b49c9c252b259de68130c83cd3efa"
+    },
+    {
+      "tag": "v2.4.0",
+      "name": "lfs v2.4.0",
+      "date": "2022-03-04T20:48:49Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.4.0",
+      "prerelease": false,
+      "sha": "d7dec233de26e379a334f9fbfe213ee0cfcffca0"
+    },
+    {
+      "tag": "v2.3.1",
+      "name": "lfs v2.3.1",
+      "date": "2022-03-01T20:22:36Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.3.1",
+      "prerelease": false,
+      "sha": "a96c971430e26586d7e3b4f3e32e88616b3e8c2b"
+    },
+    {
+      "tag": "v2.3.0",
+      "name": "lfs v2.3.0",
+      "date": "2022-02-27T14:27:46Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.3.0",
+      "prerelease": false,
+      "sha": "9d49c5b643caa8b279399177da44b293a9a44128"
+    },
+    {
+      "tag": "v2.2.0",
+      "name": "lfs v2.2.0",
+      "date": "2022-02-26T16:45:30Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.2.0",
+      "prerelease": false,
+      "sha": "e1fce37165aabb8fdbd016c69044262125f814d3"
+    },
+    {
+      "tag": "v2.1.1",
+      "name": "lfs v2.1.1",
+      "date": "2022-02-25T16:21:28Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.1.1",
+      "prerelease": false,
+      "sha": "0616e40a3698fa34e1078487503b1e1d48e01122"
+    },
+    {
+      "tag": "v2.1.0",
+      "name": "lfs v2.1.0",
+      "date": "2022-02-23T21:07:57Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.1.0",
+      "prerelease": false,
+      "sha": "625ddc8211a3d2f7d2a310b2ef4501e11084ede8"
+    },
+    {
+      "tag": "v2.0.2",
+      "name": "lfs v2.0.2",
+      "date": "2022-02-23T12:23:43Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.0.2",
+      "prerelease": false,
+      "sha": "acf48b34550a7ebb7735857452ba2f6ada10977c"
+    },
+    {
+      "tag": "v2.0.1",
+      "name": "lfs v2.0.1",
+      "date": "2022-02-20T18:14:51Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.0.1",
+      "prerelease": false,
+      "sha": "d2ff4f1af2abd60a64ad08d0b037ba1d0a033a08"
+    },
+    {
+      "tag": "v2.0.0",
+      "name": "lfs v2.0.0",
+      "date": "2022-02-20T15:06:22Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v2.0.0",
+      "prerelease": false,
+      "sha": "a4c313040a37fc90c1fb16b1025b55b00d128ae7"
+    },
+    {
+      "tag": "v1.4.0",
+      "name": "lfs v1.4.0",
+      "date": "2022-01-06T13:51:08Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v1.4.0",
+      "prerelease": false,
+      "sha": "5786c745920bef90afbdc07560f907dbb2b02c5a"
+    },
+    {
+      "tag": "v1.3.1",
+      "name": "lfs v1.3.1",
+      "date": "2021-12-26T07:09:47Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v1.3.1",
+      "prerelease": false,
+      "sha": "f880153d9eb5db27ba03636284391241fc6a2eaa"
+    },
+    {
+      "tag": "v1.3.0",
+      "name": "lfs v1.3.0",
+      "date": "2021-11-03T20:28:09Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v1.3.0",
+      "prerelease": false,
+      "sha": "aca826473e0e45af75a2bfddd71af534e396082c"
+    },
+    {
+      "tag": "v1.2.1",
+      "name": "lfs v1.2.1",
+      "date": "2021-10-30T17:44:08Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v1.2.1",
+      "prerelease": false,
+      "sha": "2b37af232c47fe2eb347a170c5b44bfc7ce61638"
+    },
+    {
+      "tag": "v1.2.0",
+      "name": "lfs v1.2.0",
+      "date": "2021-10-19T19:31:54Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v1.2.0",
+      "prerelease": false,
+      "sha": "660c6820344e4d28eb20fccd097e3bcd363a768c"
+    },
+    {
+      "tag": "v1.1.0",
+      "name": "lfs v1.1.0",
+      "date": "2021-10-08T07:42:28Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v1.1.0",
+      "prerelease": false,
+      "sha": "5cf0fd44ddaa001d7995c7ea7b2c98390736a597"
+    },
+    {
+      "tag": "v1.0.0",
+      "name": "lfs v1.0.0",
+      "date": "2021-09-05T15:31:28Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v1.0.0",
+      "prerelease": false,
+      "sha": "222d53f47da983a6876cff023c4aab8e5be3020f"
+    },
+    {
+      "tag": "v0.7.6",
+      "name": "lfs v0.7.6",
+      "date": "2021-07-08T04:57:29Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v0.7.6",
+      "prerelease": false,
+      "sha": "7b3218dcd6257fcae352097e1a82228fe9145b08"
+    },
+    {
+      "tag": "v0.7.5",
+      "name": "lfs v0.7.5",
+      "date": "2021-07-01T12:36:17Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v0.7.5",
+      "prerelease": false,
+      "sha": "ede129cd36a963f2cd8cdb209311cd9870a3235a"
+    },
+    {
+      "tag": "v0.7.4",
+      "name": "lfs v0.7.4",
+      "date": "2021-07-01T04:37:07Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v0.7.4",
+      "prerelease": false,
+      "sha": "85e763eece12269733409ff94d805527cebb4d44"
+    },
+    {
+      "tag": "v0.7.3",
+      "name": "lfs v0.7.3",
+      "date": "2021-06-30T10:46:46Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v0.7.3",
+      "prerelease": false,
+      "sha": "eb407eb95042d93a1baa1dabf384600ae9b3e25d"
+    },
+    {
+      "tag": "v0.7.2",
+      "name": "lfs v0.7.2",
+      "date": "2021-06-29T15:10:24Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v0.7.2",
+      "prerelease": false,
+      "sha": "ab8403eb3ccbe00318ed79ba3c9084461de2597a"
+    },
+    {
+      "tag": "v0.7.1",
+      "name": "lfs 0.7.1",
+      "date": "2021-06-24T19:04:01Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v0.7.1",
+      "prerelease": false,
+      "sha": "c5058997b8ddb6ab7d93ada22eacbc2ac36df8c7"
+    },
+    {
+      "tag": "v0.7.0",
+      "name": "lfs v0.7.0",
+      "date": "2021-06-23T19:03:32Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v0.7.0",
+      "prerelease": false,
+      "sha": "8c71a0f5770136d5eafde0587dbfd4b3b1fd2b8d"
+    },
+    {
+      "tag": "v0.6.0",
+      "name": "lfs v0.6.0",
+      "date": "2021-06-22T17:28:18Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v0.6.0",
+      "prerelease": false,
+      "sha": "6af0059f6a3fa832fbba4b60efac8f0a06dacdb7"
+    },
+    {
+      "tag": "v0.5.4",
+      "name": "lfs v0.5.4",
+      "date": "2021-06-21T19:38:32Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v0.5.4",
+      "prerelease": false,
+      "sha": "f17bc078113bfa71b2d4536e6956bba8df0bafd7"
+    },
+    {
+      "tag": "v0.5.1",
+      "name": "lfs v0.5.1",
+      "date": "2020-10-16T17:22:49Z",
+      "url": "https://github.com/Canop/dysk/releases/tag/v0.5.1",
+      "prerelease": false,
+      "sha": "db844c057632cb5d4e9e549ad64bc8fb536a8bf2"
+    }
+  ],
+  "tags_without_release": [],
+  "security_fixes": [
+    {
+      "date": "2026-11-02T11:51:11Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix terminal escape injection from mount metadata",
+      "sha": "726f4f554d7c1ede21363c29b593ab130ca28d86",
+      "url": "https://github.com/Canop/dysk/commit/726f4f554d7c1ede21363c29b593ab130ca28d86",
+      "release": "v3.8.2",
+      "release_date": "2026-11-02T17:01:26Z",
+      "matched_releases": [
+        {
+          "tag": "v3.8.2",
+          "date": "2026-11-02T17:01:26Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    }
+  ],
+  "dependency_updates": [],
+  "summary": {
+    "advisories": 0,
+    "security_commits": 1,
+    "dependency_updates": 0,
+    "security_dependency_updates": 0,
+    "unreleased_fixes": 0
+  }
+}
