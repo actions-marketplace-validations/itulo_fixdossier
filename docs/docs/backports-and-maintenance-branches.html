@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Backports and maintenance branches in a security-fix record | fixdossier</title>
+  <meta name="description" content="Why fixdossier’s date heuristic can map a security fix to the wrong release on maintenance branches, backports and monorepos, and what to check. Not legal advice." />
+  <link rel="canonical" href="https://fixdossier.dev/docs/backports-and-maintenance-branches.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="fixdossier" />
+  <meta property="og:title" content="Backports and maintenance branches in a security-fix record | fixdossier" />
+  <meta property="og:description" content="Why fixdossier’s date heuristic can map a security fix to the wrong release on maintenance branches, backports and monorepos, and what to check. Not legal advice." />
+  <meta property="og:url" content="https://fixdossier.dev/docs/backports-and-maintenance-branches.html" />
+  <meta property="og:locale" content="en" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=2" />
+  <style>
+    .doc h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); line-height: 1.2; letter-spacing: -0.03em; margin: 0.4rem 0 1rem; }
+    .doc h2 { margin-top: 2.4rem; }
+    .doc h3 { font-size: 1.05rem; margin: 1.6rem 0 0.5rem; }
+    .doc p, .doc li { color: var(--muted); }
+    .doc p strong, .doc li strong { color: var(--text); }
+    .doc :not(pre) > code { font-family: var(--mono); font-size: 0.85em; background: var(--bg-elev); padding: 0.1rem 0.35rem; border-radius: 4px; color: var(--text); }
+    .doc .pre-wrap, .doc .table-scroll { margin: 1rem 0 1.25rem; }
+    .doc table { min-width: 0; }
+    .doc ul, .doc ol { padding-left: 1.2rem; }
+    .doc li + li { margin-top: 0.35rem; }
+    .crumbs { font-size: 0.85rem; color: var(--faint); }
+    .doc-index { columns: 2; list-style: none; padding: 0 !important; }
+    @media (max-width: 560px) { .doc-index { columns: 1; } }
+  </style>
+  <script>
+    (function () {
+      var saved = localStorage.getItem('fixdossier_theme');
+      if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Backports, maintenance branches, and mis-mapped releases",
+  "description": "Why fixdossier’s date heuristic can map a security fix to the wrong release on maintenance branches, backports and monorepos, and what to check. Not legal advice.",
+  "url": "https://fixdossier.dev/docs/backports-and-maintenance-branches.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://fixdossier.dev/docs/backports-and-maintenance-branches.html"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-11-12",
+  "dateModified": "2026-11-12",
+  "author": {
+    "@type": "Person",
+    "name": "Italo Armenti"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "fixdossier",
+    "url": "https://fixdossier.dev/"
+  },
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "fixdossier",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "GitHub Actions",
+    "license": "https://opensource.org/licenses/MIT",
+    "codeRepository": "https://github.com/itulo/fixdossier",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "fixdossier",
+    "url": "https://fixdossier.dev/"
+  }
+}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">fd</span> fixdossier</a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
+      <nav class="nav-links" id="primary-nav" aria-label="Primary">
+        <a href="../">Home</a>
+        <a href="./">Docs</a>
+        <a href="https://github.com/itulo/fixdossier">GitHub</a>
+        <button class="btn-icon" id="theme-btn" type="button" title="Toggle light/dark theme" aria-label="Toggle light/dark theme">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section>
+      <article class="wrap doc">
+        <p class="crumbs"><a href="../">fixdossier</a> / <a href="./">Docs</a> / Backports and maintenance branches</p>
+        <h1>Backports, maintenance branches, and mis-mapped releases</h1>
+
+        <p>fixdossier can map a security fix to the wrong release when the work landed on a maintenance branch, was backported, or sits in a monorepo with per-package tags. This page explains when that happens and what to check. The mapping rules themselves are on <a href="map-github-advisory-to-release.html">how an advisory is mapped to a release</a>.</p>
+
+        <h2>How a row gets a release</h2>
+        <p>For each fix-like event, fixdossier tries, in order:</p>
+        <ol>
+          <li><strong>Advisory patched versions.</strong> <code>patched_versions</code> on a published repository advisory is matched to release tags (including lists and ranges; from v0.1.2, whitespace, commas and <code>||</code> are split, so <code>11.5.15 12.3.3</code> is two versions, not <code>11.5.1512.3.3</code>).</li>
+          <li><strong>Tag commit match.</strong> If the fix commit, or the merge commit of a bot pull request, is the commit a release tag points at (annotated tags are peeled), the row is labelled <code>tag commit match</code>.</li>
+          <li><strong>Date heuristic.</strong> Otherwise the first stable GitHub Release published on or after the fix date is used, and the row is labelled <code>date heuristic (…)</code>.</li>
+        </ol>
+        <p>Only published GitHub Releases are used as release rows. A tag with no Release is not enough. Pre-releases and drafts are skipped in <code>SUPPORT.md</code> and in the “first stable release after this date” step.</p>
+
+        <h2>Where the date heuristic goes wrong</h2>
+        <ul>
+          <li><strong>Backports.</strong> A fix might land on the main line on Monday and be cherry-picked to <code>1.2.x</code> on Thursday. The date heuristic, looking at the cherry-pick (or at the advisory date), can attach the row to the next main-line release and miss the maintenance release, or the other way around. Advisory <code>patched_versions</code> that list every patched line are the reliable path; the record will then list matches in <code>matched_releases</code>.</li>
+          <li><strong>Maintenance branches only.</strong> A commit that never reaches the default branch is invisible if you only run the action against the default checkout. The GitHub API still sees releases and published advisories; it does not, by itself, walk every maintenance branch for keyword commits.</li>
+          <li><strong>Monorepos and per-package tags.</strong> “The first stable release after this date” may be a tag for a different package. The action does not know your package layout.</li>
+          <li><strong>Releases outside GitHub.</strong> If you ship on another forge or only attach binaries elsewhere, those versions are not in the table.</li>
+        </ul>
+        <p>These limits are also summarised on <a href="what-the-record-covers.html">what the record covers</a>. They are expected behaviour, not a passing test failure.</p>
+
+        <h2>What to do in the repository</h2>
+        <ol>
+          <li>Publish a GitHub Release for every line you actually ship, including backports, using tags that match the versions you put in advisories.</li>
+          <li>On each published repository advisory, set <code>patched_versions</code> to every line you fixed, with the same version spelling as the tags.</li>
+          <li>Prefer putting the CVE or GHSA id in the fix commit on each branch you patch, so a later review can find it even if the heuristic is wrong.</li>
+          <li>When you read the record, treat every <code>date heuristic</code> row as something to confirm, especially around the same week as a maintenance release. From v0.1.1 the markdown lists every matched release for advisory rows; check that list, not only the first <code>release</code> field.</li>
+        </ol>
+
+        <h2>Why this comes up under the CRA and the PLD</h2>
+        <p>Manufacturers who place products with digital elements on the EU market will, from 11 December 2027, be under <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj">Regulation (EU) 2024/2847</a> (the Cyber Resilience Act) for support periods and vulnerability handling. A support window that names several release lines is only useful if you can later show which line received which fix. The date heuristic cannot do that for you.</p>
+        <p>Under the revised Product Liability Directive (<a href="https://eur-lex.europa.eu/eli/dir/2024/2853/oj">Directive (EU) 2024/2853</a>), a court can order disclosure of relevant evidence (Art. 9), and defectiveness may be presumed if that evidence is not produced (Art. 10(2)(a)). A record that maps a backport to the wrong tag is not “wrong in a way the tool will flag as an error”; it will look complete and still need a human check. This tool does not decide what you must keep or disclose.</p>
+
+        <h2>Docs pages</h2>
+        <ul class="doc-index">
+          <li><a href="./">Docs home</a></li>
+          <li><a href="security-fix-record-from-github.html">Build the record</a></li>
+          <li><a href="map-github-advisory-to-release.html">Advisory → release mapping</a></li>
+          <li><a href="what-the-record-covers.html">Coverage and limits</a></li>
+          <li><a href="cra-support-period-support-md.html">SUPPORT.md and support periods</a></li>
+          <li><a href="pld-evidence-checklist-for-engineers.html">PLD evidence checklist</a></li>
+          <li><a href="sbom-and-security-fix-record.html">SBOM vs security-fix record</a></li>
+          <li><a href="backports-and-maintenance-branches.html" aria-current="page">Backports and maintenance branches</a></li>
+          <li><a href="dependabot-renovate-security-history.html">Dependabot and Renovate history</a></li>
+          <li><a href="https://github.com/itulo/fixdossier">Source on GitHub (MIT)</a></li>
+        </ul>
+
+        <div class="disclaimer" role="note">
+  <p><strong>Not legal advice.</strong> fixdossier is an engineering tool for evidence collection and review support. It is not legal advice and not a compliance certificate. It does not make a product compliant with the PLD, the CRA or anything else, and its output can be incomplete or wrong. Review it, and ask a lawyer about your situation.</p>
+</div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2026 fixdossier · MIT · <a href="https://github.com/itulo/fixdossier">github.com/itulo/fixdossier</a> · <a href="mailto:contact@fixdossier.dev">contact@fixdossier.dev</a></div>
+      <div class="footer-links">
+        <a href="./">Docs</a>
+        <a href="https://github.com/itulo/fixdossier/blob/main/action.yml">action.yml</a>
+        <a href="https://github.com/itulo/fixdossier/tree/main/examples">Examples</a>
+        <a href="https://github.com/itulo/fixdossier/blob/main/LICENSE">License</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var t = document.getElementById('theme-btn');
+      if (t) t.addEventListener('click', function () {
+        var cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', cur);
+        localStorage.setItem('fixdossier_theme', cur);
+      });
+      var toggle = document.getElementById('nav-toggle'), nav = document.getElementById('primary-nav');
+      if (toggle && nav) toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+    })();
+  </script>
+</body>
+</html>

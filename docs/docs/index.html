@@ -51,7 +51,7 @@
   },
   "inLanguage": "en",
   "datePublished": "2026-10-29",
-  "dateModified": "2026-10-29",
+  "dateModified": "2026-11-12",
   "author": {
     "@type": "Person",
     "name": "Italo Armenti"
@@ -106,7 +106,7 @@
         <h1>fixdossier documentation</h1>
 
         <p>fixdossier is an MIT-licensed GitHub Action. It reads a repository's releases, tags, published GitHub security advisories, merged Dependabot and Renovate pull requests, and commit messages, and writes three files: <code>SECURITY-RECORD.md</code>, <code>security-record.json</code> (schema <code>fixdossier/v1</code>) and <code>SUPPORT.md</code>. Each fix row states how it was linked to a release, so you can see which rows need checking.</p>
-        <p>These pages document fixdossier 0.1.1 (the version in <a href="https://github.com/itulo/fixdossier/blob/main/package.json">package.json</a> on <code>main</code>), based on <a href="https://github.com/itulo/fixdossier/blob/main/action.yml">action.yml</a> and <a href="https://github.com/itulo/fixdossier/blob/main/src/core.js">src/core.js</a>, with output from the <a href="https://github.com/itulo/fixdossier/tree/main/examples">examples/</a> folder (axios/axios, fastify/fastify, vitejs/vite).</p>
+        <p>These pages document fixdossier 0.1.2 (the version in <a href="https://github.com/itulo/fixdossier/blob/main/package.json">package.json</a> on <code>main</code>), based on <a href="https://github.com/itulo/fixdossier/blob/main/action.yml">action.yml</a> and <a href="https://github.com/itulo/fixdossier/blob/main/src/core.js">src/core.js</a>, with output from the <a href="https://github.com/itulo/fixdossier/tree/main/examples">examples/</a> folder (axios/axios, fastify/fastify, vitejs/vite).</p>
 
         <h2>Quick start</h2>
         <p>Save as <code>.github/workflows/security-record.yml</code>. Artifact mode is the default and needs only read permissions.</p>
@@ -139,6 +139,9 @@ jobs:
           <li><a href="what-the-record-covers.html">What the record covers and what it does not</a>: advisory vs heuristic rows, unreleased fixes, permission gaps, <code>max_pages</code>.</li>
           <li><a href="cra-support-period-support-md.html">Generate SUPPORT.md with a support period</a>: how <code>support_period_months</code> and <code>eol_date</code> turn into per-release dates, and what the CRA text says about support periods.</li>
           <li><a href="pld-evidence-checklist-for-engineers.html">PLD evidence checklist for engineers</a>: practical steps for keeping dated, reviewable fix evidence.</li>
+          <li><a href="sbom-and-security-fix-record.html">How an SBOM differs from a dated security-fix record</a></li>
+          <li><a href="backports-and-maintenance-branches.html">Backports, maintenance branches, and mis-mapped releases</a></li>
+          <li><a href="dependabot-renovate-security-history.html">Turn Dependabot and Renovate merges into a dated fix history</a></li>
           <li><a href="samples/">Sample security records</a>: unedited output for public repositories, with how each row was mapped.</li>
         </ul>
 
@@ -183,6 +186,9 @@ jobs:
           <li><a href="what-the-record-covers.html">Coverage and limits</a></li>
           <li><a href="cra-support-period-support-md.html">SUPPORT.md and support periods</a></li>
           <li><a href="pld-evidence-checklist-for-engineers.html">PLD evidence checklist</a></li>
+          <li><a href="sbom-and-security-fix-record.html">SBOM vs security-fix record</a></li>
+          <li><a href="backports-and-maintenance-branches.html">Backports and maintenance branches</a></li>
+          <li><a href="dependabot-renovate-security-history.html">Dependabot and Renovate history</a></li>
           <li><a href="samples/">Sample records</a></li>
           <li><a href="https://github.com/itulo/fixdossier">Source on GitHub (MIT)</a></li>
         </ul>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SBOM vs a security-fix record | fixdossier</title>
+  <meta name="description" content="An SBOM inventories components; fixdossier records dated security fixes and a support-period file from GitHub history. They are not substitutes. Not legal advice." />
+  <link rel="canonical" href="https://fixdossier.dev/docs/sbom-and-security-fix-record.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="fixdossier" />
+  <meta property="og:title" content="SBOM vs a security-fix record | fixdossier" />
+  <meta property="og:description" content="An SBOM inventories components; fixdossier records dated security fixes and a support-period file from GitHub history. They are not substitutes. Not legal advice." />
+  <meta property="og:url" content="https://fixdossier.dev/docs/sbom-and-security-fix-record.html" />
+  <meta property="og:locale" content="en" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=2" />
+  <style>
+    .doc h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); line-height: 1.2; letter-spacing: -0.03em; margin: 0.4rem 0 1rem; }
+    .doc h2 { margin-top: 2.4rem; }
+    .doc h3 { font-size: 1.05rem; margin: 1.6rem 0 0.5rem; }
+    .doc p, .doc li { color: var(--muted); }
+    .doc p strong, .doc li strong { color: var(--text); }
+    .doc :not(pre) > code { font-family: var(--mono); font-size: 0.85em; background: var(--bg-elev); padding: 0.1rem 0.35rem; border-radius: 4px; color: var(--text); }
+    .doc .pre-wrap, .doc .table-scroll { margin: 1rem 0 1.25rem; }
+    .doc table { min-width: 0; }
+    .doc ul, .doc ol { padding-left: 1.2rem; }
+    .doc li + li { margin-top: 0.35rem; }
+    .crumbs { font-size: 0.85rem; color: var(--faint); }
+    .doc-index { columns: 2; list-style: none; padding: 0 !important; }
+    @media (max-width: 560px) { .doc-index { columns: 1; } }
+  </style>
+  <script>
+    (function () {
+      var saved = localStorage.getItem('fixdossier_theme');
+      if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "How an SBOM differs from a dated security-fix record",
+  "description": "An SBOM inventories components; fixdossier records dated security fixes and a support-period file from GitHub history. They are not substitutes. Not legal advice.",
+  "url": "https://fixdossier.dev/docs/sbom-and-security-fix-record.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://fixdossier.dev/docs/sbom-and-security-fix-record.html"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-11-12",
+  "dateModified": "2026-11-12",
+  "author": {
+    "@type": "Person",
+    "name": "Italo Armenti"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "fixdossier",
+    "url": "https://fixdossier.dev/"
+  },
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "fixdossier",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "GitHub Actions",
+    "license": "https://opensource.org/licenses/MIT",
+    "codeRepository": "https://github.com/itulo/fixdossier",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "fixdossier",
+    "url": "https://fixdossier.dev/"
+  }
+}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">fd</span> fixdossier</a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
+      <nav class="nav-links" id="primary-nav" aria-label="Primary">
+        <a href="../">Home</a>
+        <a href="./">Docs</a>
+        <a href="https://github.com/itulo/fixdossier">GitHub</a>
+        <button class="btn-icon" id="theme-btn" type="button" title="Toggle light/dark theme" aria-label="Toggle light/dark theme">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section>
+      <article class="wrap doc">
+        <p class="crumbs"><a href="../">fixdossier</a> / <a href="./">Docs</a> / SBOM vs security-fix record</p>
+        <h1>How an SBOM differs from a dated security-fix record</h1>
+
+        <p>An SBOM and a dated security-fix record answer different questions. Teams working toward the EU Cyber Resilience Act often need both. This page states what each file is for, what fixdossier does and does not produce, and how the two can sit side by side. It is about engineering artefacts, not about whether any product meets a legal duty.</p>
+
+        <h2>What an SBOM records</h2>
+        <p>A Software Bill of Materials lists the components in a product or repository at a point in time: names, versions, and usually a standard identifier such as a Package URL. Common formats are CycloneDX and SPDX. Generators such as Syft, cdxgen or a language toolchain produce one. The point is inventory: what was in the build, so you can match it to known vulnerabilities and say which components you shipped.</p>
+        <p>fixdossier does not generate an SBOM. It does not read CycloneDX or SPDX files, and it does not inventory dependencies except insofar as a merged Dependabot or Renovate pull request appears in GitHub history.</p>
+
+        <h2>What a security-fix record records</h2>
+        <p>fixdossier reads a GitHub repository's releases and tags, published repository advisories (GHSA), merged Dependabot and Renovate pull requests, and commit messages that look like security fixes. It writes:</p>
+        <ul>
+          <li><code>SECURITY-RECORD.md</code> and <code>security-record.json</code> (<code>schema: fixdossier/v1</code>): a dated log of those fixes, each mapped to a release when a mapping can be made, with the method used for that row.</li>
+          <li><code>SUPPORT.md</code>: a support-period table built from your <code>support_period_months</code>, optional <code>eol_date</code>, and GitHub Releases. See <a href="cra-support-period-support-md.html">Generate SUPPORT.md</a>.</li>
+        </ul>
+        <p>The question it tries to answer is: when did this repository record a security fix, and which GitHub Release appears to have shipped it? That is closer to a change history than to a component inventory. Details of mapping and gaps are on <a href="map-github-advisory-to-release.html">advisory-to-release mapping</a> and <a href="what-the-record-covers.html">what the record covers</a>.</p>
+
+        <h2>How they differ in practice</h2>
+        <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th></th><th>SBOM</th><th>fixdossier record</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Subject</th><td>Components in a build or tree</td><td>Security-related changes in one GitHub repo</td></tr>
+            <tr><th scope="row">Typical inputs</th><td>Lockfiles, images, source tree</td><td>Releases, advisories, bot PRs, commit messages</td></tr>
+            <tr><th scope="row">Output</th><td>CycloneDX, SPDX or similar</td><td><code>SECURITY-RECORD.md</code>, JSON, <code>SUPPORT.md</code></td></tr>
+            <tr><th scope="row">Good at</th><td>What you shipped, and matching known CVEs in dependencies</td><td>When a fix or bot update was recorded, and which release it was mapped to</td></tr>
+            <tr><th scope="row">Not a substitute for</th><td>A history of your own patches and support windows</td><td>A component inventory or a vulnerability scan</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <h2>Relevant EU texts (for context, not a completeness claim)</h2>
+        <p>The Cyber Resilience Act is <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj">Regulation (EU) 2024/2847</a>. Most of it applies from 11 December 2027 (Art. 71(2)). Article 13(8) is about how a manufacturer determines a support period (at least five years, unless expected use is shorter). Annex II, point 7, is about telling users what technical security support is offered and when the support period ends. <code>SUPPORT.md</code> is a maintainer-written statement of intent from your inputs; it does not choose or check that period, and the default <code>support_period_months</code> of 12 is below the five-year figure in Art. 13(8).</p>
+        <p>The official CRA text also addresses software bills of materials and vulnerability handling in the essential requirements and technical documentation. This page does not restate those articles. Read the Regulation itself for the exact wording. An SBOM and a fix record can both be useful engineering inputs to that work; neither file, on its own, shows that a product meets those requirements.</p>
+        <p>The revised Product Liability Directive, <a href="https://eur-lex.europa.eu/eli/dir/2024/2853/oj">Directive (EU) 2024/2853</a>, as corrected, applies to products placed on the market or put into service after 8 December 2026, i.e. from 9 December 2026 (Art. 2(1)). It treats software as a product (Art. 4(1)). Arts. 9 and 10 deal with court-ordered disclosure of relevant evidence and a presumption if it is not produced. A dated fix record is one engineering artefact you might keep; it is not a legal file and it may be incomplete. See the <a href="pld-evidence-checklist-for-engineers.html">PLD evidence checklist</a>.</p>
+
+        <h2>Using both in a repository</h2>
+        <p>A typical layout is: generate an SBOM in the same release workflow that builds the artefact, store it next to the release, and run <code>itulo/fixdossier@v0</code> so the security-fix record and <code>SUPPORT.md</code> are updated from GitHub history. Review both. The SBOM will not tell you which of your own commits fixed a GHSA; the fixdossier record will not list every library in the wheel or image.</p>
+
+        <h2>Docs pages</h2>
+        <ul class="doc-index">
+          <li><a href="./">Docs home</a></li>
+          <li><a href="security-fix-record-from-github.html">Build the record</a></li>
+          <li><a href="map-github-advisory-to-release.html">Advisory → release mapping</a></li>
+          <li><a href="what-the-record-covers.html">Coverage and limits</a></li>
+          <li><a href="cra-support-period-support-md.html">SUPPORT.md and support periods</a></li>
+          <li><a href="pld-evidence-checklist-for-engineers.html">PLD evidence checklist</a></li>
+          <li><a href="sbom-and-security-fix-record.html" aria-current="page">SBOM vs security-fix record</a></li>
+          <li><a href="backports-and-maintenance-branches.html">Backports and maintenance branches</a></li>
+          <li><a href="dependabot-renovate-security-history.html">Dependabot and Renovate history</a></li>
+          <li><a href="https://github.com/itulo/fixdossier">Source on GitHub (MIT)</a></li>
+        </ul>
+
+        <div class="disclaimer" role="note">
+  <p><strong>Not legal advice.</strong> fixdossier is an engineering tool for evidence collection and review support. It is not legal advice and not a compliance certificate. It does not make a product compliant with the PLD, the CRA or anything else, and its output can be incomplete or wrong. Review it, and ask a lawyer about your situation.</p>
+</div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2026 fixdossier · MIT · <a href="https://github.com/itulo/fixdossier">github.com/itulo/fixdossier</a> · <a href="mailto:contact@fixdossier.dev">contact@fixdossier.dev</a></div>
+      <div class="footer-links">
+        <a href="./">Docs</a>
+        <a href="https://github.com/itulo/fixdossier/blob/main/action.yml">action.yml</a>
+        <a href="https://github.com/itulo/fixdossier/tree/main/examples">Examples</a>
+        <a href="https://github.com/itulo/fixdossier/blob/main/LICENSE">License</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var t = document.getElementById('theme-btn');
+      if (t) t.addEventListener('click', function () {
+        var cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', cur);
+        localStorage.setItem('fixdossier_theme', cur);
+      });
+      var toggle = document.getElementById('nav-toggle'), nav = document.getElementById('primary-nav');
+      if (toggle && nav) toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+    })();
+  </script>
+</body>
+</html>

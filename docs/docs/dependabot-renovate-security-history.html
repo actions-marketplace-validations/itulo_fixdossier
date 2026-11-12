@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dependabot and Renovate merges in a security-fix record | fixdossier</title>
+  <meta name="description" content="How fixdossier turns merged Dependabot and Renovate security pull requests into a dated fix history, what it skips, and a workflow that keeps the files. Not legal advice." />
+  <link rel="canonical" href="https://fixdossier.dev/docs/dependabot-renovate-security-history.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="fixdossier" />
+  <meta property="og:title" content="Dependabot and Renovate merges in a security-fix record | fixdossier" />
+  <meta property="og:description" content="How fixdossier turns merged Dependabot and Renovate security pull requests into a dated fix history, what it skips, and a workflow that keeps the files. Not legal advice." />
+  <meta property="og:url" content="https://fixdossier.dev/docs/dependabot-renovate-security-history.html" />
+  <meta property="og:locale" content="en" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=2" />
+  <style>
+    .doc h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); line-height: 1.2; letter-spacing: -0.03em; margin: 0.4rem 0 1rem; }
+    .doc h2 { margin-top: 2.4rem; }
+    .doc h3 { font-size: 1.05rem; margin: 1.6rem 0 0.5rem; }
+    .doc p, .doc li { color: var(--muted); }
+    .doc p strong, .doc li strong { color: var(--text); }
+    .doc :not(pre) > code { font-family: var(--mono); font-size: 0.85em; background: var(--bg-elev); padding: 0.1rem 0.35rem; border-radius: 4px; color: var(--text); }
+    .doc .pre-wrap, .doc .table-scroll { margin: 1rem 0 1.25rem; }
+    .doc table { min-width: 0; }
+    .doc ul, .doc ol { padding-left: 1.2rem; }
+    .doc li + li { margin-top: 0.35rem; }
+    .crumbs { font-size: 0.85rem; color: var(--faint); }
+    .doc-index { columns: 2; list-style: none; padding: 0 !important; }
+    @media (max-width: 560px) { .doc-index { columns: 1; } }
+  </style>
+  <script>
+    (function () {
+      var saved = localStorage.getItem('fixdossier_theme');
+      if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Turn Dependabot and Renovate merges into a dated fix history",
+  "description": "How fixdossier turns merged Dependabot and Renovate security pull requests into a dated fix history, what it skips, and a workflow that keeps the files. Not legal advice.",
+  "url": "https://fixdossier.dev/docs/dependabot-renovate-security-history.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://fixdossier.dev/docs/dependabot-renovate-security-history.html"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-11-12",
+  "dateModified": "2026-11-12",
+  "author": {
+    "@type": "Person",
+    "name": "Italo Armenti"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "fixdossier",
+    "url": "https://fixdossier.dev/"
+  },
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "fixdossier",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "GitHub Actions",
+    "license": "https://opensource.org/licenses/MIT",
+    "codeRepository": "https://github.com/itulo/fixdossier",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "fixdossier",
+    "url": "https://fixdossier.dev/"
+  }
+}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">fd</span> fixdossier</a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
+      <nav class="nav-links" id="primary-nav" aria-label="Primary">
+        <a href="../">Home</a>
+        <a href="./">Docs</a>
+        <a href="https://github.com/itulo/fixdossier">GitHub</a>
+        <button class="btn-icon" id="theme-btn" type="button" title="Toggle light/dark theme" aria-label="Toggle light/dark theme">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section>
+      <article class="wrap doc">
+        <p class="crumbs"><a href="../">fixdossier</a> / <a href="./">Docs</a> / Dependabot and Renovate history</p>
+        <h1>Turn Dependabot and Renovate merges into a dated fix history</h1>
+
+        <p>Merged Dependabot and Renovate pull requests are one of the sources fixdossier reads. This page describes what is kept, what is dropped, and how to run the action so those merges show up as a dated history rather than as a pile of closed PRs you cannot search later.</p>
+
+        <h2>What is read</h2>
+        <p>The action uses the GitHub API to list merged pull requests from Dependabot and Renovate in the target repository, up to <code>max_pages</code> pages (100 items per page, default 10). A bot PR is treated as security-related only when it is strict about it: it needs a CVE or GHSA id, a security label, or a security word in the title. Routine version bumps without that signal are omitted. That limit is deliberate: otherwise every lockfile refresh would land in the record.</p>
+        <p>If the API returns 401, 403 or 404, or hits the rate limit, that source is skipped, a workflow warning is printed, and the gap is listed in the record under “Gaps in this record”. The job still succeeds unless you set <code>fail_on_gaps: 'true'</code>. <code>GITHUB_TOKEN</code> is usually enough for public repository pull requests; it is not enough for Dependabot <em>alerts</em>, which are a different API and are not read.</p>
+
+        <h2>How a bot PR is mapped to a release</h2>
+        <p>If the merge commit is the commit a release tag points at, the row is labelled <code>tag commit match</code>. Otherwise the date heuristic applies: the first stable GitHub Release on or after the merge date. That is often right when you cut a release shortly after merging security bumps, and often wrong if several lines are released in the same week or if the bump was backported. See <a href="backports-and-maintenance-branches.html">backports and maintenance branches</a>.</p>
+
+        <h2>A workflow that keeps the history</h2>
+        <p>Artifact mode is enough to inspect the files. Commit mode writes them back so each run is a dated commit you can point at later. GitHub deletes workflow artefacts after the retention period, so do not rely on artefacts alone if you care about a long-lived copy.</p>
+        <div class="pre-wrap"><span class="lang">yaml</span><pre>name: security-record
+on:
+  release:
+    types: [published]
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: read
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: itulo/fixdossier@v0
+        with:
+          mode: commit
+          fail_on_gaps: 'true'</pre></div>
+        <p>Pin <code>itulo/fixdossier@v0</code> or <code>@v0.1.2</code> as you prefer. Full options are in <a href="https://github.com/itulo/fixdossier/blob/main/action.yml">action.yml</a> and the <a href="https://github.com/itulo/fixdossier/blob/main/examples/workflow.yml">example workflow</a>.</p>
+
+        <h2>What this does not replace</h2>
+        <ul>
+          <li>It does not enable Dependabot or Renovate, and it does not merge their PRs.</li>
+          <li>It does not scan your dependencies. An SBOM or a scanner answers that; see <a href="sbom-and-security-fix-record.html">SBOM vs security-fix record</a>.</li>
+          <li>It does not read global advisories for dependencies, only published advisories on this repository, plus the bot PRs and keyword commits above.</li>
+          <li>Silent bumps with no security id or label will not appear. If you want those updates in the record, put a CVE/GHSA id or a security label on the PR.</li>
+        </ul>
+        <p>The surrounding EU texts (support periods under <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj">Regulation (EU) 2024/2847</a>, evidence and disclosure under <a href="https://eur-lex.europa.eu/eli/dir/2024/2853/oj">Directive (EU) 2024/2853</a>) are discussed on the <a href="cra-support-period-support-md.html">SUPPORT.md</a> and <a href="pld-evidence-checklist-for-engineers.html">PLD checklist</a> pages. A list of merged bot PRs is not a compliance filing.</p>
+
+        <h2>Docs pages</h2>
+        <ul class="doc-index">
+          <li><a href="./">Docs home</a></li>
+          <li><a href="security-fix-record-from-github.html">Build the record</a></li>
+          <li><a href="map-github-advisory-to-release.html">Advisory → release mapping</a></li>
+          <li><a href="what-the-record-covers.html">Coverage and limits</a></li>
+          <li><a href="cra-support-period-support-md.html">SUPPORT.md and support periods</a></li>
+          <li><a href="pld-evidence-checklist-for-engineers.html">PLD evidence checklist</a></li>
+          <li><a href="sbom-and-security-fix-record.html">SBOM vs security-fix record</a></li>
+          <li><a href="backports-and-maintenance-branches.html">Backports and maintenance branches</a></li>
+          <li><a href="dependabot-renovate-security-history.html" aria-current="page">Dependabot and Renovate history</a></li>
+          <li><a href="https://github.com/itulo/fixdossier">Source on GitHub (MIT)</a></li>
+        </ul>
+
+        <div class="disclaimer" role="note">
+  <p><strong>Not legal advice.</strong> fixdossier is an engineering tool for evidence collection and review support. It is not legal advice and not a compliance certificate. It does not make a product compliant with the PLD, the CRA or anything else, and its output can be incomplete or wrong. Review it, and ask a lawyer about your situation.</p>
+</div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2026 fixdossier · MIT · <a href="https://github.com/itulo/fixdossier">github.com/itulo/fixdossier</a> · <a href="mailto:contact@fixdossier.dev">contact@fixdossier.dev</a></div>
+      <div class="footer-links">
+        <a href="./">Docs</a>
+        <a href="https://github.com/itulo/fixdossier/blob/main/action.yml">action.yml</a>
+        <a href="https://github.com/itulo/fixdossier/tree/main/examples">Examples</a>
+        <a href="https://github.com/itulo/fixdossier/blob/main/LICENSE">License</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var t = document.getElementById('theme-btn');
+      if (t) t.addEventListener('click', function () {
+        var cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', cur);
+        localStorage.setItem('fixdossier_theme', cur);
+      });
+      var toggle = document.getElementById('nav-toggle'), nav = document.getElementById('primary-nav');
+      if (toggle && nav) toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+    })();
+  </script>
+</body>
+</html>
