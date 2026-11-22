@@ -202,15 +202,15 @@
         <p class="section-label">Sample output</p>
         <h2>Real run against axios/axios</h2>
         <p class="section-intro">
-          Generated 12 Oct 2026 from the public GitHub API. Full examples for axios, fastify, and vite live in the
+          Generated 22 Nov 2026 by fixdossier v0.1.2 from the public GitHub API (<code>max_pages: 10</code>). Full examples for axios, fastify, and vite live in the
           <a href="https://github.com/itulo/fixdossier/tree/main/examples">examples/</a> folder.
         </p>
 
         <div class="stats" aria-label="Summary counts">
           <div class="stat"><div class="n">51</div><div class="l">Advisories</div></div>
-          <div class="stat"><div class="n">2</div><div class="l">Security commits</div></div>
-          <div class="stat"><div class="n">43</div><div class="l">Bot updates (9 flagged)</div></div>
-          <div class="stat"><div class="n">125</div><div class="l">Releases</div></div>
+          <div class="stat"><div class="n">24</div><div class="l">Security commits</div></div>
+          <div class="stat"><div class="n">117</div><div class="l">Bot updates (23 flagged)</div></div>
+          <div class="stat"><div class="n">128</div><div class="l">Releases</div></div>
           <div class="stat"><div class="n">0</div><div class="l">Unreleased fixes</div></div>
         </div>
 
@@ -228,6 +228,14 @@
             </thead>
             <tbody>
               <tr>
+                <td class="mono">2026-11-02</td>
+                <td><span class="sev sev-medium">commit</span></td>
+                <td class="mono">CVE-2026-116689</td>
+                <td>fix(deps): bump follow-redirects to 1.16.2 for CVE-2026-116689</td>
+                <td class="mono">v0.35.0</td>
+                <td>date heuristic (first release on/after commit)</td>
+              </tr>
+              <tr>
                 <td class="mono">2026-09-16</td>
                 <td><span class="sev sev-medium">advisory</span></td>
                 <td class="mono">GHSA-j8rh-479h-cp32</td>
@@ -237,32 +245,32 @@
               </tr>
               <tr>
                 <td class="mono">2026-09-16</td>
-                <td><span class="sev sev-high">advisory</span></td>
-                <td class="mono">GHSA-m8m8-qj5v-23w3</td>
-                <td>Node HTTP adapter prototype-pollution gadget (socket hijack)</td>
+                <td><span class="sev sev-medium">advisory</span></td>
+                <td class="mono">GHSA-4hqw-qxg8-jxx2</td>
+                <td>Fetch Adapter Header Injection via Inherited FormData getHeaders</td>
                 <td class="mono">v1.20.0</td>
                 <td>advisory patched_versions</td>
               </tr>
               <tr>
                 <td class="mono">2026-09-16</td>
                 <td><span class="sev sev-high">advisory</span></td>
-                <td class="mono">GHSA-r4gj-5m52-g5wh</td>
-                <td>maxRedirects: 0 not enforced by fetch adapter (SSRF)</td>
+                <td class="mono">GHSA-m8m8-qj5v-23w3</td>
+                <td>Node HTTP adapter prototype-pollution gadget allows request socket hijack via inherited createConnection</td>
                 <td class="mono">v1.20.0</td>
                 <td>advisory patched_versions</td>
               </tr>
               <tr>
-                <td class="mono">2026-05-24</td>
-                <td><span class="sev sev-medium">commit</span></td>
-                <td class="mono">CVE-2026-42264</td>
-                <td>fix: guard socketPath with own() to prevent prototype pollution SSRF</td>
-                <td class="mono">v1.17.0</td>
-                <td>date heuristic (first release on/after commit)</td>
+                <td class="mono">2026-09-16</td>
+                <td><span class="sev sev-medium">advisory</span></td>
+                <td class="mono">GHSA-44g4-m2mj-wpvx</td>
+                <td>CIDR-form NO_PROXY entries are ignored, causing proxy exclusion bypass for internal IP ranges</td>
+                <td class="mono">v1.20.0</td>
+                <td>advisory patched_versions</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p class="sample-note">Excerpt only — first rows of SECURITY-RECORD.md. Every row shows the mapping string that was used (<code>advisory patched_versions</code>, <code>tag commit match</code>, <code>date heuristic (first release on/after publish)</code>, <code>date heuristic (first release on/after commit)</code>, <code>date heuristic (first release on/after merge)</code>, <code>unreleased</code>, or <code>none</code>). Treat heuristic rows and keyword-only commits as candidates to verify.</p>
+        <p class="sample-note">Excerpt only — the first 5 rows of <a href="https://github.com/itulo/fixdossier/blob/main/examples/axios-axios/SECURITY-RECORD.md">SECURITY-RECORD.md</a>. Every row shows the mapping string that was used (<code>advisory patched_versions</code>, <code>tag commit match</code>, <code>date heuristic (first release on/after publish)</code>, <code>date heuristic (first release on/after commit)</code>, <code>date heuristic (first release on/after merge)</code>, <code>unreleased</code>, or <code>none</code>). Treat heuristic rows and keyword-only commits as candidates to verify.</p>
 
         <h2 style="margin-top:2.25rem;font-size:1.15rem">SUPPORT.md excerpt (fastify/fastify)</h2>
         <p class="section-intro" style="margin-bottom:1rem">Inputs: 24 months support, EOL 2030-12-31.</p>
