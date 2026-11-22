@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://fixdossier.dev/docs/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-22</lastmod>
   </url>
   <url>
     <loc>https://fixdossier.dev/docs/security-fix-record-from-github.html</loc>
@@ -51,5 +51,9 @@
   <url>
     <loc>https://fixdossier.dev/docs/dependabot-renovate-security-history.html</loc>
     <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
+    <loc>https://fixdossier.dev/docs/pld-placed-on-market-dates-for-software.html</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
 </urlset>
