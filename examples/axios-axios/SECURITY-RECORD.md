@@ -1,21 +1,22 @@
 # Security record — axios/axios
 
-_Generated 2026-10-29T13:16:44.058Z by fixdossier from GitHub data (releases, tags, security advisories, merged Dependabot/Renovate PRs, commit messages). Automatically compiled; review before relying on it. Not legal advice._
+_Generated 2026-11-22T15:12:09.444Z by fixdossier from GitHub data (releases, tags, security advisories, merged Dependabot/Renovate PRs, commit messages). Automatically compiled; review before relying on it. Not legal advice._
 
 ## Summary
 
 | Item | Count |
 |---|---|
 | Published GitHub security advisories | 51 |
-| Commits that look like security fixes | 1 |
-| Merged bot dependency updates (security-flagged) | 47 (13) |
-| Releases | 126 |
+| Commits that look like security fixes | 24 |
+| Merged bot dependency updates (security-flagged) | 117 (23) |
+| Releases | 128 |
 | Fixes not yet in a release | 0 |
 
 ## Security fixes (newest first)
 
 | Date | Type | IDs | Fix | Shipped in | Release date | How mapped |
 |---|---|---|---|---|---|---|
+| 2026-11-02 | commit | CVE-2026-116689 | [fix(deps): bump follow-redirects to 1.16.2 for CVE-2026-116689 (#11410)](https://github.com/axios/axios/commit/00b4d1ede371e27c56b06c8fd004548e58b57b02) | v0.35.0 | 2026-11-02 | date heuristic (first release on/after commit) |
 | 2026-09-16 | advisory (medium) | GHSA-j8rh-479h-cp32, CVE-2026-101904 | [Header Injection via Inherited headers After Minimal Interceptor](https://github.com/axios/axios/security/advisories/GHSA-j8rh-479h-cp32) | v1.20.0 | 2026-08-24 | advisory patched_versions |
 | 2026-09-16 | advisory (medium) | GHSA-4hqw-qxg8-jxx2, CVE-2026-101900 | [Fetch Adapter Header Injection via Inherited FormData getHeaders](https://github.com/axios/axios/security/advisories/GHSA-4hqw-qxg8-jxx2) | v1.20.0 | 2026-08-24 | advisory patched_versions |
 | 2026-09-16 | advisory (high) | GHSA-m8m8-qj5v-23w3, CVE-2026-101905 | [Node HTTP adapter prototype-pollution gadget allows request socket hijack via inherited createConnection](https://github.com/axios/axios/security/advisories/GHSA-m8m8-qj5v-23w3) | v1.20.0 | 2026-08-24 | advisory patched_versions |
@@ -48,6 +49,8 @@ _Generated 2026-10-29T13:16:44.058Z by fixdossier from GitHub data (releases, ta
 | 2026-05-29 | advisory (high) | GHSA-pjwm-pj3p-43mv, CVE-2026-44492 | [shouldBypassProxy does not recognize IPv4-mapped IPv6 addresses, allowing NO_PROXY bypass (incomplete fix for CVE-2025-62718)](https://github.com/axios/axios/security/advisories/GHSA-pjwm-pj3p-43mv) | v1.16.0, v0.32.0 | 2026-05-02, 2026-05-04 | advisory patched_versions |
 | 2026-05-29 | advisory (medium) | GHSA-898c-q2cr-xwhg, CVE-2026-44490 | [DoS & Header Injection via Prototype Pollution Read-Side Gadgets in axios merge functions](https://github.com/axios/axios/security/advisories/GHSA-898c-q2cr-xwhg) | v1.16.0, v0.32.0 | 2026-05-02, 2026-05-04 | advisory patched_versions |
 | 2026-05-29 | advisory (low) | GHSA-654m-c8p4-x5fp, CVE-2026-44489 | [Proxy-Authorization Header Injection via Prototype Pollution — Incomplete Null-Prototype Fix](https://github.com/axios/axios/security/advisories/GHSA-654m-c8p4-x5fp) | v1.16.0 | 2026-05-02 | advisory patched_versions |
+| 2026-05-24 | commit | CVE-2026-42264, GHSA-72mg-mc2j-cwf6 | [fix: guard socketPath with own() to prevent prototype pollution SSRF (#10901)](https://github.com/axios/axios/commit/140a17944a6ff175611597c874e218ad6c2afd1c) | v1.17.0 | 2026-06-03 | date heuristic (first release on/after commit) |
+| 2026-05-04 | commit | — | [fix(security): defense-in-depth against already-polluted Object.prototype in formDataToJSON (#7413)](https://github.com/axios/axios/commit/78e8dcf8754ed9d1219628540d69d09bdba5a9be) | v1.16.1 | 2026-05-13 | date heuristic (first release on/after commit) |
 | 2026-04-24 | advisory (medium) | GHSA-445q-vr5w-6q77, CVE-2026-42037 | [CRLF Injection in multipart/form-data body via unsanitized blob.type in formDataToStream](https://github.com/axios/axios/security/advisories/GHSA-445q-vr5w-6q77) | v1.15.1 | 2026-04-19 | advisory patched_versions |
 | 2026-04-24 | advisory (medium) | GHSA-m7pr-hjqh-92cm, CVE-2026-42038 | [no_proxy bypass via IP alias allows SSRF](https://github.com/axios/axios/security/advisories/GHSA-m7pr-hjqh-92cm) | v1.15.1, v0.31.1 | 2026-04-19, 2026-04-19 | advisory patched_versions |
 | 2026-04-24 | advisory (medium) | GHSA-62hf-57xw-28j9, CVE-2026-42039 | [axios: unbounded recursion in toFormData causes DoS via deeply nested request data](https://github.com/axios/axios/security/advisories/GHSA-62hf-57xw-28j9) | v1.15.1, v0.31.1 | 2026-04-19, 2026-04-19 | advisory patched_versions |
@@ -61,29 +64,56 @@ _Generated 2026-10-29T13:16:44.058Z by fixdossier from GitHub data (releases, ta
 | 2026-04-24 | advisory (medium) | GHSA-3w6x-2g7m-8v23, CVE-2026-42044 | [Invisible JSON Response Tampering via Prototype Pollution Gadget in `parseReviver`](https://github.com/axios/axios/security/advisories/GHSA-3w6x-2g7m-8v23) | v1.15.2 | 2026-04-21 | advisory patched_versions |
 | 2026-04-24 | advisory (high) | GHSA-q8qp-cvcw-x6jj, CVE-2026-42264 | [Prototype pollution read-side gadgets in HTTP adapter allow credential injection and request hijacking](https://github.com/axios/axios/security/advisories/GHSA-q8qp-cvcw-x6jj) | v1.15.2 | 2026-04-21 | advisory patched_versions |
 | 2026-04-24 | advisory (low) | GHSA-xhjh-pmcv-23jw, CVE-2026-42040 | [Null Byte Injection via Reverse-Encoding in AxiosURLSearchParams](https://github.com/axios/axios/security/advisories/GHSA-xhjh-pmcv-23jw) | v1.15.1, v0.31.1 | 2026-04-19, 2026-04-19 | advisory patched_versions |
+| 2026-04-18 | commit | GHSA-pf86-5x62-jrwf | [test: add regression coverage for GHSA-pf86-5x62-jrwf gadgets](https://github.com/axios/axios/commit/48fd644be167f85f6b193ec376133f85ff8f8911) | v1.15.1 | 2026-04-19 | date heuristic (first release on/after commit) |
+| 2026-04-18 | commit | — | [fix(security): guard http adapter config reads against prototype pollution](https://github.com/axios/axios/commit/74a05bc336718a3c203f4e1da44b4c7c225510c1) | v1.15.1 | 2026-04-19 | date heuristic (first release on/after commit) |
+| 2026-04-18 | commit | — | [fix(security): ignore inherited parseReviver and related config reads](https://github.com/axios/axios/commit/70302b6c9008b3d5242c9685a4c01151e53a4c74) | v1.15.1 | 2026-04-19 | date heuristic (first release on/after commit) |
+| 2026-04-18 | commit | — | [fix(security): guard mergeConfig value reads with hasOwnProp](https://github.com/axios/axios/commit/17b90d0be692f1704e4623731163285b0480520f) | v1.15.1 | 2026-04-19 | date heuristic (first release on/after commit) |
+| 2026-04-18 | commit | — | [fix: header security issues (#10749)](https://github.com/axios/axios/commit/37cf18f2e2c10171ddd851c8e46938d48cc35948) | v1.15.1 | 2026-04-19 | date heuristic (first release on/after commit) |
 | 2026-04-09 | advisory (medium) | GHSA-fvcv-3m26-pcqx, CVE-2026-40175 | [Unrestricted Cloud Metadata Exfiltration via Header Injection Chain](https://github.com/axios/axios/security/advisories/GHSA-fvcv-3m26-pcqx) | v1.15.0, v0.31.0 | 2026-04-07, 2026-04-12 | advisory patched_versions |
 | 2026-04-09 | advisory (medium) | GHSA-3p68-rc4w-qgx5, CVE-2025-62718 | [NO_PROXY Hostname Normalization Bypass Leads to SSRF](https://github.com/axios/axios/security/advisories/GHSA-3p68-rc4w-qgx5) | v1.15.0, v0.31.0 | 2026-04-07, 2026-04-12 | advisory patched_versions |
 | 2026-04-07 | advisory (medium) | GHSA-qj83-cq47-w5f8, CVE-2026-39865 | [Axios HTTP/2 Session Cleanup State Corruption Vulnerability](https://github.com/axios/axios/security/advisories/GHSA-qj83-cq47-w5f8) | v1.13.2 | 2025-11-04 | advisory patched_versions |
+| 2026-04-06 | commit | — | [fix: unrestricted cloud metadata exfiltration via header injection chain (#10660)](https://github.com/axios/axios/commit/363185461b90b1b78845dc8a99a1f103d9b122a1) | v1.15.0 | 2026-04-07 | date heuristic (first release on/after commit) |
+| 2026-04-06 | commit | — | [fix: no_proxy hostname normalization bypass leads to ssrf (#10661)](https://github.com/axios/axios/commit/fb3befb6daac6cad26b2e54094d0f2d9e47f24df) | v1.15.0 | 2026-04-07 | date heuristic (first release on/after commit) |
+| 2026-04-02 | commit | — | [fix(ci): add zizmor scanner and fix workflow security findings (#10618)](https://github.com/axios/axios/commit/a04dd96dbbc31f8b8ff2658706a92224b8956ce9) | v1.15.0 | 2026-04-07 | date heuristic (first release on/after commit) |
+| 2026-03-19 | commit | — | [fix: formidable dependency vulnerable to arbitrary (#7533)](https://github.com/axios/axios/commit/4d8931ca8a92e53c5dcf02cf46d1016a10e60ec0) | v1.14.0 | 2026-03-27 | date heuristic (first release on/after commit) |
 | 2026-02-08 | advisory (high) | GHSA-43fc-jf86-j433, CVE-2026-25639 | [Denial of Service via __proto__ Key in mergeConfig](https://github.com/axios/axios/security/advisories/GHSA-43fc-jf86-j433) | v1.13.5, v0.30.3 | 2026-02-08, 2026-02-18 | advisory patched_versions |
+| 2026-02-04 | commit | — | [fix: Denial of Service via __proto__ Key in mergeConfig (#7369)](https://github.com/axios/axios/commit/28c721588c7a77e7503d0a434e016f852c597b57) | v1.13.5 | 2026-02-08 | date heuristic (first release on/after commit) |
 | 2025-09-11 | advisory (high) | GHSA-4hjh-wcwx-xvwj, CVE-2025-58754 | [Axios DoS via data: URL decode (CVE-2025-58754)](https://github.com/axios/axios/security/advisories/GHSA-4hjh-wcwx-xvwj) | v1.12.0, v0.30.0 | 2025-09-11, 2025-03-26 | advisory patched_versions |
+| 2025-09-10 | commit | CVE-2025-58754 | [fix(node): enforce maxContentLength for data: URLs (#7011)](https://github.com/axios/axios/commit/945435fc51467303768202250debb8d4ae892593) | v1.12.0 | 2025-09-11 | date heuristic (first release on/after commit) |
 | 2025-07-23 | advisory (high) | GHSA-rm8p-cx58-hcvx, CVE-2025-54371 | [Transitive Critical Vulnerability via form-data@4.0.0 in axios@1.10.0 — Predictable Boundary Values (CVE-2025-7783)](https://github.com/axios/axios/security/advisories/GHSA-rm8p-cx58-hcvx) | v1.11.0 | 2025-07-23 | advisory patched_versions |
+| 2025-03-26 | commit | — | [chore: create SECURITY.md](https://github.com/axios/axios/commit/5a9134e0995b08cc0817548ed44e79c420c620b7) | v0.30.0 | 2025-03-26 | date heuristic (first release on/after commit) |
 | 2025-03-07 | advisory (medium) | GHSA-jr5f-v2jv-69x6, CVE-2025-27152 | [Possible SSRF and Credential Leakage via Absolute URL in axios Requests](https://github.com/axios/axios/security/advisories/GHSA-jr5f-v2jv-69x6) | v1.8.2, v0.30.0 | 2025-03-07, 2025-03-26 | advisory patched_versions |
+| 2024-11-25 | commit | — | [fix: use URL API instead of DOM to fix a potential vulnerability warning; (#6714)](https://github.com/axios/axios/commit/0a8d6e19da5b9899a2abafaaa06a75ee548597db) | v1.7.8 | 2024-11-25 | date heuristic (first release on/after commit) |
+| 2024-08-13 | commit | CVE-2024-39338 | [fix(sec): CVE-2024-39338 (#6539) (#6543)](https://github.com/axios/axios/commit/6b6b605eaf73852fb2dae033f1e786155959de3a) | v1.7.4 | 2024-08-13 | date heuristic (first release on/after commit) |
+| 2024-08-13 | commit | — | [fix(sec): disregard protocol-relative URL to remediate SSRF (#6539)](https://github.com/axios/axios/commit/07a661a2a6b9092c4aa640dcc7f724ec5e65bdda) | v1.7.4 | 2024-08-13 | date heuristic (first release on/after commit) |
+| 2024-03-15 | commit | — | [fix(vulnerability): update follow-redirects to 1.15.6 (#6300)](https://github.com/axios/axios/commit/8786e0ff55a8c68d4ca989801ad26df924042e27) | v1.6.8 | 2024-03-15 | date heuristic (first release on/after commit) |
+| 2024-01-03 | commit | — | [fix(security): fixed formToJSON prototype pollution vulnerability; (#6167)](https://github.com/axios/axios/commit/3c0c11cade045c4412c242b5727308cff9897a0e) | v1.6.4 | 2024-01-03 | date heuristic (first release on/after commit) |
+| 2024-01-03 | commit | — | [fix(security): fixed security vulnerability in follow-redirects (#6163)](https://github.com/axios/axios/commit/75af1cdff5b3a6ca3766d3d3afbc3115bb0811b8) | v1.6.4 | 2024-01-03 | date heuristic (first release on/after commit) |
+| 2023-12-26 | commit | — | [fix: Regular Expression Denial of Service (ReDoS) (#6132)](https://github.com/axios/axios/commit/5e7ad38fb0f819fceb19fb2ee5d5d38f56aa837d) | v1.6.3 | 2023-12-26 | date heuristic (first release on/after commit) |
+| 2023-10-26 | commit | CVE-2023-45857 | [fix(CSRF): fixed CSRF vulnerability CVE-2023-45857 (#6028)](https://github.com/axios/axios/commit/96ee232bd3ee4de2e657333d4d2191cd389e14d0) | v1.6.0 | 2023-10-26 | date heuristic (first release on/after commit) |
 
 ## Dependency updates by bots (newest first)
 
 | Merged | Bot | Update | Security? | Shipped in | How mapped |
 |---|---|---|---|---|---|
-| 2026-10-27 | dependabot[bot] | [chore(deps): bump qs from 6.16.0 to 6.17.0](https://github.com/axios/axios/pull/11395) |  | _unreleased_ | unreleased |
-| 2026-10-27 | dependabot[bot] | [chore(deps): bump @vitest/mocker and vitest in /tests/module/esm](https://github.com/axios/axios/pull/11388) |  | _unreleased_ | unreleased |
-| 2026-10-27 | dependabot[bot] | [chore(deps): bump zizmorcore/zizmor-action from 0.6.4 to 0.7.1 in the github-actions group](https://github.com/axios/axios/pull/11391) |  | _unreleased_ | unreleased |
-| 2026-10-27 | dependabot[bot] | [chore(deps-dev): bump fast-uri from 3.1.8 to 3.1.9](https://github.com/axios/axios/pull/11385) | yes | _unreleased_ | unreleased |
-| 2026-10-27 | dependabot[bot] | [chore(deps-dev): bump serialize-javascript from 7.0.7 to 7.1.4](https://github.com/axios/axios/pull/11386) | yes | _unreleased_ | unreleased |
-| 2026-10-27 | dependabot[bot] | [chore(deps-dev): bump multer from 2.4.0 to 2.5.0](https://github.com/axios/axios/pull/11387) | yes | _unreleased_ | unreleased |
-| 2026-10-27 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 8 updates](https://github.com/axios/axios/pull/11392) |  | _unreleased_ | unreleased |
-| 2026-10-26 | dependabot[bot] | [chore(deps): bump follow-redirects from 1.16.0 to 1.16.2 in /docs](https://github.com/axios/axios/pull/11345) |  | _unreleased_ | unreleased |
-| 2026-10-26 | dependabot[bot] | [chore(deps-dev): bump vite from 8.1.2 to 8.3.5](https://github.com/axios/axios/pull/11372) |  | _unreleased_ | unreleased |
-| 2026-10-26 | dependabot[bot] | [chore(deps-dev): bump vite from 8.1.5 to 8.3.5 in /tests/module/esm](https://github.com/axios/axios/pull/11375) |  | _unreleased_ | unreleased |
-| 2026-10-26 | dependabot[bot] | [chore(deps): bump @vitest/mocker and vitest in /tests/smoke/esm](https://github.com/axios/axios/pull/11383) |  | _unreleased_ | unreleased |
+| 2026-11-18 | dependabot[bot] | [chore(deps): bump follow-redirects from 1.16.2 to 1.16.3 in the production_dependencies group](https://github.com/axios/axios/pull/11467) |  | _unreleased_ | unreleased |
+| 2026-11-18 | dependabot[bot] | [chore(deps): bump peter-evans/create-pull-request from 8.1.1 to 8.1.2 in the github-actions group](https://github.com/axios/axios/pull/11468) |  | _unreleased_ | unreleased |
+| 2026-11-18 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 3 updates](https://github.com/axios/axios/pull/11469) |  | _unreleased_ | unreleased |
+| 2026-11-10 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 6 updates](https://github.com/axios/axios/pull/11438) |  | _unreleased_ | unreleased |
+| 2026-11-10 | dependabot[bot] | [chore(deps): bump zizmorcore/zizmor-action from 0.8.0 to 0.8.1 in the github-actions group](https://github.com/axios/axios/pull/11437) |  | _unreleased_ | unreleased |
+| 2026-11-03 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 4 updates](https://github.com/axios/axios/pull/11422) | yes | v1.21.1 | date heuristic (first release on/after merge) |
+| 2026-11-03 | dependabot[bot] | [chore(deps): bump zizmorcore/zizmor-action from 0.7.1 to 0.8.0 in the github-actions group](https://github.com/axios/axios/pull/11421) |  | v1.21.1 | date heuristic (first release on/after merge) |
+| 2026-10-27 | dependabot[bot] | [chore(deps): bump qs from 6.16.0 to 6.17.0](https://github.com/axios/axios/pull/11395) |  | v0.35.0 | date heuristic (first release on/after merge) |
+| 2026-10-27 | dependabot[bot] | [chore(deps): bump @vitest/mocker and vitest in /tests/module/esm](https://github.com/axios/axios/pull/11388) |  | v0.35.0 | date heuristic (first release on/after merge) |
+| 2026-10-27 | dependabot[bot] | [chore(deps): bump zizmorcore/zizmor-action from 0.6.4 to 0.7.1 in the github-actions group](https://github.com/axios/axios/pull/11391) |  | v0.35.0 | date heuristic (first release on/after merge) |
+| 2026-10-27 | dependabot[bot] | [chore(deps-dev): bump fast-uri from 3.1.8 to 3.1.9](https://github.com/axios/axios/pull/11385) | yes | v0.35.0 | date heuristic (first release on/after merge) |
+| 2026-10-27 | dependabot[bot] | [chore(deps-dev): bump serialize-javascript from 7.0.7 to 7.1.4](https://github.com/axios/axios/pull/11386) | yes | v0.35.0 | date heuristic (first release on/after merge) |
+| 2026-10-27 | dependabot[bot] | [chore(deps-dev): bump multer from 2.4.0 to 2.5.0](https://github.com/axios/axios/pull/11387) | yes | v0.35.0 | date heuristic (first release on/after merge) |
+| 2026-10-27 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 8 updates](https://github.com/axios/axios/pull/11392) |  | v0.35.0 | date heuristic (first release on/after merge) |
+| 2026-10-26 | dependabot[bot] | [chore(deps): bump follow-redirects from 1.16.0 to 1.16.2 in /docs](https://github.com/axios/axios/pull/11345) |  | v0.35.0 | date heuristic (first release on/after merge) |
+| 2026-10-26 | dependabot[bot] | [chore(deps-dev): bump vite from 8.1.2 to 8.3.5](https://github.com/axios/axios/pull/11372) |  | v0.35.0 | date heuristic (first release on/after merge) |
+| 2026-10-26 | dependabot[bot] | [chore(deps-dev): bump vite from 8.1.5 to 8.3.5 in /tests/module/esm](https://github.com/axios/axios/pull/11375) |  | v0.35.0 | date heuristic (first release on/after merge) |
+| 2026-10-26 | dependabot[bot] | [chore(deps): bump @vitest/mocker and vitest in /tests/smoke/esm](https://github.com/axios/axios/pull/11383) |  | v0.35.0 | date heuristic (first release on/after merge) |
 | 2026-10-20 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 4 updates](https://github.com/axios/axios/pull/11342) | yes | v1.21.0 | date heuristic (first release on/after merge) |
 | 2026-10-14 | dependabot[bot] | [chore(deps): bump the github-actions group with 3 updates](https://github.com/axios/axios/pull/11323) |  | v1.21.0 | date heuristic (first release on/after merge) |
 | 2026-10-14 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 4 updates](https://github.com/axios/axios/pull/11322) |  | v1.21.0 | date heuristic (first release on/after merge) |
@@ -120,11 +150,76 @@ _Generated 2026-10-29T13:16:44.058Z by fixdossier from GitHub data (releases, ta
 | 2026-08-04 | dependabot[bot] | [chore(deps-dev): bump fast-uri from 3.1.4 to 3.1.5](https://github.com/axios/axios/pull/11126) | yes | v1.20.0 | date heuristic (first release on/after merge) |
 | 2026-08-04 | dependabot[bot] | [chore(deps): bump postcss from 8.5.12 to 8.5.25 in /docs](https://github.com/axios/axios/pull/11127) |  | v1.20.0 | date heuristic (first release on/after merge) |
 | 2026-08-04 | dependabot[bot] | [chore(deps): bump zizmorcore/zizmor-action from 0.6.0 to 0.6.1 in the github-actions group](https://github.com/axios/axios/pull/11122) |  | v1.20.0 | date heuristic (first release on/after merge) |
+| 2026-07-29 | dependabot[bot] | [chore(deps): bump the github-actions group with 2 updates](https://github.com/axios/axios/pull/11107) |  | v1.20.0 | date heuristic (first release on/after merge) |
+| 2026-07-29 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 2 updates](https://github.com/axios/axios/pull/11106) |  | v1.20.0 | date heuristic (first release on/after merge) |
+| 2026-07-26 | dependabot[bot] | [chore(deps-dev): bump postcss from 8.5.10 to 8.5.23 in /tests/module/esm](https://github.com/axios/axios/pull/11099) |  | v1.20.0 | date heuristic (first release on/after merge) |
+| 2026-07-26 | dependabot[bot] | [chore(deps-dev): bump postcss from 8.5.16 to 8.5.23](https://github.com/axios/axios/pull/11098) |  | v1.20.0 | date heuristic (first release on/after merge) |
+| 2026-07-26 | dependabot[bot] | [chore(deps-dev): bump fast-uri from 3.1.3 to 3.1.4](https://github.com/axios/axios/pull/11092) | yes | v1.20.0 | date heuristic (first release on/after merge) |
+| 2026-07-21 | dependabot[bot] | [chore(deps): bump axios from 1.16.1 to 1.18.1 in /docs](https://github.com/axios/axios/pull/11088) |  | v1.19.0 | date heuristic (first release on/after merge) |
+| 2026-07-21 | dependabot[bot] | [chore(deps): bump actions/setup-node from 6.4.0 to 7.0.0 in the github-actions group](https://github.com/axios/axios/pull/11090) |  | v1.19.0 | date heuristic (first release on/after merge) |
+| 2026-07-21 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 3 updates](https://github.com/axios/axios/pull/11089) |  | v1.19.0 | date heuristic (first release on/after merge) |
+| 2026-07-14 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 3 updates](https://github.com/axios/axios/pull/11079) |  | v1.19.0 | date heuristic (first release on/after merge) |
+| 2026-07-14 | dependabot[bot] | [chore(deps): bump denoland/setup-deno from 2.0.4 to 2.0.5 in the github-actions group](https://github.com/axios/axios/pull/11080) |  | v1.19.0 | date heuristic (first release on/after merge) |
+| 2026-06-30 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 3 updates](https://github.com/axios/axios/pull/11055) |  | v1.19.0 | date heuristic (first release on/after merge) |
+| 2026-06-30 | dependabot[bot] | [chore(deps): bump the github-actions group with 2 updates](https://github.com/axios/axios/pull/11056) |  | v1.19.0 | date heuristic (first release on/after merge) |
+| 2026-06-23 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 9 updates](https://github.com/axios/axios/pull/11031) |  | v1.19.0 | date heuristic (first release on/after merge) |
+| 2026-06-20 | dependabot[bot] | [chore(deps-dev): bump multer from 2.1.1 to 2.2.0](https://github.com/axios/axios/pull/11026) | yes | v1.18.1 | date heuristic (first release on/after merge) |
+| 2026-06-17 | dependabot[bot] | [chore(deps): merge branch 'v1.x' into tests/module/cjs](https://github.com/axios/axios/pull/11014) |  | v1.18.1 | date heuristic (first release on/after merge) |
+| 2026-06-17 | dependabot[bot] | [chore(deps): bump js-yaml in /tests/smoke/cjs](https://github.com/axios/axios/pull/11016) |  | v1.18.1 | date heuristic (first release on/after merge) |
+| 2026-06-17 | dependabot[bot] | [chore(deps): bump form-data from 4.0.5 to 4.0.6](https://github.com/axios/axios/pull/11015) |  | v1.18.1 | date heuristic (first release on/after merge) |
+| 2026-06-17 | dependabot[bot] | [chore(deps): bump form-data from 4.0.5 to 4.0.6 in /docs](https://github.com/axios/axios/pull/11013) |  | v1.18.1 | date heuristic (first release on/after merge) |
+| 2026-06-17 | dependabot[bot] | [chore(deps-dev): bump vite from 8.0.13 to 8.0.16](https://github.com/axios/axios/pull/11017) |  | v1.18.1 | date heuristic (first release on/after merge) |
+| 2026-06-16 | dependabot[bot] | [chore(deps-dev): bump rollup from 4.61.0 to 4.61.1 in the development_dependencies group](https://github.com/axios/axios/pull/11012) |  | v1.18.1 | date heuristic (first release on/after merge) |
+| 2026-06-16 | dependabot[bot] | [chore(deps-dev): bump vite from 8.0.9 to 8.0.16 in /tests/smoke/esm](https://github.com/axios/axios/pull/11011) |  | v1.18.1 | date heuristic (first release on/after merge) |
+| 2026-06-10 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 10 updates](https://github.com/axios/axios/pull/10997) |  | v0.33.0 | date heuristic (first release on/after merge) |
+| 2026-06-09 | dependabot[bot] | [chore(deps): bump actions/checkout from 6.0.2 to 6.0.3 in the github-actions group](https://github.com/axios/axios/pull/10996) |  | v0.33.0 | date heuristic (first release on/after merge) |
+| 2026-06-05 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 2 updates](https://github.com/axios/axios/pull/10989) |  | v0.33.0 | date heuristic (first release on/after merge) |
+| 2026-05-30 | dependabot[bot] | [chore(deps): bump axios from 1.15.2 to 1.16.1 in /docs](https://github.com/axios/axios/pull/10960) |  | v1.17.0 | date heuristic (first release on/after merge) |
+| 2026-05-28 | dependabot[bot] | [chore(deps-dev): bump tmp from 0.2.5 to 0.2.7 in /docs](https://github.com/axios/axios/pull/10954) |  | v1.17.0 | date heuristic (first release on/after merge) |
+| 2026-05-26 | dependabot[bot] | [chore(deps): bump zizmorcore/zizmor-action from 0.5.3 to 0.5.6 in the github-actions group](https://github.com/axios/axios/pull/10947) |  | v1.17.0 | date heuristic (first release on/after merge) |
+| 2026-05-24 | dependabot[bot] | [chore(deps): bump qs from 6.14.2 to 6.15.2](https://github.com/axios/axios/pull/10934) |  | v1.17.0 | date heuristic (first release on/after merge) |
+| 2026-05-20 | dependabot[bot] | [chore(deps): bump actions/dependency-review-action from 4.9.0 to 5.0.0 in the github-actions group](https://github.com/axios/axios/pull/10919) |  | v1.17.0 | date heuristic (first release on/after merge) |
+| 2026-05-20 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 5 updates](https://github.com/axios/axios/pull/10918) |  | v1.17.0 | date heuristic (first release on/after merge) |
+| 2026-05-13 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group across 1 directory with 6 updates](https://github.com/axios/axios/pull/10879) |  | v1.17.0 | date heuristic (first release on/after merge) |
+| 2026-05-13 | dependabot[bot] | [chore(deps-dev): bump @babel/plugin-transform-modules-systemjs from 7.29.0 to 7.29.4](https://github.com/axios/axios/pull/10871) |  | v1.17.0 | date heuristic (first release on/after merge) |
+| 2026-05-05 | dependabot[bot] | [chore(deps-dev): bump @commitlint/cli from 20.5.0 to 20.5.2 in the development_dependencies group](https://github.com/axios/axios/pull/10846) |  | v1.16.1 | date heuristic (first release on/after merge) |
+| 2026-04-28 | dependabot[bot] | [chore(deps): bump postcss from 8.5.8 to 8.5.12 in /docs](https://github.com/axios/axios/pull/10814) |  | v1.16.0 | date heuristic (first release on/after merge) |
+| 2026-04-28 | dependabot[bot] | [chore(deps): bump actions/setup-node from 6.3.0 to 6.4.0 in the github-actions group](https://github.com/axios/axios/pull/10813) |  | v1.16.0 | date heuristic (first release on/after merge) |
+| 2026-04-21 | dependabot[bot] | [chore(deps): bump the github-actions group with 3 updates](https://github.com/axios/axios/pull/10785) |  | v1.16.0 | date heuristic (first release on/after merge) |
+| 2026-04-15 | dependabot[bot] | [chore(deps): bump follow-redirects from 1.15.11 to 1.16.0 in /docs](https://github.com/axios/axios/pull/10716) |  | v1.15.1 | date heuristic (first release on/after merge) |
+| 2026-04-15 | dependabot[bot] | [chore(deps): bump follow-redirects from 1.15.11 to 1.16.0](https://github.com/axios/axios/pull/10717) |  | v1.15.1 | date heuristic (first release on/after merge) |
+| 2026-04-14 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 5 updates](https://github.com/axios/axios/pull/10709) |  | v1.15.1 | date heuristic (first release on/after merge) |
+| 2026-04-12 | dependabot[bot] | [chore(deps): bump axios from 1.14.0 to 1.15.0 in /docs](https://github.com/axios/axios/pull/10684) |  | v1.15.1 | date heuristic (first release on/after merge) |
+| 2026-04-07 | dependabot[bot] | [chore(deps-dev): bump vite from 8.0.0 to 8.0.5 in /tests/smoke/esm](https://github.com/axios/axios/pull/10663) |  | v1.15.0 | date heuristic (first release on/after merge) |
+| 2026-04-07 | dependabot[bot] | [chore(deps-dev): bump vite from 8.0.2 to 8.0.5](https://github.com/axios/axios/pull/10664) |  | v1.15.0 | date heuristic (first release on/after merge) |
+| 2026-04-07 | dependabot[bot] | [chore(deps-dev): bump vite from 8.0.2 to 8.0.5 in /tests/module/esm](https://github.com/axios/axios/pull/10665) |  | v1.15.0 | date heuristic (first release on/after merge) |
+| 2026-04-07 | dependabot[bot] | [chore(deps): bump denoland/setup-deno from 2.0.3 to 2.0.4 in the github-actions group across 1 directory](https://github.com/axios/axios/pull/10669) |  | v1.15.0 | date heuristic (first release on/after merge) |
+| 2026-04-07 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 4 updates](https://github.com/axios/axios/pull/10670) |  | v1.15.0 | date heuristic (first release on/after merge) |
+| 2026-03-29 | dependabot[bot] | [chore(deps-dev): bump picomatch from 2.3.1 to 2.3.2 in /tests/module/cjs](https://github.com/axios/axios/pull/10564) | yes | v1.15.0 | date heuristic (first release on/after merge) |
+| 2026-03-29 | dependabot[bot] | [chore(deps-dev): bump picomatch from 2.3.1 to 2.3.2 in /tests/smoke/cjs](https://github.com/axios/axios/pull/10565) | yes | v1.15.0 | date heuristic (first release on/after merge) |
+| 2026-03-28 | dependabot[bot] | [chore(deps-dev): bump picomatch from 4.0.3 to 4.0.4 in /tests/smoke/esm](https://github.com/axios/axios/pull/10567) | yes | v1.15.0 | date heuristic (first release on/after merge) |
+| 2026-03-28 | dependabot[bot] | [chore(deps): bump picomatch from 4.0.3 to 4.0.4](https://github.com/axios/axios/pull/10568) | yes | v1.15.0 | date heuristic (first release on/after merge) |
+| 2026-03-28 | dependabot[bot] | [chore(deps-dev): bump handlebars from 4.7.8 to 4.7.9](https://github.com/axios/axios/pull/10572) | yes | v1.15.0 | date heuristic (first release on/after merge) |
+| 2026-03-28 | dependabot[bot] | [chore(deps-dev): bump serialize-javascript from 7.0.4 to 7.0.5](https://github.com/axios/axios/pull/10574) | yes | v1.15.0 | date heuristic (first release on/after merge) |
+| 2026-03-19 | dependabot[bot] | [chore(deps-dev): bump @babel/preset-env from 7.29.0 to 7.29.2 in the development_dependencies group](https://github.com/axios/axios/pull/7531) |  | v1.14.0 | date heuristic (first release on/after merge) |
+| 2026-03-16 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group with 2 updates](https://github.com/axios/axios/pull/7517) |  | v1.14.0 | date heuristic (first release on/after merge) |
+| 2026-03-15 | dependabot[bot] | [chore(deps-dev): bump multer from 1.4.4 to 2.1.1](https://github.com/axios/axios/pull/7480) | yes | v1.14.0 | date heuristic (first release on/after merge) |
+| 2026-03-15 | dependabot[bot] | [chore(deps): bump tar and pacote](https://github.com/axios/axios/pull/7491) |  | v1.14.0 | date heuristic (first release on/after merge) |
+| 2026-02-27 | dependabot[bot] | [chore(deps-dev): bump minimatch from 3.1.2 to 3.1.5](https://github.com/axios/axios/pull/7453) |  | v1.14.0 | date heuristic (first release on/after merge) |
+| 2026-02-23 | dependabot[bot] | [chore(deps-dev): bump the development_dependencies group across 1 directory with 5 updates](https://github.com/axios/axios/pull/7432) |  | v1.13.6 | date heuristic (first release on/after merge) |
+| 2026-01-29 | dependabot[bot] | [chore(deps-dev): bump karma-sourcemap-loader from 0.3.8 to 0.4.0 in the development_dependencies group across 1 directory](https://github.com/axios/axios/pull/7360) |  | v1.13.5 | date heuristic (first release on/after merge) |
+| 2025-12-30 | dependabot[bot] | [chore(deps): bump the production_dependencies group across 1 directory with 2 updates](https://github.com/axios/axios/pull/7231) |  | v1.13.3 | date heuristic (first release on/after merge) |
+| 2025-12-30 | dependabot[bot] | [chore(deps): bump peter-evans/create-pull-request from 7 to 8 in the github-actions group](https://github.com/axios/axios/pull/7303) |  | v1.13.3 | date heuristic (first release on/after merge) |
+| 2025-12-08 | dependabot[bot] | [chore(deps-dev): bump tar-fs from 2.1.1 to 2.1.4](https://github.com/axios/axios/pull/7244) |  | v1.13.3 | date heuristic (first release on/after merge) |
+| 2025-12-06 | dependabot[bot] | [chore(deps): bump the github-actions group across 1 directory with 2 updates](https://github.com/axios/axios/pull/7282) |  | v1.13.3 | date heuristic (first release on/after merge) |
+| 2025-12-06 | dependabot[bot] | [chore(deps-dev): bump js-yaml from 3.14.1 to 3.14.2](https://github.com/axios/axios/pull/7296) |  | v1.13.3 | date heuristic (first release on/after merge) |
 
 ## Releases
 
 | Release | Date | Pre-release |
 |---|---|---|
+| [v1.21.1](https://github.com/axios/axios/releases/tag/v1.21.1) | 2026-11-09 |  |
+| [v0.35.0](https://github.com/axios/axios/releases/tag/v0.35.0) | 2026-11-02 |  |
 | [v1.21.0](https://github.com/axios/axios/releases/tag/v1.21.0) | 2026-10-26 |  |
 | [v0.34.0](https://github.com/axios/axios/releases/tag/v0.34.0) | 2026-09-13 |  |
 | [v1.20.0](https://github.com/axios/axios/releases/tag/v1.20.0) | 2026-08-24 |  |
@@ -173,13 +268,11 @@ _Generated 2026-10-29T13:16:44.058Z by fixdossier from GitHub data (releases, ta
 | [v1.7.4](https://github.com/axios/axios/releases/tag/v1.7.4) | 2024-08-13 |  |
 | [v1.7.3](https://github.com/axios/axios/releases/tag/v1.7.3) | 2024-08-01 |  |
 | [v1.7.2](https://github.com/axios/axios/releases/tag/v1.7.2) | 2024-05-21 |  |
-| [v1.7.1](https://github.com/axios/axios/releases/tag/v1.7.1) | 2024-05-20 |  |
-| [v1.7.0](https://github.com/axios/axios/releases/tag/v1.7.0) | 2024-05-19 |  |
 
 ## Gaps in this record
 
-- pull requests: stopped after 2 pages (raise max_pages for full history)
-- commits: stopped after 2 pages (raise max_pages for full history)
+- pull requests: stopped after 10 pages (raise max_pages for full history)
+- commits: stopped after 10 pages (raise max_pages for full history)
 
 ---
-Mapping notes: `advisory patched_versions` means each advisory patched range was parsed and matched to the earliest fetched release tag that satisfies it; every matched release is listed. `tag commit match` means the commit SHA or bot PR merge SHA equals the commit a release tag points at (annotated tags use the peeled commit, not the tag object; a short SHA counts only when it is a unique prefix of one tag commit). `date heuristic (first release on/after publish)`, `date heuristic (first release on/after commit)`, and `date heuristic (first release on/after merge)` are the first stable release published on or after that date, used only when the methods above do not match. That heuristic can be wrong for backports and multi-branch repos. Commit detection uses message keywords (CVE-, GHSA-, security, vuln…) and will miss silent fixes and include some false positives.
+Mapping notes: `advisory patched_versions` means each advisory patched range was parsed and matched to the earliest fetched release tag that satisfies it; every matched release is listed. `tag commit match` means the commit SHA or bot PR merge SHA equals the commit a release tag points at (annotated tags use the peeled commit, not the tag object; a short SHA counts only when it is a unique prefix of one tag commit). `date heuristic (first release on/after publish)`, `date heuristic (first release on/after commit)`, and `date heuristic (first release on/after merge)` are the first stable release published on or after that date, used only when the methods above do not match. That heuristic can be wrong for backports and multi-branch repos. Commit detection uses message keywords (CVE-, GHSA-, security, vuln…) and will miss silent fixes and include some false positives. A docs conventional commit (any scope, with or without a colon) is not a fix candidate unless the message cites a CVE or GHSA.

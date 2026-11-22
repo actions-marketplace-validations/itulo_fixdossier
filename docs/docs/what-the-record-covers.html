@@ -131,9 +131,9 @@ jobs:
         if: always()</pre></div>
 
         <h2>Advisory rows vs heuristic rows</h2>
-        <p>Rows mapped by <code>advisory patched_versions</code> rest on a version the maintainer wrote into a published advisory. Rows labelled <code>tag commit match</code> rest on a release tag pointing at the exact commit. Rows labelled <code>date heuristic (…)</code> rest on dates alone. The split in the examples (generated 29 Oct 2026 with <code>max_pages=2</code>):</p>
+        <p>Rows mapped by <code>advisory patched_versions</code> rest on a version the maintainer wrote into a published advisory. Rows labelled <code>tag commit match</code> rest on a release tag pointing at the exact commit. Rows labelled <code>date heuristic (…)</code> rest on dates alone. The split in the examples (axios/axios generated 22 Nov 2026 with v0.1.2 and <code>max_pages=10</code>; fastify/fastify and vitejs/vite generated 29 Oct 2026 with <code>max_pages=2</code>):</p>
         <div class="table-scroll" role="region" aria-label="Coverage in examples" tabindex="0"><table><thead><tr><th>Repo</th><th>Advisory rows</th><th>Commit rows</th><th>Fix mapping</th><th>Bot PR mapping</th><th>Gaps</th></tr></thead><tbody>
-<tr><td>axios/axios</td><td>51</td><td>1</td><td>51 advisory patched_versions, 1 date heuristic (commit)</td><td>36 date heuristic, 11 unreleased</td><td>2 (pull requests, commits)</td></tr>
+<tr><td>axios/axios</td><td>51</td><td>24</td><td>51 advisory patched_versions, 24 date heuristic (commit)</td><td>112 date heuristic, 5 unreleased</td><td>2 (pull requests, commits)</td></tr>
 <tr><td>fastify/fastify</td><td>16</td><td>0</td><td>16 advisory patched_versions</td><td>4 date heuristic</td><td>4 (all sources except advisories)</td></tr>
 <tr><td>vitejs/vite</td><td>23</td><td>0</td><td>22 advisory patched_versions, 1 date heuristic (advisory)</td><td>11 date heuristic</td><td>4 (all sources except advisories)</td></tr>
 </tbody></table></div>
@@ -144,7 +144,7 @@ jobs:
         <ul>
           <li>A commit or bot PR with no release on or after its date is shown with <code>_unreleased_</code> and mapping <code>unreleased</code>. The summary line “Fixes not yet in a release” counts security-fix rows with no release.</li>
           <li>An advisory where no patched range matched and no release came later gets mapping <code>none</code>.</li>
-          <li>Merged bot PRs since the last release are listed with <code>_unreleased_</code>. In the axios example, 11 Dependabot rows, the newest merged 2026-10-27, were unreleased at generation time.</li>
+          <li>Merged bot PRs since the last release are listed with <code>_unreleased_</code>. In the axios example, 5 Dependabot rows, the newest merged 2026-11-18, were unreleased at generation time.</li>
         </ul>
 
         <h2>Gaps in this record</h2>

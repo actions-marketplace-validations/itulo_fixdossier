@@ -1,19 +1,35 @@
 {
   "schema": "fixdossier/v1",
   "repo": "axios/axios",
-  "generated_at": "2026-10-29T13:16:44.058Z",
+  "generated_at": "2026-11-22T15:12:09.444Z",
   "sources_checked": {
-    "releases": 126,
-    "tags": 148,
-    "closed_pulls": 200,
+    "releases": 128,
+    "tags": 150,
+    "closed_pulls": 1000,
     "advisories": 51,
-    "commits": 200
+    "commits": 1000
   },
   "gaps": [
-    "pull requests: stopped after 2 pages (raise max_pages for full history)",
-    "commits: stopped after 2 pages (raise max_pages for full history)"
+    "pull requests: stopped after 10 pages (raise max_pages for full history)",
+    "commits: stopped after 10 pages (raise max_pages for full history)"
   ],
   "releases": [
+    {
+      "tag": "v1.21.1",
+      "name": "v1.21.1",
+      "date": "2026-11-09T11:08:55Z",
+      "url": "https://github.com/axios/axios/releases/tag/v1.21.1",
+      "prerelease": false,
+      "sha": "335e2f8464f58a3ab485486b8d6964fea3e3f30a"
+    },
+    {
+      "tag": "v0.35.0",
+      "name": "v0.35.0",
+      "date": "2026-11-02T18:24:19Z",
+      "url": "https://github.com/axios/axios/releases/tag/v0.35.0",
+      "prerelease": false,
+      "sha": "b25d80e73bdde1f5ae01b5fe77f8e0f8ab495523"
+    },
     {
       "tag": "v1.21.0",
       "name": "v1.21.0",
@@ -1049,6 +1065,25 @@
   ],
   "security_fixes": [
     {
+      "date": "2026-11-02T11:36:42Z",
+      "type": "commit",
+      "ids": [
+        "CVE-2026-116689"
+      ],
+      "title": "fix(deps): bump follow-redirects to 1.16.2 for CVE-2026-116689 (#11410)",
+      "sha": "00b4d1ede371e27c56b06c8fd004548e58b57b02",
+      "url": "https://github.com/axios/axios/commit/00b4d1ede371e27c56b06c8fd004548e58b57b02",
+      "release": "v0.35.0",
+      "release_date": "2026-11-02T18:24:19Z",
+      "matched_releases": [
+        {
+          "tag": "v0.35.0",
+          "date": "2026-11-02T18:24:19Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
       "date": "2026-09-16T09:04:21Z",
       "type": "advisory",
       "ids": [
@@ -1849,6 +1884,43 @@
       "mapping": "advisory patched_versions"
     },
     {
+      "date": "2026-05-24T17:05:48Z",
+      "type": "commit",
+      "ids": [
+        "CVE-2026-42264",
+        "GHSA-72mg-mc2j-cwf6"
+      ],
+      "title": "fix: guard socketPath with own() to prevent prototype pollution SSRF (#10901)",
+      "sha": "140a17944a6ff175611597c874e218ad6c2afd1c",
+      "url": "https://github.com/axios/axios/commit/140a17944a6ff175611597c874e218ad6c2afd1c",
+      "release": "v1.17.0",
+      "release_date": "2026-06-03T06:14:01Z",
+      "matched_releases": [
+        {
+          "tag": "v1.17.0",
+          "date": "2026-06-03T06:14:01Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
+      "date": "2026-05-04T19:31:02Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix(security): defense-in-depth against already-polluted Object.prototype in formDataToJSON (#7413)",
+      "sha": "78e8dcf8754ed9d1219628540d69d09bdba5a9be",
+      "url": "https://github.com/axios/axios/commit/78e8dcf8754ed9d1219628540d69d09bdba5a9be",
+      "release": "v1.16.1",
+      "release_date": "2026-05-13T16:19:58Z",
+      "matched_releases": [
+        {
+          "tag": "v1.16.1",
+          "date": "2026-05-13T16:19:58Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
       "date": "2026-04-24T13:11:26Z",
       "type": "advisory",
       "ids": [
@@ -2198,6 +2270,93 @@
       "mapping": "advisory patched_versions"
     },
     {
+      "date": "2026-04-18T13:15:30Z",
+      "type": "commit",
+      "ids": [
+        "GHSA-pf86-5x62-jrwf"
+      ],
+      "title": "test: add regression coverage for GHSA-pf86-5x62-jrwf gadgets",
+      "sha": "48fd644be167f85f6b193ec376133f85ff8f8911",
+      "url": "https://github.com/axios/axios/commit/48fd644be167f85f6b193ec376133f85ff8f8911",
+      "release": "v1.15.1",
+      "release_date": "2026-04-19T17:06:30Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.1",
+          "date": "2026-04-19T17:06:30Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
+      "date": "2026-04-18T13:15:07Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix(security): guard http adapter config reads against prototype pollution",
+      "sha": "74a05bc336718a3c203f4e1da44b4c7c225510c1",
+      "url": "https://github.com/axios/axios/commit/74a05bc336718a3c203f4e1da44b4c7c225510c1",
+      "release": "v1.15.1",
+      "release_date": "2026-04-19T17:06:30Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.1",
+          "date": "2026-04-19T17:06:30Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
+      "date": "2026-04-18T13:14:42Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix(security): ignore inherited parseReviver and related config reads",
+      "sha": "70302b6c9008b3d5242c9685a4c01151e53a4c74",
+      "url": "https://github.com/axios/axios/commit/70302b6c9008b3d5242c9685a4c01151e53a4c74",
+      "release": "v1.15.1",
+      "release_date": "2026-04-19T17:06:30Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.1",
+          "date": "2026-04-19T17:06:30Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
+      "date": "2026-04-18T13:14:06Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix(security): guard mergeConfig value reads with hasOwnProp",
+      "sha": "17b90d0be692f1704e4623731163285b0480520f",
+      "url": "https://github.com/axios/axios/commit/17b90d0be692f1704e4623731163285b0480520f",
+      "release": "v1.15.1",
+      "release_date": "2026-04-19T17:06:30Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.1",
+          "date": "2026-04-19T17:06:30Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
+      "date": "2026-04-18T12:56:39Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix: header security issues (#10749)",
+      "sha": "37cf18f2e2c10171ddd851c8e46938d48cc35948",
+      "url": "https://github.com/axios/axios/commit/37cf18f2e2c10171ddd851c8e46938d48cc35948",
+      "release": "v1.15.1",
+      "release_date": "2026-04-19T17:06:30Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.1",
+          "date": "2026-04-19T17:06:30Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
       "date": "2026-04-09T14:01:33Z",
       "type": "advisory",
       "ids": [
@@ -2277,6 +2436,74 @@
       "mapping": "advisory patched_versions"
     },
     {
+      "date": "2026-04-06T12:01:54Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix: unrestricted cloud metadata exfiltration via header injection chain (#10660)",
+      "sha": "363185461b90b1b78845dc8a99a1f103d9b122a1",
+      "url": "https://github.com/axios/axios/commit/363185461b90b1b78845dc8a99a1f103d9b122a1",
+      "release": "v1.15.0",
+      "release_date": "2026-04-07T16:09:08Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.0",
+          "date": "2026-04-07T16:09:08Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
+      "date": "2026-04-06T11:47:03Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix: no_proxy hostname normalization bypass leads to ssrf (#10661)",
+      "sha": "fb3befb6daac6cad26b2e54094d0f2d9e47f24df",
+      "url": "https://github.com/axios/axios/commit/fb3befb6daac6cad26b2e54094d0f2d9e47f24df",
+      "release": "v1.15.0",
+      "release_date": "2026-04-07T16:09:08Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.0",
+          "date": "2026-04-07T16:09:08Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
+      "date": "2026-04-02T06:42:08Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix(ci): add zizmor scanner and fix workflow security findings (#10618)",
+      "sha": "a04dd96dbbc31f8b8ff2658706a92224b8956ce9",
+      "url": "https://github.com/axios/axios/commit/a04dd96dbbc31f8b8ff2658706a92224b8956ce9",
+      "release": "v1.15.0",
+      "release_date": "2026-04-07T16:09:08Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.0",
+          "date": "2026-04-07T16:09:08Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
+      "date": "2026-03-19T14:08:47Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix: formidable dependency vulnerable to arbitrary (#7533)",
+      "sha": "4d8931ca8a92e53c5dcf02cf46d1016a10e60ec0",
+      "url": "https://github.com/axios/axios/commit/4d8931ca8a92e53c5dcf02cf46d1016a10e60ec0",
+      "release": "v1.14.0",
+      "release_date": "2026-03-27T19:01:13Z",
+      "matched_releases": [
+        {
+          "tag": "v1.14.0",
+          "date": "2026-03-27T19:01:13Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
       "date": "2026-02-08T11:05:59Z",
       "type": "advisory",
       "ids": [
@@ -2303,6 +2530,23 @@
         }
       ],
       "mapping": "advisory patched_versions"
+    },
+    {
+      "date": "2026-02-04T18:25:06Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix: Denial of Service via __proto__ Key in mergeConfig (#7369)",
+      "sha": "28c721588c7a77e7503d0a434e016f852c597b57",
+      "url": "https://github.com/axios/axios/commit/28c721588c7a77e7503d0a434e016f852c597b57",
+      "release": "v1.13.5",
+      "release_date": "2026-02-08T11:04:44Z",
+      "matched_releases": [
+        {
+          "tag": "v1.13.5",
+          "date": "2026-02-08T11:04:44Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
     },
     {
       "date": "2025-09-11T19:35:13Z",
@@ -2333,6 +2577,25 @@
       "mapping": "advisory patched_versions"
     },
     {
+      "date": "2025-09-10T13:08:43Z",
+      "type": "commit",
+      "ids": [
+        "CVE-2025-58754"
+      ],
+      "title": "fix(node): enforce maxContentLength for data: URLs (#7011)",
+      "sha": "945435fc51467303768202250debb8d4ae892593",
+      "url": "https://github.com/axios/axios/commit/945435fc51467303768202250debb8d4ae892593",
+      "release": "v1.12.0",
+      "release_date": "2025-09-11T19:33:08Z",
+      "matched_releases": [
+        {
+          "tag": "v1.12.0",
+          "date": "2025-09-11T19:33:08Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
       "date": "2025-07-23T07:35:58Z",
       "type": "advisory",
       "ids": [
@@ -2354,6 +2617,23 @@
         }
       ],
       "mapping": "advisory patched_versions"
+    },
+    {
+      "date": "2025-03-26T15:19:58Z",
+      "type": "commit",
+      "ids": [],
+      "title": "chore: create SECURITY.md",
+      "sha": "5a9134e0995b08cc0817548ed44e79c420c620b7",
+      "url": "https://github.com/axios/axios/commit/5a9134e0995b08cc0817548ed44e79c420c620b7",
+      "release": "v0.30.0",
+      "release_date": "2025-03-26T17:51:16Z",
+      "matched_releases": [
+        {
+          "tag": "v0.30.0",
+          "date": "2025-03-26T17:51:16Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
     },
     {
       "date": "2025-03-07T07:41:03Z",
@@ -2382,9 +2662,253 @@
         }
       ],
       "mapping": "advisory patched_versions"
+    },
+    {
+      "date": "2024-11-25T20:02:07Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix: use URL API instead of DOM to fix a potential vulnerability warning; (#6714)",
+      "sha": "0a8d6e19da5b9899a2abafaaa06a75ee548597db",
+      "url": "https://github.com/axios/axios/commit/0a8d6e19da5b9899a2abafaaa06a75ee548597db",
+      "release": "v1.7.8",
+      "release_date": "2024-11-25T21:13:53Z",
+      "matched_releases": [
+        {
+          "tag": "v1.7.8",
+          "date": "2024-11-25T21:13:53Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
+      "date": "2024-08-13T18:43:05Z",
+      "type": "commit",
+      "ids": [
+        "CVE-2024-39338"
+      ],
+      "title": "fix(sec): CVE-2024-39338 (#6539) (#6543)",
+      "sha": "6b6b605eaf73852fb2dae033f1e786155959de3a",
+      "url": "https://github.com/axios/axios/commit/6b6b605eaf73852fb2dae033f1e786155959de3a",
+      "release": "v1.7.4",
+      "release_date": "2024-08-13T19:33:06Z",
+      "matched_releases": [
+        {
+          "tag": "v1.7.4",
+          "date": "2024-08-13T19:33:06Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
+      "date": "2024-08-13T15:03:25Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix(sec): disregard protocol-relative URL to remediate SSRF (#6539)",
+      "sha": "07a661a2a6b9092c4aa640dcc7f724ec5e65bdda",
+      "url": "https://github.com/axios/axios/commit/07a661a2a6b9092c4aa640dcc7f724ec5e65bdda",
+      "release": "v1.7.4",
+      "release_date": "2024-08-13T19:33:06Z",
+      "matched_releases": [
+        {
+          "tag": "v1.7.4",
+          "date": "2024-08-13T19:33:06Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
+      "date": "2024-03-15T15:59:42Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix(vulnerability): update follow-redirects to 1.15.6 (#6300)",
+      "sha": "8786e0ff55a8c68d4ca989801ad26df924042e27",
+      "url": "https://github.com/axios/axios/commit/8786e0ff55a8c68d4ca989801ad26df924042e27",
+      "release": "v1.6.8",
+      "release_date": "2024-03-15T16:32:43Z",
+      "matched_releases": [
+        {
+          "tag": "v1.6.8",
+          "date": "2024-03-15T16:32:43Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
+      "date": "2024-01-03T19:37:32Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix(security): fixed formToJSON prototype pollution vulnerability; (#6167)",
+      "sha": "3c0c11cade045c4412c242b5727308cff9897a0e",
+      "url": "https://github.com/axios/axios/commit/3c0c11cade045c4412c242b5727308cff9897a0e",
+      "release": "v1.6.4",
+      "release_date": "2024-01-03T22:10:51Z",
+      "matched_releases": [
+        {
+          "tag": "v1.6.4",
+          "date": "2024-01-03T22:10:51Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
+      "date": "2024-01-03T19:32:50Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix(security): fixed security vulnerability in follow-redirects (#6163)",
+      "sha": "75af1cdff5b3a6ca3766d3d3afbc3115bb0811b8",
+      "url": "https://github.com/axios/axios/commit/75af1cdff5b3a6ca3766d3d3afbc3115bb0811b8",
+      "release": "v1.6.4",
+      "release_date": "2024-01-03T22:10:51Z",
+      "matched_releases": [
+        {
+          "tag": "v1.6.4",
+          "date": "2024-01-03T22:10:51Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
+      "date": "2023-12-26T20:29:26Z",
+      "type": "commit",
+      "ids": [],
+      "title": "fix: Regular Expression Denial of Service (ReDoS) (#6132)",
+      "sha": "5e7ad38fb0f819fceb19fb2ee5d5d38f56aa837d",
+      "url": "https://github.com/axios/axios/commit/5e7ad38fb0f819fceb19fb2ee5d5d38f56aa837d",
+      "release": "v1.6.3",
+      "release_date": "2023-12-26T23:16:13Z",
+      "matched_releases": [
+        {
+          "tag": "v1.6.3",
+          "date": "2023-12-26T23:16:13Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
+    },
+    {
+      "date": "2023-10-26T19:54:06Z",
+      "type": "commit",
+      "ids": [
+        "CVE-2023-45857"
+      ],
+      "title": "fix(CSRF): fixed CSRF vulnerability CVE-2023-45857 (#6028)",
+      "sha": "96ee232bd3ee4de2e657333d4d2191cd389e14d0",
+      "url": "https://github.com/axios/axios/commit/96ee232bd3ee4de2e657333d4d2191cd389e14d0",
+      "release": "v1.6.0",
+      "release_date": "2023-10-26T21:15:51Z",
+      "matched_releases": [
+        {
+          "tag": "v1.6.0",
+          "date": "2023-10-26T21:15:51Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after commit)"
     }
   ],
   "dependency_updates": [
+    {
+      "date": "2026-11-18T05:08:25Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump follow-redirects from 1.16.2 to 1.16.3 in the production_dependencies group",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11467",
+      "release": null,
+      "release_date": null,
+      "matched_releases": [],
+      "mapping": "unreleased"
+    },
+    {
+      "date": "2026-11-18T05:08:09Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump peter-evans/create-pull-request from 8.1.1 to 8.1.2 in the github-actions group",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11468",
+      "release": null,
+      "release_date": null,
+      "matched_releases": [],
+      "mapping": "unreleased"
+    },
+    {
+      "date": "2026-11-18T05:07:49Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump the development_dependencies group with 3 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11469",
+      "release": null,
+      "release_date": null,
+      "matched_releases": [],
+      "mapping": "unreleased"
+    },
+    {
+      "date": "2026-11-10T12:28:05Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump the development_dependencies group with 6 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11438",
+      "release": null,
+      "release_date": null,
+      "matched_releases": [],
+      "mapping": "unreleased"
+    },
+    {
+      "date": "2026-11-10T12:27:32Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump zizmorcore/zizmor-action from 0.8.0 to 0.8.1 in the github-actions group",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11437",
+      "release": null,
+      "release_date": null,
+      "matched_releases": [],
+      "mapping": "unreleased"
+    },
+    {
+      "date": "2026-11-03T11:01:45Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [
+        "CVE-2026-111181",
+        "GHSA-27r3-jxmh-p828"
+      ],
+      "title": "chore(deps-dev): bump the development_dependencies group with 4 updates",
+      "security": true,
+      "url": "https://github.com/axios/axios/pull/11422",
+      "release": "v1.21.1",
+      "release_date": "2026-11-09T11:08:55Z",
+      "matched_releases": [
+        {
+          "tag": "v1.21.1",
+          "date": "2026-11-09T11:08:55Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-11-03T10:57:34Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump zizmorcore/zizmor-action from 0.7.1 to 0.8.0 in the github-actions group",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11421",
+      "release": "v1.21.1",
+      "release_date": "2026-11-09T11:08:55Z",
+      "matched_releases": [
+        {
+          "tag": "v1.21.1",
+          "date": "2026-11-09T11:08:55Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
     {
       "date": "2026-10-27T16:56:01Z",
       "type": "dependency-update",
@@ -2393,10 +2917,15 @@
       "title": "chore(deps): bump qs from 6.16.0 to 6.17.0",
       "security": false,
       "url": "https://github.com/axios/axios/pull/11395",
-      "release": null,
-      "release_date": null,
-      "matched_releases": [],
-      "mapping": "unreleased"
+      "release": "v0.35.0",
+      "release_date": "2026-11-02T18:24:19Z",
+      "matched_releases": [
+        {
+          "tag": "v0.35.0",
+          "date": "2026-11-02T18:24:19Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
     },
     {
       "date": "2026-10-27T16:42:27Z",
@@ -2406,10 +2935,15 @@
       "title": "chore(deps): bump @vitest/mocker and vitest in /tests/module/esm",
       "security": false,
       "url": "https://github.com/axios/axios/pull/11388",
-      "release": null,
-      "release_date": null,
-      "matched_releases": [],
-      "mapping": "unreleased"
+      "release": "v0.35.0",
+      "release_date": "2026-11-02T18:24:19Z",
+      "matched_releases": [
+        {
+          "tag": "v0.35.0",
+          "date": "2026-11-02T18:24:19Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
     },
     {
       "date": "2026-10-27T13:56:55Z",
@@ -2419,10 +2953,15 @@
       "title": "chore(deps): bump zizmorcore/zizmor-action from 0.6.4 to 0.7.1 in the github-actions group",
       "security": false,
       "url": "https://github.com/axios/axios/pull/11391",
-      "release": null,
-      "release_date": null,
-      "matched_releases": [],
-      "mapping": "unreleased"
+      "release": "v0.35.0",
+      "release_date": "2026-11-02T18:24:19Z",
+      "matched_releases": [
+        {
+          "tag": "v0.35.0",
+          "date": "2026-11-02T18:24:19Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
     },
     {
       "date": "2026-10-27T13:47:42Z",
@@ -2441,10 +2980,15 @@
       "title": "chore(deps-dev): bump fast-uri from 3.1.8 to 3.1.9",
       "security": true,
       "url": "https://github.com/axios/axios/pull/11385",
-      "release": null,
-      "release_date": null,
-      "matched_releases": [],
-      "mapping": "unreleased"
+      "release": "v0.35.0",
+      "release_date": "2026-11-02T18:24:19Z",
+      "matched_releases": [
+        {
+          "tag": "v0.35.0",
+          "date": "2026-11-02T18:24:19Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
     },
     {
       "date": "2026-10-27T13:47:29Z",
@@ -2457,10 +3001,15 @@
       "title": "chore(deps-dev): bump serialize-javascript from 7.0.7 to 7.1.4",
       "security": true,
       "url": "https://github.com/axios/axios/pull/11386",
-      "release": null,
-      "release_date": null,
-      "matched_releases": [],
-      "mapping": "unreleased"
+      "release": "v0.35.0",
+      "release_date": "2026-11-02T18:24:19Z",
+      "matched_releases": [
+        {
+          "tag": "v0.35.0",
+          "date": "2026-11-02T18:24:19Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
     },
     {
       "date": "2026-10-27T13:47:14Z",
@@ -2473,10 +3022,15 @@
       "title": "chore(deps-dev): bump multer from 2.4.0 to 2.5.0",
       "security": true,
       "url": "https://github.com/axios/axios/pull/11387",
-      "release": null,
-      "release_date": null,
-      "matched_releases": [],
-      "mapping": "unreleased"
+      "release": "v0.35.0",
+      "release_date": "2026-11-02T18:24:19Z",
+      "matched_releases": [
+        {
+          "tag": "v0.35.0",
+          "date": "2026-11-02T18:24:19Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
     },
     {
       "date": "2026-10-27T13:46:28Z",
@@ -2486,10 +3040,15 @@
       "title": "chore(deps-dev): bump the development_dependencies group with 8 updates",
       "security": false,
       "url": "https://github.com/axios/axios/pull/11392",
-      "release": null,
-      "release_date": null,
-      "matched_releases": [],
-      "mapping": "unreleased"
+      "release": "v0.35.0",
+      "release_date": "2026-11-02T18:24:19Z",
+      "matched_releases": [
+        {
+          "tag": "v0.35.0",
+          "date": "2026-11-02T18:24:19Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
     },
     {
       "date": "2026-10-26T12:14:35Z",
@@ -2499,10 +3058,15 @@
       "title": "chore(deps): bump follow-redirects from 1.16.0 to 1.16.2 in /docs",
       "security": false,
       "url": "https://github.com/axios/axios/pull/11345",
-      "release": null,
-      "release_date": null,
-      "matched_releases": [],
-      "mapping": "unreleased"
+      "release": "v0.35.0",
+      "release_date": "2026-11-02T18:24:19Z",
+      "matched_releases": [
+        {
+          "tag": "v0.35.0",
+          "date": "2026-11-02T18:24:19Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
     },
     {
       "date": "2026-10-26T12:13:19Z",
@@ -2512,10 +3076,15 @@
       "title": "chore(deps-dev): bump vite from 8.1.2 to 8.3.5",
       "security": false,
       "url": "https://github.com/axios/axios/pull/11372",
-      "release": null,
-      "release_date": null,
-      "matched_releases": [],
-      "mapping": "unreleased"
+      "release": "v0.35.0",
+      "release_date": "2026-11-02T18:24:19Z",
+      "matched_releases": [
+        {
+          "tag": "v0.35.0",
+          "date": "2026-11-02T18:24:19Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
     },
     {
       "date": "2026-10-26T11:37:09Z",
@@ -2525,10 +3094,15 @@
       "title": "chore(deps-dev): bump vite from 8.1.5 to 8.3.5 in /tests/module/esm",
       "security": false,
       "url": "https://github.com/axios/axios/pull/11375",
-      "release": null,
-      "release_date": null,
-      "matched_releases": [],
-      "mapping": "unreleased"
+      "release": "v0.35.0",
+      "release_date": "2026-11-02T18:24:19Z",
+      "matched_releases": [
+        {
+          "tag": "v0.35.0",
+          "date": "2026-11-02T18:24:19Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
     },
     {
       "date": "2026-10-26T11:35:43Z",
@@ -2538,10 +3112,15 @@
       "title": "chore(deps): bump @vitest/mocker and vitest in /tests/smoke/esm",
       "security": false,
       "url": "https://github.com/axios/axios/pull/11383",
-      "release": null,
-      "release_date": null,
-      "matched_releases": [],
-      "mapping": "unreleased"
+      "release": "v0.35.0",
+      "release_date": "2026-11-02T18:24:19Z",
+      "matched_releases": [
+        {
+          "tag": "v0.35.0",
+          "date": "2026-11-02T18:24:19Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
     },
     {
       "date": "2026-10-20T18:17:45Z",
@@ -3230,13 +3809,1201 @@
         }
       ],
       "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-07-29T17:14:44Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump the github-actions group with 2 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11107",
+      "release": "v1.20.0",
+      "release_date": "2026-08-24T13:40:40Z",
+      "matched_releases": [
+        {
+          "tag": "v1.20.0",
+          "date": "2026-08-24T13:40:40Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-07-29T17:09:02Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump the development_dependencies group with 2 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11106",
+      "release": "v1.20.0",
+      "release_date": "2026-08-24T13:40:40Z",
+      "matched_releases": [
+        {
+          "tag": "v1.20.0",
+          "date": "2026-08-24T13:40:40Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-07-26T14:50:51Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump postcss from 8.5.10 to 8.5.23 in /tests/module/esm",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11099",
+      "release": "v1.20.0",
+      "release_date": "2026-08-24T13:40:40Z",
+      "matched_releases": [
+        {
+          "tag": "v1.20.0",
+          "date": "2026-08-24T13:40:40Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-07-26T14:45:40Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump postcss from 8.5.16 to 8.5.23",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11098",
+      "release": "v1.20.0",
+      "release_date": "2026-08-24T13:40:40Z",
+      "matched_releases": [
+        {
+          "tag": "v1.20.0",
+          "date": "2026-08-24T13:40:40Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-07-26T14:16:09Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [
+        "GHSA-v2hh-gcrm-f6hx"
+      ],
+      "title": "chore(deps-dev): bump fast-uri from 3.1.3 to 3.1.4",
+      "security": true,
+      "url": "https://github.com/axios/axios/pull/11092",
+      "release": "v1.20.0",
+      "release_date": "2026-08-24T13:40:40Z",
+      "matched_releases": [
+        {
+          "tag": "v1.20.0",
+          "date": "2026-08-24T13:40:40Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-07-21T15:48:19Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump axios from 1.16.1 to 1.18.1 in /docs",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11088",
+      "release": "v1.19.0",
+      "release_date": "2026-07-26T14:13:32Z",
+      "matched_releases": [
+        {
+          "tag": "v1.19.0",
+          "date": "2026-07-26T14:13:32Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-07-21T15:44:04Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump actions/setup-node from 6.4.0 to 7.0.0 in the github-actions group",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11090",
+      "release": "v1.19.0",
+      "release_date": "2026-07-26T14:13:32Z",
+      "matched_releases": [
+        {
+          "tag": "v1.19.0",
+          "date": "2026-07-26T14:13:32Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-07-21T15:40:05Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump the development_dependencies group with 3 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11089",
+      "release": "v1.19.0",
+      "release_date": "2026-07-26T14:13:32Z",
+      "matched_releases": [
+        {
+          "tag": "v1.19.0",
+          "date": "2026-07-26T14:13:32Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-07-14T14:57:18Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump the development_dependencies group with 3 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11079",
+      "release": "v1.19.0",
+      "release_date": "2026-07-26T14:13:32Z",
+      "matched_releases": [
+        {
+          "tag": "v1.19.0",
+          "date": "2026-07-26T14:13:32Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-07-14T14:51:45Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump denoland/setup-deno from 2.0.4 to 2.0.5 in the github-actions group",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11080",
+      "release": "v1.19.0",
+      "release_date": "2026-07-26T14:13:32Z",
+      "matched_releases": [
+        {
+          "tag": "v1.19.0",
+          "date": "2026-07-26T14:13:32Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-06-30T18:24:22Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump the development_dependencies group with 3 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11055",
+      "release": "v1.19.0",
+      "release_date": "2026-07-26T14:13:32Z",
+      "matched_releases": [
+        {
+          "tag": "v1.19.0",
+          "date": "2026-07-26T14:13:32Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-06-30T18:14:25Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump the github-actions group with 2 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11056",
+      "release": "v1.19.0",
+      "release_date": "2026-07-26T14:13:32Z",
+      "matched_releases": [
+        {
+          "tag": "v1.19.0",
+          "date": "2026-07-26T14:13:32Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-06-23T17:16:33Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump the development_dependencies group with 9 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11031",
+      "release": "v1.19.0",
+      "release_date": "2026-07-26T14:13:32Z",
+      "matched_releases": [
+        {
+          "tag": "v1.19.0",
+          "date": "2026-07-26T14:13:32Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-06-20T09:04:02Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [
+        "CVE-2026-5038",
+        "GHSA-3p4h-7m6x-2hcm",
+        "CVE-2026-5079",
+        "GHSA-72gw-mp4g-v24j"
+      ],
+      "title": "chore(deps-dev): bump multer from 2.1.1 to 2.2.0",
+      "security": true,
+      "url": "https://github.com/axios/axios/pull/11026",
+      "release": "v1.18.1",
+      "release_date": "2026-06-21T17:25:10Z",
+      "matched_releases": [
+        {
+          "tag": "v1.18.1",
+          "date": "2026-06-21T17:25:10Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-06-17T12:29:05Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): merge branch 'v1.x' into tests/module/cjs",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11014",
+      "release": "v1.18.1",
+      "release_date": "2026-06-21T17:25:10Z",
+      "matched_releases": [
+        {
+          "tag": "v1.18.1",
+          "date": "2026-06-21T17:25:10Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-06-17T11:21:59Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump js-yaml in /tests/smoke/cjs",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11016",
+      "release": "v1.18.1",
+      "release_date": "2026-06-21T17:25:10Z",
+      "matched_releases": [
+        {
+          "tag": "v1.18.1",
+          "date": "2026-06-21T17:25:10Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-06-17T11:08:00Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump form-data from 4.0.5 to 4.0.6",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11015",
+      "release": "v1.18.1",
+      "release_date": "2026-06-21T17:25:10Z",
+      "matched_releases": [
+        {
+          "tag": "v1.18.1",
+          "date": "2026-06-21T17:25:10Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-06-17T11:04:15Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump form-data from 4.0.5 to 4.0.6 in /docs",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11013",
+      "release": "v1.18.1",
+      "release_date": "2026-06-21T17:25:10Z",
+      "matched_releases": [
+        {
+          "tag": "v1.18.1",
+          "date": "2026-06-21T17:25:10Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-06-17T10:57:41Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump vite from 8.0.13 to 8.0.16",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11017",
+      "release": "v1.18.1",
+      "release_date": "2026-06-21T17:25:10Z",
+      "matched_releases": [
+        {
+          "tag": "v1.18.1",
+          "date": "2026-06-21T17:25:10Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-06-16T18:07:27Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump rollup from 4.61.0 to 4.61.1 in the development_dependencies group",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11012",
+      "release": "v1.18.1",
+      "release_date": "2026-06-21T17:25:10Z",
+      "matched_releases": [
+        {
+          "tag": "v1.18.1",
+          "date": "2026-06-21T17:25:10Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-06-16T17:56:34Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump vite from 8.0.9 to 8.0.16 in /tests/smoke/esm",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/11011",
+      "release": "v1.18.1",
+      "release_date": "2026-06-21T17:25:10Z",
+      "matched_releases": [
+        {
+          "tag": "v1.18.1",
+          "date": "2026-06-21T17:25:10Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-06-10T16:36:03Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump the development_dependencies group with 10 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10997",
+      "release": "v0.33.0",
+      "release_date": "2026-06-13T11:53:34Z",
+      "matched_releases": [
+        {
+          "tag": "v0.33.0",
+          "date": "2026-06-13T11:53:34Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-06-09T11:48:32Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump actions/checkout from 6.0.2 to 6.0.3 in the github-actions group",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10996",
+      "release": "v0.33.0",
+      "release_date": "2026-06-13T11:53:34Z",
+      "matched_releases": [
+        {
+          "tag": "v0.33.0",
+          "date": "2026-06-13T11:53:34Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-06-05T05:56:31Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump the development_dependencies group with 2 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10989",
+      "release": "v0.33.0",
+      "release_date": "2026-06-13T11:53:34Z",
+      "matched_releases": [
+        {
+          "tag": "v0.33.0",
+          "date": "2026-06-13T11:53:34Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-05-30T10:30:38Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump axios from 1.15.2 to 1.16.1 in /docs",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10960",
+      "release": "v1.17.0",
+      "release_date": "2026-06-03T06:14:01Z",
+      "matched_releases": [
+        {
+          "tag": "v1.17.0",
+          "date": "2026-06-03T06:14:01Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-05-28T17:00:13Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump tmp from 0.2.5 to 0.2.7 in /docs",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10954",
+      "release": "v1.17.0",
+      "release_date": "2026-06-03T06:14:01Z",
+      "matched_releases": [
+        {
+          "tag": "v1.17.0",
+          "date": "2026-06-03T06:14:01Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-05-26T18:44:33Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump zizmorcore/zizmor-action from 0.5.3 to 0.5.6 in the github-actions group",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10947",
+      "release": "v1.17.0",
+      "release_date": "2026-06-03T06:14:01Z",
+      "matched_releases": [
+        {
+          "tag": "v1.17.0",
+          "date": "2026-06-03T06:14:01Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-05-24T11:25:32Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump qs from 6.14.2 to 6.15.2",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10934",
+      "release": "v1.17.0",
+      "release_date": "2026-06-03T06:14:01Z",
+      "matched_releases": [
+        {
+          "tag": "v1.17.0",
+          "date": "2026-06-03T06:14:01Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-05-20T18:20:23Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump actions/dependency-review-action from 4.9.0 to 5.0.0 in the github-actions group",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10919",
+      "release": "v1.17.0",
+      "release_date": "2026-06-03T06:14:01Z",
+      "matched_releases": [
+        {
+          "tag": "v1.17.0",
+          "date": "2026-06-03T06:14:01Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-05-20T18:15:43Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump the development_dependencies group with 5 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10918",
+      "release": "v1.17.0",
+      "release_date": "2026-06-03T06:14:01Z",
+      "matched_releases": [
+        {
+          "tag": "v1.17.0",
+          "date": "2026-06-03T06:14:01Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-05-13T17:23:14Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump the development_dependencies group across 1 directory with 6 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10879",
+      "release": "v1.17.0",
+      "release_date": "2026-06-03T06:14:01Z",
+      "matched_releases": [
+        {
+          "tag": "v1.17.0",
+          "date": "2026-06-03T06:14:01Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-05-13T16:37:46Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump @babel/plugin-transform-modules-systemjs from 7.29.0 to 7.29.4",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10871",
+      "release": "v1.17.0",
+      "release_date": "2026-06-03T06:14:01Z",
+      "matched_releases": [
+        {
+          "tag": "v1.17.0",
+          "date": "2026-06-03T06:14:01Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-05-05T18:14:17Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump @commitlint/cli from 20.5.0 to 20.5.2 in the development_dependencies group",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10846",
+      "release": "v1.16.1",
+      "release_date": "2026-05-13T16:19:58Z",
+      "matched_releases": [
+        {
+          "tag": "v1.16.1",
+          "date": "2026-05-13T16:19:58Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-04-28T16:45:51Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump postcss from 8.5.8 to 8.5.12 in /docs",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10814",
+      "release": "v1.16.0",
+      "release_date": "2026-05-02T12:31:06Z",
+      "matched_releases": [
+        {
+          "tag": "v1.16.0",
+          "date": "2026-05-02T12:31:06Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-04-28T12:05:35Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump actions/setup-node from 6.3.0 to 6.4.0 in the github-actions group",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10813",
+      "release": "v1.16.0",
+      "release_date": "2026-05-02T12:31:06Z",
+      "matched_releases": [
+        {
+          "tag": "v1.16.0",
+          "date": "2026-05-02T12:31:06Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-04-21T18:18:38Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump the github-actions group with 3 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10785",
+      "release": "v1.16.0",
+      "release_date": "2026-05-02T12:31:06Z",
+      "matched_releases": [
+        {
+          "tag": "v1.16.0",
+          "date": "2026-05-02T12:31:06Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-04-15T19:07:08Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump follow-redirects from 1.15.11 to 1.16.0 in /docs",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10716",
+      "release": "v1.15.1",
+      "release_date": "2026-04-19T17:06:30Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.1",
+          "date": "2026-04-19T17:06:30Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-04-15T19:02:09Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump follow-redirects from 1.15.11 to 1.16.0",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10717",
+      "release": "v1.15.1",
+      "release_date": "2026-04-19T17:06:30Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.1",
+          "date": "2026-04-19T17:06:30Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-04-14T16:55:11Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump the development_dependencies group with 5 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10709",
+      "release": "v1.15.1",
+      "release_date": "2026-04-19T17:06:30Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.1",
+          "date": "2026-04-19T17:06:30Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-04-12T10:11:19Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump axios from 1.14.0 to 1.15.0 in /docs",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10684",
+      "release": "v1.15.1",
+      "release_date": "2026-04-19T17:06:30Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.1",
+          "date": "2026-04-19T17:06:30Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-04-07T15:11:42Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump vite from 8.0.0 to 8.0.5 in /tests/smoke/esm",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10663",
+      "release": "v1.15.0",
+      "release_date": "2026-04-07T16:09:08Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.0",
+          "date": "2026-04-07T16:09:08Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-04-07T14:50:20Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump vite from 8.0.2 to 8.0.5",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10664",
+      "release": "v1.15.0",
+      "release_date": "2026-04-07T16:09:08Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.0",
+          "date": "2026-04-07T16:09:08Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-04-07T14:34:01Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump vite from 8.0.2 to 8.0.5 in /tests/module/esm",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10665",
+      "release": "v1.15.0",
+      "release_date": "2026-04-07T16:09:08Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.0",
+          "date": "2026-04-07T16:09:08Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-04-07T13:40:10Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump denoland/setup-deno from 2.0.3 to 2.0.4 in the github-actions group across 1 directory",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10669",
+      "release": "v1.15.0",
+      "release_date": "2026-04-07T16:09:08Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.0",
+          "date": "2026-04-07T16:09:08Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-04-07T13:31:34Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump the development_dependencies group with 4 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/10670",
+      "release": "v1.15.0",
+      "release_date": "2026-04-07T16:09:08Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.0",
+          "date": "2026-04-07T16:09:08Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-03-29T13:31:14Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [
+        "GHSA-c2c7-rcm5-vvqj",
+        "CVE-2026-33671",
+        "GHSA-3v7f-55p6-f55p",
+        "CVE-2026-33672"
+      ],
+      "title": "chore(deps-dev): bump picomatch from 2.3.1 to 2.3.2 in /tests/module/cjs",
+      "security": true,
+      "url": "https://github.com/axios/axios/pull/10564",
+      "release": "v1.15.0",
+      "release_date": "2026-04-07T16:09:08Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.0",
+          "date": "2026-04-07T16:09:08Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-03-29T10:19:37Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [
+        "GHSA-c2c7-rcm5-vvqj",
+        "CVE-2026-33671",
+        "GHSA-3v7f-55p6-f55p",
+        "CVE-2026-33672"
+      ],
+      "title": "chore(deps-dev): bump picomatch from 2.3.1 to 2.3.2 in /tests/smoke/cjs",
+      "security": true,
+      "url": "https://github.com/axios/axios/pull/10565",
+      "release": "v1.15.0",
+      "release_date": "2026-04-07T16:09:08Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.0",
+          "date": "2026-04-07T16:09:08Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-03-28T09:32:56Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [
+        "GHSA-c2c7-rcm5-vvqj",
+        "CVE-2026-33671",
+        "GHSA-3v7f-55p6-f55p",
+        "CVE-2026-33672"
+      ],
+      "title": "chore(deps-dev): bump picomatch from 4.0.3 to 4.0.4 in /tests/smoke/esm",
+      "security": true,
+      "url": "https://github.com/axios/axios/pull/10567",
+      "release": "v1.15.0",
+      "release_date": "2026-04-07T16:09:08Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.0",
+          "date": "2026-04-07T16:09:08Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-03-28T09:28:28Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [
+        "GHSA-c2c7-rcm5-vvqj",
+        "CVE-2026-33671",
+        "GHSA-3v7f-55p6-f55p",
+        "CVE-2026-33672"
+      ],
+      "title": "chore(deps): bump picomatch from 4.0.3 to 4.0.4",
+      "security": true,
+      "url": "https://github.com/axios/axios/pull/10568",
+      "release": "v1.15.0",
+      "release_date": "2026-04-07T16:09:08Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.0",
+          "date": "2026-04-07T16:09:08Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-03-28T09:22:12Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [
+        "GHSA-2w6w-674q-4c4q",
+        "GHSA-3mfm-83xf-c92r",
+        "GHSA-xhpv-hc6g-r9c6",
+        "GHSA-xjpj-3mr7-gcpf",
+        "GHSA-9cx6-37pm-9jff",
+        "GHSA-2qvq-rjwj-gvw9",
+        "GHSA-7rx3-28cr-v5wh",
+        "GHSA-442j-39wm-28r2"
+      ],
+      "title": "chore(deps-dev): bump handlebars from 4.7.8 to 4.7.9",
+      "security": true,
+      "url": "https://github.com/axios/axios/pull/10572",
+      "release": "v1.15.0",
+      "release_date": "2026-04-07T16:09:08Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.0",
+          "date": "2026-04-07T16:09:08Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-03-28T08:32:39Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [
+        "GHSA-qj8w-gfj5-8c6v"
+      ],
+      "title": "chore(deps-dev): bump serialize-javascript from 7.0.4 to 7.0.5",
+      "security": true,
+      "url": "https://github.com/axios/axios/pull/10574",
+      "release": "v1.15.0",
+      "release_date": "2026-04-07T16:09:08Z",
+      "matched_releases": [
+        {
+          "tag": "v1.15.0",
+          "date": "2026-04-07T16:09:08Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-03-19T13:34:53Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump @babel/preset-env from 7.29.0 to 7.29.2 in the development_dependencies group",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/7531",
+      "release": "v1.14.0",
+      "release_date": "2026-03-27T19:01:13Z",
+      "matched_releases": [
+        {
+          "tag": "v1.14.0",
+          "date": "2026-03-27T19:01:13Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-03-16T18:48:53Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump the development_dependencies group with 2 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/7517",
+      "release": "v1.14.0",
+      "release_date": "2026-03-27T19:01:13Z",
+      "matched_releases": [
+        {
+          "tag": "v1.14.0",
+          "date": "2026-03-27T19:01:13Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-03-15T11:08:03Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [
+        "CVE-2026-3520",
+        "GHSA-5528-5vmv-3xc2",
+        "CVE-2026-2359",
+        "GHSA-v52c-386h-88mc",
+        "CVE-2026-3304",
+        "GHSA-xf7r-hgr6-v32p",
+        "CVE-2025-7338",
+        "GHSA-fjgf-rc76-4x9p",
+        "CVE-2025-48997",
+        "GHSA-g5hg-p3ph-g8qg",
+        "CVE-2025-47935",
+        "GHSA-44fp-w29j-9vj5",
+        "CVE-2025-47944",
+        "GHSA-4pg4-qvpc-4q3h",
+        "CVE-2022-24434"
+      ],
+      "title": "chore(deps-dev): bump multer from 1.4.4 to 2.1.1",
+      "security": true,
+      "url": "https://github.com/axios/axios/pull/7480",
+      "release": "v1.14.0",
+      "release_date": "2026-03-27T19:01:13Z",
+      "matched_releases": [
+        {
+          "tag": "v1.14.0",
+          "date": "2026-03-27T19:01:13Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-03-15T10:53:10Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump tar and pacote",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/7491",
+      "release": "v1.14.0",
+      "release_date": "2026-03-27T19:01:13Z",
+      "matched_releases": [
+        {
+          "tag": "v1.14.0",
+          "date": "2026-03-27T19:01:13Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-02-27T15:37:10Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump minimatch from 3.1.2 to 3.1.5",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/7453",
+      "release": "v1.14.0",
+      "release_date": "2026-03-27T19:01:13Z",
+      "matched_releases": [
+        {
+          "tag": "v1.14.0",
+          "date": "2026-03-27T19:01:13Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-02-23T18:03:50Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump the development_dependencies group across 1 directory with 5 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/7432",
+      "release": "v1.13.6",
+      "release_date": "2026-02-27T15:35:19Z",
+      "matched_releases": [
+        {
+          "tag": "v1.13.6",
+          "date": "2026-02-27T15:35:19Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2026-01-29T18:40:52Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump karma-sourcemap-loader from 0.3.8 to 0.4.0 in the development_dependencies group across 1 directory",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/7360",
+      "release": "v1.13.5",
+      "release_date": "2026-02-08T11:04:44Z",
+      "matched_releases": [
+        {
+          "tag": "v1.13.5",
+          "date": "2026-02-08T11:04:44Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2025-12-30T06:07:33Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump the production_dependencies group across 1 directory with 2 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/7231",
+      "release": "v1.13.3",
+      "release_date": "2026-01-20T17:48:39Z",
+      "matched_releases": [
+        {
+          "tag": "v1.13.3",
+          "date": "2026-01-20T17:48:39Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2025-12-30T06:07:11Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump peter-evans/create-pull-request from 7 to 8 in the github-actions group",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/7303",
+      "release": "v1.13.3",
+      "release_date": "2026-01-20T17:48:39Z",
+      "matched_releases": [
+        {
+          "tag": "v1.13.3",
+          "date": "2026-01-20T17:48:39Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2025-12-08T06:03:45Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump tar-fs from 2.1.1 to 2.1.4",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/7244",
+      "release": "v1.13.3",
+      "release_date": "2026-01-20T17:48:39Z",
+      "matched_releases": [
+        {
+          "tag": "v1.13.3",
+          "date": "2026-01-20T17:48:39Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2025-12-06T08:14:05Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps): bump the github-actions group across 1 directory with 2 updates",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/7282",
+      "release": "v1.13.3",
+      "release_date": "2026-01-20T17:48:39Z",
+      "matched_releases": [
+        {
+          "tag": "v1.13.3",
+          "date": "2026-01-20T17:48:39Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
+    },
+    {
+      "date": "2025-12-06T08:02:25Z",
+      "type": "dependency-update",
+      "bot": "dependabot[bot]",
+      "ids": [],
+      "title": "chore(deps-dev): bump js-yaml from 3.14.1 to 3.14.2",
+      "security": false,
+      "url": "https://github.com/axios/axios/pull/7296",
+      "release": "v1.13.3",
+      "release_date": "2026-01-20T17:48:39Z",
+      "matched_releases": [
+        {
+          "tag": "v1.13.3",
+          "date": "2026-01-20T17:48:39Z"
+        }
+      ],
+      "mapping": "date heuristic (first release on/after merge)"
     }
   ],
   "summary": {
     "advisories": 51,
-    "security_commits": 1,
-    "dependency_updates": 47,
-    "security_dependency_updates": 13,
+    "security_commits": 24,
+    "dependency_updates": 117,
+    "security_dependency_updates": 23,
     "unreleased_fixes": 0
   }
 }

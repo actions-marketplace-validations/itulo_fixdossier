@@ -156,15 +156,15 @@ jobs:
 
         <h2>What it writes</h2>
         <h3>SECURITY-RECORD.md</h3>
-        <p>Summary from the axios/axios example (generated 29 Oct 2026, <code>max_pages=2</code>):</p>
+        <p>Summary from the axios/axios example (generated 22 Nov 2026 with v0.1.2, <code>max_pages=10</code>):</p>
         <div class="pre-wrap"><span class="lang">markdown</span><pre>## Summary
 
 | Item | Count |
 |---|---|
 | Published GitHub security advisories | 51 |
-| Commits that look like security fixes | 1 |
-| Merged bot dependency updates (security-flagged) | 47 (13) |
-| Releases | 126 |
+| Commits that look like security fixes | 24 |
+| Merged bot dependency updates (security-flagged) | 117 (23) |
+| Releases | 128 |
 | Fixes not yet in a release | 0 |</pre></div>
         <p>Three rows from the same file:</p>
         <div class="pre-wrap"><span class="lang">markdown</span><pre>| Date | Type | IDs | Fix | Shipped in | Release date | How mapped |
@@ -176,7 +176,7 @@ jobs:
         <p>The dependency-updates table has the same “Shipped in” and “How mapped” columns:</p>
         <div class="pre-wrap"><span class="lang">markdown</span><pre>| Merged | Bot | Update | Security? | Shipped in | How mapped |
 |---|---|---|---|---|---|
-| 2026-10-27 | dependabot[bot] | [chore(deps): bump qs from 6.16.0 to 6.17.0](https://github.com/axios/axios/pull/11395) |  | _unreleased_ | unreleased |</pre></div>
+| 2026-11-18 | dependabot[bot] | [chore(deps): bump follow-redirects from 1.16.2 to 1.16.3 in the production_dependencies group](https://github.com/axios/axios/pull/11467) |  | _unreleased_ | unreleased |</pre></div>
         <p>The file also has a release list (latest 50), a “Gaps in this record” section when anything was missed, and a footer that explains each mapping label. Fix and dependency tables are capped at 200 rows each; the JSON has everything.</p>
 
         <h3>security-record.json</h3>
@@ -184,14 +184,14 @@ jobs:
         <div class="pre-wrap"><span class="lang">json</span><pre>{
   &quot;schema&quot;: &quot;fixdossier/v1&quot;,
   &quot;repo&quot;: &quot;axios/axios&quot;,
-  &quot;generated_at&quot;: &quot;2026-10-29T13:16:44.058Z&quot;,
-  &quot;sources_checked&quot;: { &quot;releases&quot;: 126, &quot;tags&quot;: 148, &quot;closed_pulls&quot;: 200, &quot;advisories&quot;: 51, &quot;commits&quot;: 200 },
+  &quot;generated_at&quot;: &quot;2026-11-22T15:12:09.444Z&quot;,
+  &quot;sources_checked&quot;: { &quot;releases&quot;: 128, &quot;tags&quot;: 150, &quot;closed_pulls&quot;: 1000, &quot;advisories&quot;: 51, &quot;commits&quot;: 1000 },
   &quot;gaps&quot;: [
-    &quot;pull requests: stopped after 2 pages (raise max_pages for full history)&quot;,
-    &quot;commits: stopped after 2 pages (raise max_pages for full history)&quot;
+    &quot;pull requests: stopped after 10 pages (raise max_pages for full history)&quot;,
+    &quot;commits: stopped after 10 pages (raise max_pages for full history)&quot;
   ],
-  &quot;summary&quot;: { &quot;advisories&quot;: 51, &quot;security_commits&quot;: 1, &quot;dependency_updates&quot;: 47,
-               &quot;security_dependency_updates&quot;: 13, &quot;unreleased_fixes&quot;: 0 },
+  &quot;summary&quot;: { &quot;advisories&quot;: 51, &quot;security_commits&quot;: 24, &quot;dependency_updates&quot;: 117,
+               &quot;security_dependency_updates&quot;: 23, &quot;unreleased_fixes&quot;: 0 },
   &quot;releases&quot;: [ ... ], &quot;tags_without_release&quot;: [ ... ],
   &quot;security_fixes&quot;: [ ... ], &quot;dependency_updates&quot;: [ ... ]
 }</pre></div>
