@@ -1,6 +1,21 @@
 # fixdossier
 
-A free GitHub Action that writes down what your repo already knows: **when you fixed each security issue and which release shipped the fix.**
+[![Release](https://img.shields.io/github/v/release/itulo/fixdossier?sort=semver)](https://github.com/itulo/fixdossier/releases/latest)
+[![License: MIT](https://img.shields.io/github/license/itulo/fixdossier)](LICENSE)
+[![Docs](https://img.shields.io/badge/docs-fixdossier.dev-blue)](https://fixdossier.dev/docs/)
+
+A free GitHub Action that writes down what your repo already knows: **when you fixed the security issues GitHub can see, and which release shipped each fix**, plus a `SUPPORT.md` with a support-until date per release. It's engineering evidence for software makers facing the EU Product Liability Directive (EU) 2024/2853 and the Cyber Resilience Act (EU) 2024/2847. Not legal advice, not a compliance certificate, and the record can be incomplete.
+
+![Sample output from a fixdossier v0.1.2 run on axios/axios (22 Nov 2026): summary counts and the first 5 rows of SECURITY-RECORD.md](assets/readme-sample-output-axios-v0.1.2.png)
+
+**Try it in 2 lines**: add these steps to any job whose token has `contents: read` and `pull-requests: read`:
+```yaml
+- uses: actions/checkout@v4
+- uses: itulo/fixdossier@v0
+```
+→ The three files are uploaded as a build artifact named `security-record` (default `mode: artifact`). See [real sample records](https://fixdossier.dev/docs/samples/) · [examples/](examples/) · [docs](https://fixdossier.dev/docs/) · [hosted review demo, no login](https://app.fixdossier.dev/demo)
+
+⭐ If this is useful, a star helps others find it.
 
 On each run it reads your repository's:
 - releases and tags
@@ -22,6 +37,8 @@ permissions:
   pull-requests: read
 steps:
   - uses: actions/checkout@v4
+    with:
+      ref: ${{ github.event.repository.default_branch }}   # needed for mode: commit on release-triggered runs
   - uses: itulo/fixdossier@v0
     with:
       support_period_months: 24
@@ -51,10 +68,17 @@ Outputs: `record_file`, `json_file`, `support_file`, `fix_count`, `gap_count`.
 
 **Missing permissions:** if a source returns 401/403/404 (or the rate limit is hit), that section is skipped, a workflow warning is printed, and the gap is listed in the record under "Gaps in this record". The run still succeeds unless `fail_on_gaps: true`. In commit mode, a failed push (no `contents: write`, branch protection) becomes a warning, not a failure.
 
+## Why run it before 9 December 2026
+The EU Product Liability Directive **(EU) 2024/2853** treats software as a product. It applies to products placed on the market or put into service after 8 December 2026, i.e. from 9 December 2026 (Art. 2(1), as corrected on 7 May 2026). At the request of a claimant who has shown the claim is plausible, a defendant can be required to disclose relevant evidence (Art. 9(1)), and defectiveness is presumed if it is not disclosed (Art. 10(2)(a), rebuttable). The Cyber Resilience Act **(EU) 2024/2847** requires manufacturers to determine a support period (Art. 13(8)) and to handle vulnerabilities, including by providing security updates (Annex I Part II); it applies from 11 December 2027, with Article 14 reporting obligations applying from 11 September 2026 (Art. 71(2)).
+
+Running fixdossier once now, in `mode: commit`, gives you a dated snapshot of your release and security-fix history as GitHub shows it. A dated, versioned record of fixes and a published support policy is ordinary engineering hygiene that is useful in either setting. Guides: [PLD dates for software releases](https://fixdossier.dev/docs/pld-placed-on-market-dates-for-software.html) · [PLD evidence checklist](https://fixdossier.dev/docs/pld-evidence-checklist-for-engineers.html)
+
+> **Not legal advice.** fixdossier is an engineering tool. It does not make any product "compliant" or "certified" with the PLD, the CRA or anything else, does not limit liability, and its output may be incomplete or wrong. Each company is responsible for its own compliance. Check the record yourself and ask a lawyer about your situation.
+
 ## fixdossier Pro (optional hosted workspace & signed Evidence Packs)
 
 The GitHub Action is free and MIT-licensed. **[fixdossier Pro](https://app.fixdossier.dev)** ([interactive demo](https://app.fixdossier.dev/demo)) is an optional hosted workspace for teams that want:
-- **Zero-secret CI ingestion:** upload `security-record.json` directly from GitHub Actions using short-lived GitHub OIDC tokens (`pro_upload: 'true'` with `id-token: write`) — fixdossier Pro never reads your source code and never holds tokens to your repositories.
+- **Zero-secret CI ingestion:** upload `security-record.json` directly from GitHub Actions using short-lived GitHub OIDC tokens (`pro_upload: 'true'` with `id-token: write`) — fixdossier Pro never receives your source code (only `security-record.json`: release, advisory and pull-request metadata, plus the first line of security-related commit messages, with the run's repository, commit and workflow identifiers) and never holds tokens to your repositories.
 - **Human review & immutable audit trail:** classify candidate rows (`confirmed_security_fix`, `excluded_not_security`, `needs_followup`) with reviewer attribution and rationale in an append-only review ledger.
 - **Ed25519-signed Evidence Packs:** export Draft or Final PDF + ZIP bundles (`fixdossier-evidence-pack-*.zip`) containing `pack-manifest.json` with SHA-256 checksums and an Ed25519 signature verifiable at `https://app.fixdossier.dev/api/v1/verify`.
 
@@ -72,7 +96,7 @@ steps:
       pro_upload: 'true'
 ```
 
-**Founding Licence:** **€69 one-time** (for the first 50 GitHub organizations; 1 GitHub org, up to 3 repositories and 5 reviewers, active for as long as the service runs, with at least 90 days' notice + full 1-click export on shutdown and a 14-day EU-standard refund policy). Questions: [contact@fixdossier.dev](mailto:contact@fixdossier.dev).
+**Founding Licence:** **€69 one-time, tax included** (Dodo Payments is the merchant of record), for the first 50 GitHub organizations. Each licence covers 1 GitHub organization, up to 3 repositories and 5 reviewers. It stays active for as long as the service runs, with at least 90 days' notice and a full 1-click export on shutdown, and a 14-day refund policy. Questions: [contact@fixdossier.dev](mailto:contact@fixdossier.dev).
 
 ## How fixes are mapped to releases
 Each row records the method that was actually used. The same strings are written to `SECURITY-RECORD.md` and `security-record.json`:
@@ -89,10 +113,8 @@ Each row records the method that was actually used. The same strings are written
 - "Security?" on bot PRs is strict: it needs a CVE/GHSA ID, a security label, or a security word in the title.
 - History depth is bounded by `max_pages`.
 
-## Why (context, not a promise)
-The EU Product Liability Directive **(EU) 2024/2853** treats software as a product for products placed on the market from 9 Dec 2026. In a dispute, courts can order disclosure of relevant evidence (Art. 9), and some presumptions apply if it isn't produced (Art. 10). The Cyber Resilience Act **(EU) 2024/2847** will expect manufacturers to state a support period and provide security updates (main obligations from Dec 2027). A dated, versioned record of fixes and a published support policy is ordinary engineering hygiene that is useful in either setting.
-
-> **Not legal advice.** fixdossier is an engineering tool. It does not make any product "compliant" or "certified" with the PLD, the CRA or anything else, does not limit liability, and its output may be incomplete or wrong. Check it yourself and ask a lawyer about your situation.
+## Feedback
+Found a wrong mapping or a missed fix? [Open an issue](https://github.com/itulo/fixdossier/issues/new) with the repo and the advisory or commit. If fixdossier saved you time, a ⭐ helps other teams find it.
 
 ## Development
 ```bash
@@ -100,6 +122,9 @@ npm test                                          # unit tests + a real-data fix
 bash scripts/live-test.sh axios/axios             # live run against the public API (anonymous OK; GITHUB_TOKEN raises limits)
 ```
 Zero runtime dependencies; Node 20+.
+
+## Privacy
+The Action sends nothing anywhere unless you enable `pro_upload` or set `pro_token`. See the [privacy notice](https://fixdossier.dev/privacy.html) for the website, the Action and fixdossier Pro.
 
 ## License
 MIT. See [LICENSE](LICENSE).
