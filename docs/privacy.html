@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy notice | fixdossier</title>
+  <meta name="description" content="How fixdossier.dev, the fixdossier GitHub Action and fixdossier Pro (app.fixdossier.dev) handle personal data: what is collected, why, how long it is kept, who processes it, and your rights." />
+  <link rel="canonical" href="https://fixdossier.dev/privacy.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="fixdossier" />
+  <meta property="og:title" content="Privacy notice | fixdossier" />
+  <meta property="og:description" content="How fixdossier.dev, the fixdossier GitHub Action and fixdossier Pro (app.fixdossier.dev) handle personal data: what is collected, why, how long it is kept, who processes it, and your rights." />
+  <meta property="og:url" content="https://fixdossier.dev/privacy.html" />
+  <meta property="og:locale" content="en" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=2" />
+  <style>
+    .doc h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); line-height: 1.2; letter-spacing: -0.03em; margin: 0.4rem 0 1rem; }
+    .doc h2 { margin-top: 2.4rem; }
+    .doc h3 { font-size: 1.05rem; margin: 1.6rem 0 0.5rem; }
+    .doc p, .doc li { color: var(--muted); }
+    .doc p strong, .doc li strong { color: var(--text); }
+    .doc :not(pre) > code { font-family: var(--mono); font-size: 0.85em; background: var(--bg-elev); padding: 0.1rem 0.35rem; border-radius: 4px; color: var(--text); }
+    .doc .pre-wrap, .doc .table-scroll { margin: 1rem 0 1.25rem; }
+    .doc table { min-width: 0; }
+    .doc ul, .doc ol { padding-left: 1.2rem; }
+    .doc li + li { margin-top: 0.35rem; }
+    .crumbs { font-size: 0.85rem; color: var(--faint); }
+    .doc-index { columns: 2; list-style: none; padding: 0 !important; }
+    @media (max-width: 560px) { .doc-index { columns: 1; } }
+  </style>
+  <script>
+    (function () {
+      var saved = localStorage.getItem('fixdossier_theme');
+      if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">fd</span> fixdossier</a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
+      <nav class="nav-links" id="primary-nav" aria-label="Primary">
+        <a href="./">Home</a>
+        <a href="docs/">Docs</a>
+        <a href="https://github.com/itulo/fixdossier">GitHub</a>
+        <button class="btn-icon" id="theme-btn" type="button" title="Toggle light/dark theme" aria-label="Toggle light/dark theme">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+    <main id="top">
+    <section>
+      <article class="wrap doc">
+        <p class="crumbs"><a href="./">fixdossier</a> / Privacy</p>
+        <h1>Privacy notice</h1>
+        <p><strong>Last updated: 22 November 2026.</strong> This notice covers the website fixdossier.dev, the free fixdossier GitHub Action (<code>itulo/fixdossier</code>) and the hosted service fixdossier Pro at app.fixdossier.dev. It describes what the software actually does today.</p>
+
+        <h2>Who is responsible</h2>
+        <p>The controller is <strong>Italo Armenti</strong>, a private individual in Finland. Contact: <a href="mailto:contact@fixdossier.dev">contact@fixdossier.dev</a>. There is no data protection officer.</p>
+
+        <h2>Short version</h2>
+        <ul>
+          <li>The website sets no cookies and has no analytics.</li>
+          <li>The GitHub Action sends nothing to us unless you turn on <code>pro_upload</code> or set <code>pro_token</code>.</li>
+          <li>fixdossier Pro stores what it needs to run your account and licence: your GitHub identity, your organization, the security records your CI uploads, your review decisions, and the payment record that Dodo Payments sends us.</li>
+          <li>Nothing in the Pro database is deleted automatically. Data stays until you ask us to delete it, or until the service shuts down (with at least 90 days' notice and an export).</li>
+        </ul>
+
+        <h2>1. The website (fixdossier.dev)</h2>
+        <ul>
+          <li><strong>Hosting.</strong> The site is static and hosted by GitHub Pages. GitHub receives your IP address and browser details when it serves the pages, under GitHub's own privacy statement.</li>
+          <li><strong>Fonts.</strong> Pages load fonts from Google Fonts, so Google receives your IP address and browser details when you open a page.</li>
+          <li><strong>Theme setting.</strong> If you switch between light and dark mode, that choice is saved in your browser's local storage (<code>fixdossier_theme</code>). It never leaves your browser.</li>
+          <li><strong>No cookies, no analytics and no advertising</strong> on fixdossier.dev.</li>
+        </ul>
+
+        <h2>2. The GitHub Action</h2>
+        <p>The Action runs inside your own GitHub Actions workflow. It reads your repository's releases, tags, published security advisories, closed pull requests and commit list through the GitHub API, using the token you give it (by default <code>GITHUB_TOKEN</code>). It writes <code>SECURITY-RECORD.md</code>, <code>security-record.json</code> and <code>SUPPORT.md</code> into your workflow. By default (<code>pro_upload: false</code>, no <code>pro_token</code>) <strong>it sends nothing to us</strong>.</p>
+        <p>If you set <code>pro_upload: 'true'</code> or a <code>pro_token</code>, the Action sends one request to <code>https://app.fixdossier.dev/api/v1/ingest</code> (or your <code>pro_url</code>) containing:</p>
+        <ul>
+          <li>the generated <code>security-record.json</code>: release names, tags, dates and URLs; advisory IDs, titles and severities; Dependabot/Renovate pull-request titles; and, for commits that look like security fixes, the commit SHA, URL and the first line of the commit message (up to 160 characters). It contains no source files and no commit author names;</li>
+          <li>request headers with the repository name, repository owner, owner ID, workflow run ID, commit SHA, git ref and workflow name, and, if something went wrong on your side, a short error message;</li>
+          <li>a short-lived GitHub Actions OIDC token, or your <code>fxd_tok_…</code> upload token. The OIDC token is signed by GitHub and also contains claims about the run (for example the repository, ref, workflow and the GitHub account that triggered it). We verify it and read the repository, owner, run, SHA, ref and workflow claims. We do not store the token.</li>
+        </ul>
+
+        <h2>3. fixdossier Pro (app.fixdossier.dev)</h2>
+        <table>
+          <thead><tr><th>What</th><th>Why</th><th>Legal basis</th><th>How long</th></tr></thead>
+          <tbody>
+            <tr><td><strong>GitHub sign-in.</strong> We ask GitHub for the scopes <code>read:user</code>, <code>user:email</code> and <code>read:org</code>. We store your GitHub user ID, login, display name and the email shown on your public GitHub profile (if any). We read the ID and login of the first GitHub organization you belong to (or your personal account, if you have none) to set up the workspace. The GitHub access token is used once during sign-in and is not stored.</td><td>To sign you in and link you to your organization's workspace.</td><td>Contract (providing the service you asked for).</td><td>Until you ask for deletion.</td></tr>
+            <tr><td><strong>Organization and workspace.</strong> GitHub organization ID, login and display name; your role (owner, reviewer, viewer); support period, end-of-life date and security contact you enter; repositories you upload records for.</td><td>To run the workspace and enforce licence limits.</td><td>Contract.</td><td>Until you ask for deletion.</td></tr>
+            <tr><td><strong>Uploaded security records.</strong> Each uploaded <code>security-record.json</code> (stored as a file, with its SHA-256), plus the run details listed in section 2 and the records and releases derived from it.</td><td>The core of the service: review queue, history and Evidence Packs.</td><td>Contract.</td><td>Until you ask for deletion.</td></tr>
+            <tr><td><strong>Upload attempts.</strong> For every upload, successful or not: time, repository and owner, owner ID, run ID, SHA, ref, workflow, size, result, and an error message if it failed.</td><td>So you can see why an upload failed, and to detect abuse.</td><td>Contract and legitimate interest (security and support).</td><td>Until you ask for deletion.</td></tr>
+            <tr><td><strong>Review decisions and audit trail.</strong> Status, severity, notes, rationale, the reviewer's name as entered, and timestamps, in a hash-chained, append-only log. Signed Evidence Packs (PDF, ZIP, manifest) include these.</td><td>Evidence of who reviewed what, and when, which is the purpose of the product.</td><td>Contract.</td><td>Until you ask for deletion. The log and the packs are append-only by design, so deleting them is a manual step on request.</td></tr>
+            <tr><td><strong>Purchase and licence.</strong> Dodo Payments sends a signed webhook when a payment succeeds, fails or is refunded. We store the full webhook message as Dodo sends it (it includes the payment and customer IDs, your name and email, and other payment details Dodo includes), plus a licence record with buyer email, Dodo payment and customer IDs, status and dates. Claim and upload tokens are stored only as hashes. We never receive your full card number.</td><td>To issue and bind your licence, handle refunds, and keep a record of sales.</td><td>Contract; legitimate interest and legal obligations for keeping sales records.</td><td>Until you ask for deletion, unless we must keep sales records longer for accounting or tax reasons.</td></tr>
+            <tr><td><strong>Anonymous daily counts.</strong> Daily totals for views of the app's own pages (landing, demo, claim) and for steps such as "GitHub sign-in started/completed", "checkout opened", "payment received", "licence claimed" and "first upload". Only the date, the step name and a number are stored.</td><td>To understand whether the site and the sign-up flow work.</td><td>Legitimate interest. These totals are not personal data.</td><td>Not deleted automatically.</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Cookies in the app.</strong> Signing in sets <code>fxd_session</code>: a signed (not encrypted) cookie holding your user ID, GitHub login, name, email and organization, which expires after 7 days or when you sign out. During sign-in, <code>fxd_oauth_state</code> is set for 10 minutes to protect the login against forgery. Both are strictly necessary, so we don't ask for consent. The app stores your light/dark choice in local storage (<code>fxd_theme</code>). No advertising or analytics cookies are used.</p>
+
+        <h2>4. Logs and backups</h2>
+        <ul>
+          <li><strong>Application logs.</strong> The app writes only start-up, shutdown and error messages. It does not log individual requests. These logs are rotated daily (or at 10 MB), and only the 10 most recent rotated files are kept; older files are deleted.</li>
+          <li><strong>Web server logs.</strong> nginx on our server writes standard access logs for app.fixdossier.dev: time, the connecting IP address (yours, or a Cloudflare address), the requested URL including any query string, status, size, referrer and browser details. They are rotated daily and deleted after 14 days. Health checks and the page-view counter endpoint are not logged.</li>
+          <li><strong>Backups.</strong> There are no automatic backups.</li>
+        </ul>
+
+        <h2>5. Who processes data for us</h2>
+        <ul>
+          <li><strong>Dodo Payments</strong> is the merchant of record. It sells you the licence, takes the payment, handles tax and invoices, and processes your payment data under its own privacy policy.</li>
+          <li><strong>Hetzner Online GmbH</strong> hosts the fixdossier Pro server and database in its Helsinki data centre in Finland.</li>
+          <li><strong>GitHub</strong> provides sign-in (OAuth), the OIDC tokens used for uploads, the Action's runtime, and hosting for this website (GitHub Pages).</li>
+          <li><strong>Cloudflare</strong> provides DNS for fixdossier.dev, proxies traffic to app.fixdossier.dev, and routes email sent to contact@fixdossier.dev to the controller's mailbox.</li>
+          <li><strong>Google</strong> serves the website fonts (Google Fonts) and hosts the Gmail mailbox that contact@fixdossier.dev forwards to.</li>
+        </ul>
+        <p>Some of these companies may process data outside the EU/EEA under their own terms and transfer safeguards.</p>
+
+        <h2>6. Your rights</h2>
+        <p>You can ask for a copy of your data, correction, deletion, restriction, or to object to processing based on legitimate interest. You can also export your organization's whole workspace yourself at any time from <code>/app/export.zip</code>. Deletion is done by hand on request. Email <a href="mailto:contact@fixdossier.dev">contact@fixdossier.dev</a> from the address linked to your account, or tell us your GitHub login. We answer within one month.</p>
+        <p>You can complain to the Finnish supervisory authority, the <strong>Data Protection Ombudsman</strong> (Tietosuojavaltuutetun toimisto), at <a href="https://tietosuoja.fi/en">tietosuoja.fi/en</a>, or to the authority in your own EU country.</p>
+
+        <h2>7. Changes</h2>
+        <p>We will update this page when the software changes how it handles data, and change the date at the top.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2026 fixdossier · MIT · <a href="https://github.com/itulo/fixdossier">github.com/itulo/fixdossier</a> · <a href="mailto:contact@fixdossier.dev">contact@fixdossier.dev</a></div>
+      <div class="footer-links">
+        <a href="./">Home</a>
+        <a href="docs/">Docs</a>
+        <a href="https://github.com/itulo/fixdossier/blob/main/LICENSE">License</a>
+        <a href="privacy.html" aria-current="page">Privacy</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var t = document.getElementById('theme-btn');
+      if (t) t.addEventListener('click', function () {
+        var cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', cur);
+        localStorage.setItem('fixdossier_theme', cur);
+      });
+      var toggle = document.getElementById('nav-toggle'), nav = document.getElementById('primary-nav');
+      if (toggle && nav) toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+    })();
+  </script>
+</body>
+</html>
