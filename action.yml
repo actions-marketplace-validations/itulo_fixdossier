@@ -1,5 +1,5 @@
-name: 'fixdossier'
-description: 'Generate dated security-fix records (SECURITY-RECORD.md + JSON) and SUPPORT.md policy from GitHub history (EU CRA / PLD).'
+name: 'fixdossier: security-fix record for EU PLD & CRA'
+description: 'Dated security-fix record + SUPPORT.md from GitHub history. Engineering evidence for EU Product Liability Directive & CRA.'
 author: 'Italo Armenti'
 branding: { icon: 'shield', color: 'blue' }
 inputs:
