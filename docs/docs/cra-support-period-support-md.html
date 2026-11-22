@@ -121,6 +121,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}   # needed for mode: commit on release-triggered runs
       - uses: itulo/fixdossier@v0
         with:
           product_name: Example Gateway
