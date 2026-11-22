@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PLD Art. 11(2) and missing software updates: what engineers can show | fixdossier</title>
+  <meta name="description" content="What Article 11(2) of the EU Product Liability Directive (EU) 2024/2853 says about a lack of software updates, manufacturer’s control, and which dated security-update records an engineering team can keep. Not legal advice." />
+  <link rel="canonical" href="https://fixdossier.dev/docs/pld-lack-of-software-updates.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="fixdossier" />
+  <meta property="og:title" content="PLD Art. 11(2) and missing software updates: what engineers can show | fixdossier" />
+  <meta property="og:description" content="What Article 11(2) of the EU Product Liability Directive (EU) 2024/2853 says about a lack of software updates, manufacturer’s control, and which dated security-update records an engineering team can keep. Not legal advice." />
+  <meta property="og:url" content="https://fixdossier.dev/docs/pld-lack-of-software-updates.html" />
+  <meta property="og:locale" content="en" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=2" />
+  <style>
+    .doc h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); line-height: 1.2; letter-spacing: -0.03em; margin: 0.4rem 0 1rem; }
+    .doc h2 { margin-top: 2.4rem; }
+    .doc h3 { font-size: 1.05rem; margin: 1.6rem 0 0.5rem; }
+    .doc p, .doc li { color: var(--muted); }
+    .doc p strong, .doc li strong { color: var(--text); }
+    .doc :not(pre) > code { font-family: var(--mono); font-size: 0.85em; background: var(--bg-elev); padding: 0.1rem 0.35rem; border-radius: 4px; color: var(--text); }
+    .doc .pre-wrap, .doc .table-scroll { margin: 1rem 0 1.25rem; }
+    .doc table { min-width: 0; }
+    .doc ul, .doc ol { padding-left: 1.2rem; }
+    .doc li + li { margin-top: 0.35rem; }
+    .crumbs { font-size: 0.85rem; color: var(--faint); }
+    .doc-index { columns: 2; list-style: none; padding: 0 !important; }
+    @media (max-width: 560px) { .doc-index { columns: 1; } }
+  </style>
+  <script>
+    (function () {
+      var saved = localStorage.getItem('fixdossier_theme');
+      if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "\"Lack of software updates\" under the PLD (Art. 11(2)): what an engineering team can show",
+  "description": "What Article 11(2) of the EU Product Liability Directive (EU) 2024/2853 says about a lack of software updates, manufacturer’s control, and which dated security-update records an engineering team can keep. Not legal advice.",
+  "url": "https://fixdossier.dev/docs/pld-lack-of-software-updates.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://fixdossier.dev/docs/pld-lack-of-software-updates.html"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-11-22",
+  "dateModified": "2026-11-22",
+  "author": {
+    "@type": "Person",
+    "name": "Italo Armenti"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "fixdossier",
+    "url": "https://fixdossier.dev/"
+  },
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "fixdossier",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "GitHub Actions",
+    "license": "https://opensource.org/licenses/MIT",
+    "codeRepository": "https://github.com/itulo/fixdossier",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "fixdossier",
+    "url": "https://fixdossier.dev/"
+  }
+}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">fd</span> fixdossier</a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
+      <nav class="nav-links" id="primary-nav" aria-label="Primary">
+        <a href="../">Home</a>
+        <a href="./">Docs</a>
+        <a href="https://github.com/itulo/fixdossier">GitHub</a>
+        <button class="btn-icon" id="theme-btn" type="button" title="Toggle light/dark theme" aria-label="Toggle light/dark theme">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section>
+      <article class="wrap doc">
+        <p class="crumbs"><a href="../">fixdossier</a> / <a href="./">Docs</a> / PLD and missing security updates</p>
+        <h1>“Lack of software updates” under the PLD (Art. 11(2)): what an engineering team can show</h1>
+
+        <p>Under the revised Product Liability Directive, a manufacturer normally has a defence if the defect probably did not exist when the product was placed on the market. For software that the manufacturer can still update, Article 11(2) takes that defence away in some cases, including where the defect is due to a lack of software updates or upgrades necessary to maintain safety. This page sets out what the text says, what it does not say, and which dated engineering facts help answer the questions it raises. It is about evidence, not about how a court will rule. For dates and versions, see <a href="pld-placed-on-market-dates-for-software.html">PLD dates for software releases</a>. For the general evidence list, see the <a href="pld-evidence-checklist-for-engineers.html">PLD evidence checklist</a>.</p>
+
+        <h2>Short version</h2>
+        <ul>
+          <li>The usual defence: an economic operator is not liable if it proves it is probable that the defect did not exist when the product was placed on the market or put into service, or came into being after that moment (Art. 11(1)(c)).</li>
+          <li>That defence does <strong>not</strong> apply where the defect is due to a related service, software (including updates or upgrades), a <strong>lack of software updates or upgrades necessary to maintain safety</strong>, or a substantial modification, provided that it is within the manufacturer’s control (Art. 11(2)).</li>
+          <li>“Within the manufacturer’s control” includes the manufacturer having the ability to supply software updates or upgrades, itself or via a third party (Art. 4(5)(b), recital 19).</li>
+          <li>The Directive “does not impose any obligation to provide updates or upgrades for a product”. This liability also does not apply where installing an update is beyond the manufacturer’s control, for example where the owner does not install a safety update that was supplied (recital 51).</li>
+          <li>So two dated facts matter: <strong>when you could still supply updates</strong>, and <strong>which security updates you supplied, and when</strong>.</li>
+        </ul>
+
+        <h2>What the Directive says (verified articles)</h2>
+        <p>All references are to Directive (EU) 2024/2853 (<a href="https://eur-lex.europa.eu/eli/dir/2024/2853/oj">EUR-Lex</a>), checked against the Official Journal text and the <a href="https://eur-lex.europa.eu/eli/dir/2024/2853/corrigendum/2026-05-07/oj">corrigendum of 7 May 2026</a>.</p>
+        <ul>
+          <li><strong>Art. 2(1), as corrected.</strong> The Directive applies to products placed on the market or put into service after 8 December 2026, i.e. from 9 December 2026.</li>
+          <li><strong>Art. 2(2).</strong> It does not apply to free and open-source software that is developed or supplied outside the course of a commercial activity.</li>
+          <li><strong>Art. 21 and Art. 22(1).</strong> Directive 85/374/EEC is repealed with effect from 9 December 2026 but continues to apply to products placed on the market or put into service before that date. Member States must bring their transposing laws into force by 9 December 2026, about two years after the Directive entered into force on 8 December 2024 (Art. 23). Claims run under national law, so check your Member State's transposing act.</li>
+          <li><strong>Art. 11(1)(c).</strong> An economic operator is not liable if it proves that it is probable that the defectiveness that caused the damage did not exist when the product was placed on the market or put into service (or, for a distributor, made available on the market), or that the defectiveness came into being after that moment.</li>
+          <li><strong>Art. 11(2).</strong> By way of derogation from Art. 11(1)(c), an economic operator is not exempted from liability where the defectiveness is due to any of the following, provided that it is within the manufacturer’s control: (a) a related service; (b) software, including software updates or upgrades; (c) a lack of software updates or upgrades necessary to maintain safety; (d) a substantial modification of the product.</li>
+          <li><strong>Art. 4(5).</strong> “Manufacturer’s control” means that (a) the manufacturer performs, or authorises or consents to, the integration, inter-connection or supply of a component, including software updates or upgrades, or the modification of the product; or (b) the manufacturer has the ability to supply software updates or upgrades, itself or via a third party. Recital 18 adds that merely making integration technically possible, recommending brands or not prohibiting a component is not consent.</li>
+          <li><strong>Recital 50.</strong> Because digital technologies let manufacturers exercise control after placing on the market, manufacturers should remain liable for defectiveness that comes into being after that moment as a result of software or related services within their control, in the form of updates or upgrades or machine-learning algorithms.</li>
+          <li><strong>Recital 51.</strong> Manufacturers should not be exempted where the defectiveness results from their failure to supply the software security updates or upgrades necessary to address the product’s vulnerabilities in response to evolving cybersecurity risks. This liability should not apply where the supply or installation of such software is beyond the manufacturer’s control, for example where the owner does not install an update supplied to ensure or maintain the product’s safety. The Directive “does not impose any obligation to provide updates or upgrades for a product”.</li>
+          <li><strong>Art. 7(2)(e) and (f).</strong> When assessing defectiveness, all circumstances are taken into account, including the moment the product was placed on the market or put into service or, where the manufacturer retains control after that moment, the moment it left the manufacturer’s control, and relevant product safety requirements, including safety-relevant cybersecurity requirements.</li>
+          <li><strong>Art. 7(3).</strong> A product is not defective for the sole reason that a better product, including updates or upgrades, has already been or is later placed on the market or put into service.</li>
+          <li><strong>Art. 6(1).</strong> Compensable damage is limited to death or personal injury (including medically recognised damage to psychological health), damage to property (with exceptions, including property used exclusively for professional purposes), and destruction or corruption of data not used for professional purposes.</li>
+          <li><strong>Art. 9(1), 9(3) and 10(2)(a).</strong> At the request of a claimant who has presented facts and evidence sufficient to support the plausibility of the claim, the defendant is required to disclose relevant evidence at its disposal, limited to what is necessary and proportionate. If the defendant fails to disclose relevant evidence under Art. 9(1), defectiveness is presumed, and the defendant can rebut that presumption (Art. 10(5)).</li>
+          <li><strong>Art. 11(1)(e) and Art. 18.</strong> A separate defence covers the case where the objective state of scientific and technical knowledge, at the time of placing on the market or during the period in which the product was within the manufacturer’s control, was not such that the defectiveness could be discovered. Member States may derogate from it under Art. 18.</li>
+        </ul>
+
+        <h2>What the text leaves open</h2>
+        <p>The Directive does not define which updates are “necessary to maintain safety”, how quickly an update must follow a known vulnerability, or how long the ability to supply updates lasts. Those questions depend on the facts, on other Union and national law (recital 51 points to lifecycle safety duties under other Union law), and on national courts applying the transposing law. This page does not answer them. It lists records that let a team show what it actually did and when, so whoever does answer them, your lawyer or a court, has the facts.</p>
+
+        <h2>Questions you may need to answer with dates</h2>
+        <ol>
+          <li>For a given version, until when did you have the ability to supply software updates or upgrades, yourself or through a third party?</li>
+          <li>When did you learn about a given vulnerability, and when did you publish the fix?</li>
+          <li>Which release contained the fix, for each supported release line, including backports?</li>
+          <li>How was the update supplied (automatic update, app store, OTA, download, hosted deploy), and when did it become available to users?</li>
+          <li>Did the update need an action by the owner to install? Was it supplied “for the purpose of ensuring or maintaining the level of safety” (recital 51), and how was that communicated?</li>
+        </ol>
+
+        <h2>Checklist: make “we supplied the update” provable</h2>
+        <h3>Your ability to update</h3>
+        <ol>
+          <li><strong>Write down a support period and end-of-life date per release line</strong> and publish it (<a href="cra-support-period-support-md.html">SUPPORT.md</a>). Keep each version of that policy, with dates, in git.</li>
+          <li><strong>Record when the ability to update ends</strong>: an update server switched off, a signing key retired, a product line sold or transferred. That date limits the period in which control rests on Art. 4(5)(b).</li>
+          <li><strong>List third parties that supply updates for you</strong> (app stores, OTA providers, integrators) and the date each arrangement started and ended, because Art. 4(5)(b) covers supplying updates “via a third party”.</li>
+        </ol>
+        <h3>Each security fix</h3>
+        <ol start="4">
+          <li><strong>Publish an advisory for each fixed vulnerability</strong>, with patched versions for every release line you fixed, so the fix-to-release link exists in a dated public record.</li>
+          <li><strong>Put the CVE or GHSA ID in the fix commit</strong>, and merge dependency security updates through Dependabot or Renovate PRs so they are dated and attributable.</li>
+          <li><strong>Record the date you became aware of the vulnerability</strong> (report received, advisory seen) next to the release date of the fix. The gap between the two is a question you may be asked.</li>
+          <li><strong>Record availability, not only release</strong>: rollout start for OTA and app stores, deploy time for hosted software. Keep rollout logs outside short CI retention windows.</li>
+          <li><strong>Keep release notes that say an update is a security update</strong> and whether users must install it. Recital 51 refers to updates “supplied for the purpose of ensuring or maintaining the level of safety”, and to owners who do not install them.</li>
+        </ol>
+        <h3>Over time</h3>
+        <ol start="9">
+          <li><strong>Re-check old release lines when a new vulnerability lands.</strong> Write down which supported lines were affected and either fixed or explicitly not fixed, with the reason and the date.</li>
+          <li><strong>Have a named person review the security record and sign off with a date.</strong> An automatic list is a starting point, not evidence that someone checked it.</li>
+          <li><strong>Plan retention around the Art. 17 periods</strong> (10 years, 25 for latent personal injury, unless proceedings have started) and agree the schedule with your counsel.</li>
+        </ol>
+
+        <h2>Where fixdossier fits (and where it does not)</h2>
+        <p>The free <a href="https://github.com/itulo/fixdossier">fixdossier GitHub Action</a> (MIT, current release v0.1.2, use <code>itulo/fixdossier@v0</code>) helps with items 1, 4 and 5: it writes SUPPORT.md from your inputs, and it reads the advisories, CVE/GHSA IDs and Dependabot/Renovate merges you already have. It reads your GitHub Releases and tags, published security advisories, merged Dependabot and Renovate PRs, and security-looking commits. It writes a dated <code>SECURITY-RECORD.md</code> and <code>security-record.json</code> that show which release shipped each fix it finds and how each mapping was made, plus a <code>SUPPORT.md</code> with a “supported until” date per release. In commit mode, every state of the record is a dated git commit.</p>
+        <div class="pre-wrap"><span class="lang">yaml</span><pre>name: security-record
+on:
+  release:
+    types: [published]
+  schedule:
+    - cron: &#x27;0 6 * * 1&#x27;
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: read
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: itulo/fixdossier@v0
+        with:
+          support_period_months: 24
+          eol_date: &#x27;2030-12-31&#x27;
+          contact: security@example.com
+          mode: commit</pre></div>
+        <p>It does <strong>not</strong> know when you learned about a vulnerability, your OTA, app store or deploy dates, whether users installed an update, or whether an update was “necessary to maintain safety”. It is not a complete inventory either: silent fixes and releases outside GitHub are missed (<a href="what-the-record-covers.html">coverage limits</a>, <a href="backports-and-maintenance-branches.html">backports</a>). Items 2, 3 and 6 to 11 stay with you. See <a href="samples/">sample records</a> for unedited output on public repositories.</p>
+        <p>If several people need to review the candidates and sign off (item 10), <a href="https://app.fixdossier.dev">fixdossier Pro</a> adds a hosted review workspace. CI uploads the JSON through GitHub Actions OIDC, so no repository secrets are needed. Reviewers classify each item with a rationale, and you export an Ed25519-signed PDF and ZIP Evidence Pack that can be checked at <code>/api/v1/verify</code>. It never receives your source code: only the JSON record (release, advisory and pull-request metadata, plus the first line of security-related commit messages) and the run's repository, commit and workflow identifiers. You can <a href="https://app.fixdossier.dev/demo">try the demo without logging in</a>. The Founding Licence is €69 one-time, tax included (Dodo Payments is the merchant of record), for the first 50 GitHub organizations. Each licence covers 1 GitHub organization, up to 3 repositories and 5 reviewers.</p>
+        <p>If the Action is useful to you, a <a href="https://github.com/itulo/fixdossier">star on GitHub</a> helps other teams find it.</p>
+
+        <p>Related, and separate from the PLD: the Cyber Resilience Act (<a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj">Regulation (EU) 2024/2847</a>) requires manufacturers to determine a support period (Art. 13(8)) and, in Annex I Part II, to address and remediate vulnerabilities without delay, including by providing security updates (point (2)), and to publicly disclose information about fixed vulnerabilities once an update is available (point (4)). It applies from 11 December 2027, with Article 14 reporting obligations applying from 11 September 2026 (Art. 71(2)).</p>
+
+        <div class="disclaimer" role="note">
+  <p><strong>About this page.</strong> This is an engineering note written by the fixdossier author, not legal advice, and it has not been reviewed by a lawyer. It quotes the Directive's text and does not interpret how a court will apply it to your product. Each company is responsible for its own compliance and should get advice on its own facts and Member State law.</p>
+</div>
+
+        <h2>Docs pages</h2>
+        <ul class="doc-index">
+          <li><a href="./">Docs home</a></li>
+          <li><a href="security-fix-record-from-github.html">Build the record</a></li>
+          <li><a href="map-github-advisory-to-release.html">Advisory → release mapping</a></li>
+          <li><a href="what-the-record-covers.html">Coverage and limits</a></li>
+          <li><a href="cra-support-period-support-md.html">SUPPORT.md and support periods</a></li>
+          <li><a href="pld-evidence-checklist-for-engineers.html">PLD evidence checklist</a></li>
+          <li><a href="pld-placed-on-market-dates-for-software.html">PLD dates for software releases</a></li>
+          <li><a href="pld-lack-of-software-updates.html" aria-current="page">PLD and missing security updates</a></li>
+          <li><a href="sbom-and-security-fix-record.html">SBOM vs security-fix record</a></li>
+          <li><a href="backports-and-maintenance-branches.html">Backports and maintenance branches</a></li>
+          <li><a href="dependabot-renovate-security-history.html">Dependabot and Renovate history</a></li>
+          <li><a href="https://github.com/itulo/fixdossier">Source on GitHub (MIT)</a></li>
+        </ul>
+        <div class="disclaimer" role="note">
+  <p><strong>Not legal advice.</strong> fixdossier is an engineering tool for evidence collection and review support. It is not legal advice and not a compliance certificate. It does not make a product compliant with the PLD, the CRA or anything else, and its output can be incomplete or wrong. Review it, and ask a lawyer about your situation.</p>
+</div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2026 fixdossier · MIT · <a href="https://github.com/itulo/fixdossier">github.com/itulo/fixdossier</a> · <a href="mailto:contact@fixdossier.dev">contact@fixdossier.dev</a></div>
+      <div class="footer-links">
+        <a href="./">Docs</a>
+        <a href="https://github.com/itulo/fixdossier/blob/main/action.yml">action.yml</a>
+        <a href="https://github.com/itulo/fixdossier/tree/main/examples">Examples</a>
+        <a href="https://github.com/itulo/fixdossier/blob/main/LICENSE">License</a>
+        <a href="https://fixdossier.dev/privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var t = document.getElementById('theme-btn');
+      if (t) t.addEventListener('click', function () {
+        var cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', cur);
+        localStorage.setItem('fixdossier_theme', cur);
+      });
+      var toggle = document.getElementById('nav-toggle'), nav = document.getElementById('primary-nav');
+      if (toggle && nav) toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+    })();
+  </script>
+  <script>
+    /* Cookie-less page-view count: sends only this page's name; stores nothing in the browser. */
+    (function () {
+      if (navigator.doNotTrack === '1' || navigator.globalPrivacyControl === true || !window.fetch) return;
+      try { fetch('https://app.fixdossier.dev/b?p=docs-pld-lack-of-software-updates', { method: 'POST', mode: 'no-cors', credentials: 'omit', keepalive: true }); } catch (e) {}
+    })();
+  </script>
+</body>
+</html>
