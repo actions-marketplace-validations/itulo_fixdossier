@@ -45,7 +45,7 @@ jobs:
 - URL: https://app.fixdossier.dev (Interactive Demo: https://app.fixdossier.dev/demo)
 - Ingests `security-record.json` via short-lived GitHub Actions OIDC (`pro_upload: 'true'`) with zero long-lived repository secrets.
 - Provides a multi-repository review queue (`confirmed_security_fix`, `excluded_not_security`, `needs_followup`), append-only audit trail, and Ed25519-signed PDF + ZIP Evidence Packs (`fixdossier-evidence-pack-*.zip`, verifiable at `https://app.fixdossier.dev/api/v1/verify`).
-- Founding Licence: €69 one-time for the first 50 GitHub organizations (1 GitHub org, up to 3 repositories and 5 reviewers, active for as long as the service runs, at least 90 days' notice + full 1-click export on shutdown, 14-day EU-standard refund policy).
+- Founding Licence: €69 one-time, tax included (Dodo Payments is the merchant of record), for the first 50 GitHub organizations (1 GitHub org, up to 3 repositories and 5 reviewers, active for as long as the service runs, at least 90 days' notice + full 1-click export on shutdown, 14-day EU-standard refund policy).
 
 ## Links
 
