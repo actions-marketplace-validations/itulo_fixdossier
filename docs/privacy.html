@@ -13,10 +13,7 @@
   <meta property="og:url" content="https://fixdossier.dev/privacy.html" />
   <meta property="og:locale" content="en" />
   <meta name="twitter:card" content="summary" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css?v=3" />
   <style>
     .doc h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); line-height: 1.2; letter-spacing: -0.03em; margin: 0.4rem 0 1rem; }
     .doc h2 { margin-top: 2.4rem; }
@@ -77,7 +74,7 @@
         <h2>1. The website (fixdossier.dev)</h2>
         <ul>
           <li><strong>Hosting.</strong> The site is static and hosted by GitHub Pages. GitHub receives your IP address and browser details when it serves the pages, under GitHub's own privacy statement.</li>
-          <li><strong>Fonts.</strong> Pages load fonts from Google Fonts, so Google receives your IP address and browser details when you open a page.</li>
+          <li><strong>Fonts.</strong> The fonts are served from this site itself. No third-party font service is contacted.</li>
           <li><strong>Theme setting.</strong> If you switch between light and dark mode, that choice is saved in your browser's local storage (<code>fixdossier_theme</code>). It never leaves your browser.</li>
           <li><strong>Page-view counter.</strong> Each page sends one request to <code>app.fixdossier.dev/b</code> with only a page name (for example <code>home</code>). The server adds 1 to that page's total for the day (UTC). The counter stores no IP address, browser details, cookie or other identifier, and nothing is sent when your browser has Do Not Track or Global Privacy Control turned on. The request passes through Cloudflare and our server, which does not write it to the web server log (see sections 4 and 5).</li>
           <li><strong>No cookies, no advertising and no third-party analytics</strong> on fixdossier.dev.</li>
@@ -120,7 +117,7 @@
           <li><strong>Hetzner Online GmbH</strong> hosts the fixdossier Pro server and database in its Helsinki data centre in Finland.</li>
           <li><strong>GitHub</strong> provides sign-in (OAuth), the OIDC tokens used for uploads, the Action's runtime, and hosting for this website (GitHub Pages).</li>
           <li><strong>Cloudflare</strong> provides DNS for fixdossier.dev, proxies traffic to app.fixdossier.dev, and routes email sent to contact@fixdossier.dev to the controller's mailbox.</li>
-          <li><strong>Google</strong> serves the website fonts (Google Fonts) and hosts the Gmail mailbox that contact@fixdossier.dev forwards to.</li>
+          <li><strong>Google</strong> hosts the Gmail mailbox that contact@fixdossier.dev forwards to.</li>
         </ul>
         <p>Some of these companies may process data outside the EU/EEA under their own terms and transfer safeguards.</p>
 
