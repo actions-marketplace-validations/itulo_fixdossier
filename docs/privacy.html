@@ -68,7 +68,7 @@
 
         <h2>Short version</h2>
         <ul>
-          <li>The website sets no cookies and has no analytics.</li>
+          <li>The website sets no cookies. Page views are counted as anonymous daily totals.</li>
           <li>The GitHub Action sends nothing to us unless you turn on <code>pro_upload</code> or set <code>pro_token</code>.</li>
           <li>fixdossier Pro stores what it needs to run your account and licence: your GitHub identity, your organization, the security records your CI uploads, your review decisions, and the payment record that Dodo Payments sends us.</li>
           <li>Nothing in the Pro database is deleted automatically. Data stays until you ask us to delete it, or until the service shuts down (with at least 90 days' notice and an export).</li>
@@ -79,7 +79,8 @@
           <li><strong>Hosting.</strong> The site is static and hosted by GitHub Pages. GitHub receives your IP address and browser details when it serves the pages, under GitHub's own privacy statement.</li>
           <li><strong>Fonts.</strong> Pages load fonts from Google Fonts, so Google receives your IP address and browser details when you open a page.</li>
           <li><strong>Theme setting.</strong> If you switch between light and dark mode, that choice is saved in your browser's local storage (<code>fixdossier_theme</code>). It never leaves your browser.</li>
-          <li><strong>No cookies, no analytics and no advertising</strong> on fixdossier.dev.</li>
+          <li><strong>Page-view counter.</strong> Each page sends one request to <code>app.fixdossier.dev/b</code> with only a page name (for example <code>home</code>). The server adds 1 to that page's total for the day (UTC). The counter stores no IP address, browser details, cookie or other identifier, and nothing is sent when your browser has Do Not Track or Global Privacy Control turned on. The request passes through Cloudflare and our server, which does not write it to the web server log (see sections 4 and 5).</li>
+          <li><strong>No cookies, no advertising and no third-party analytics</strong> on fixdossier.dev.</li>
         </ul>
 
         <h2>2. The GitHub Action</h2>
@@ -101,7 +102,7 @@
             <tr><td><strong>Upload attempts.</strong> For every upload, successful or not: time, repository and owner, owner ID, run ID, SHA, ref, workflow, size, result, and an error message if it failed.</td><td>So you can see why an upload failed, and to detect abuse.</td><td>Contract and legitimate interest (security and support).</td><td>Until you ask for deletion.</td></tr>
             <tr><td><strong>Review decisions and audit trail.</strong> Status, severity, notes, rationale, the reviewer's name as entered, and timestamps, in a hash-chained, append-only log. Signed Evidence Packs (PDF, ZIP, manifest) include these.</td><td>Evidence of who reviewed what, and when, which is the purpose of the product.</td><td>Contract.</td><td>Until you ask for deletion. The log and the packs are append-only by design, so deleting them is a manual step on request.</td></tr>
             <tr><td><strong>Purchase and licence.</strong> Dodo Payments sends a signed webhook when a payment succeeds, fails or is refunded. We store the full webhook message as Dodo sends it (it includes the payment and customer IDs, your name and email, and other payment details Dodo includes), plus a licence record with buyer email, Dodo payment and customer IDs, status and dates. Claim and upload tokens are stored only as hashes. We never receive your full card number.</td><td>To issue and bind your licence, handle refunds, and keep a record of sales.</td><td>Contract; legitimate interest and legal obligations for keeping sales records.</td><td>Until you ask for deletion, unless we must keep sales records longer for accounting or tax reasons.</td></tr>
-            <tr><td><strong>Anonymous daily counts.</strong> Daily totals for views of the app's own pages (landing, demo, claim) and for steps such as "GitHub sign-in started/completed", "checkout opened", "payment received", "licence claimed" and "first upload". Only the date, the step name and a number are stored.</td><td>To understand whether the site and the sign-up flow work.</td><td>Legitimate interest. These totals are not personal data.</td><td>Not deleted automatically.</td></tr>
+            <tr><td><strong>Anonymous daily counts.</strong> Daily totals for views of the website's pages (section 1) and the app's own pages (landing, demo, claim), and for steps such as "GitHub sign-in started/completed", "checkout opened", "payment received", "licence claimed" and "first upload". Only the date, the step name and a number are stored.</td><td>To understand whether the site and the sign-up flow work.</td><td>Legitimate interest. These totals are not personal data.</td><td>Not deleted automatically.</td></tr>
           </tbody>
         </table>
         <p><strong>Cookies in the app.</strong> Signing in sets <code>fxd_session</code>: a signed (not encrypted) cookie holding your user ID, GitHub login, name, email and organization, which expires after 7 days or when you sign out. During sign-in, <code>fxd_oauth_state</code> is set for 10 minutes to protect the login against forgery. Both are strictly necessary, so we don't ask for consent. The app stores your light/dark choice in local storage (<code>fxd_theme</code>). No advertising or analytics cookies are used.</p>
@@ -109,7 +110,7 @@
         <h2>4. Logs and backups</h2>
         <ul>
           <li><strong>Application logs.</strong> The app writes only start-up, shutdown and error messages. It does not log individual requests. These logs are rotated daily (or at 10 MB), and only the 10 most recent rotated files are kept; older files are deleted.</li>
-          <li><strong>Web server logs.</strong> nginx on our server writes standard access logs for app.fixdossier.dev: time, the connecting IP address (yours, or a Cloudflare address), the requested URL including any query string, status, size, referrer and browser details. They are rotated daily and deleted after 14 days. Health checks and the page-view counter endpoint are not logged.</li>
+          <li><strong>Web server logs.</strong> nginx on our server writes standard access logs for app.fixdossier.dev: time, the connecting IP address (yours, or a Cloudflare address), the requested URL including any query string, status, size, referrer and browser details. They are rotated daily and deleted after 14 days. Health checks and requests to the page-view counter are not logged.</li>
           <li><strong>Backups.</strong> There are no automatic backups.</li>
         </ul>
 
@@ -158,6 +159,13 @@
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       });
+    })();
+  </script>
+  <script>
+    /* Cookie-less page-view count: sends only this page's name; stores nothing in the browser. */
+    (function () {
+      if (navigator.doNotTrack === '1' || navigator.globalPrivacyControl === true || !window.fetch) return;
+      try { fetch('https://app.fixdossier.dev/b?p=privacy', { method: 'POST', mode: 'no-cors', credentials: 'omit', keepalive: true }); } catch (e) {}
     })();
   </script>
 </body>

@@ -227,5 +227,12 @@ Report vulnerabilities to: security@example.com. See SECURITY-RECORD.md for the 
       });
     })();
   </script>
+  <script>
+    /* Cookie-less page-view count: sends only this page's name; stores nothing in the browser. */
+    (function () {
+      if (navigator.doNotTrack === '1' || navigator.globalPrivacyControl === true || !window.fetch) return;
+      try { fetch('https://app.fixdossier.dev/b?p=docs-cra-support-period-support-md', { method: 'POST', mode: 'no-cors', credentials: 'omit', keepalive: true }); } catch (e) {}
+    })();
+  </script>
 </body>
 </html>

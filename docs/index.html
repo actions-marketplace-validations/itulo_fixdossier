@@ -321,6 +321,7 @@
         <div class="disclaimer">
           <p><strong>Not legal advice.</strong> fixdossier is an engineering tool for evidence collection and review support. It does not make any product “compliant” or “certified” with the PLD, the CRA, or anything else. It does not limit liability. The record is compiled automatically and is <strong>not</strong> a complete security-fix inventory — fixes with no keyword or advisory are missed, and release mapping can be wrong for backports — so review it. Talk to a lawyer about your situation.</p>
           <p>fixdossier provides tooling and templates for information only. It creates no lawyer–client relationship.</p>
+          <p id="privacy"><strong>Privacy.</strong> This site sets no cookies. Each page view sends one request with only the page name (for example “home”) to <code>app.fixdossier.dev</code>, which adds 1 to that page’s daily total. The counter stores no IP address, browser details or other identifier, and nothing is sent when your browser has Do Not Track or Global Privacy Control turned on. GitHub Pages hosts this site and the fonts load from Google Fonts. Full details: <a href="privacy.html">privacy notice</a>.</p>
         </div>
       </div>
     </section>
@@ -411,6 +412,13 @@
         } catch (e) { /* ignore */ }
         document.body.removeChild(ta);
       }
+    })();
+  </script>
+  <script>
+    /* Cookie-less page-view count: sends only this page's name; stores nothing in the browser. */
+    (function () {
+      if (navigator.doNotTrack === '1' || navigator.globalPrivacyControl === true || !window.fetch) return;
+      try { fetch('https://app.fixdossier.dev/b?p=home', { method: 'POST', mode: 'no-cors', credentials: 'omit', keepalive: true }); } catch (e) {}
     })();
   </script>
 </body>

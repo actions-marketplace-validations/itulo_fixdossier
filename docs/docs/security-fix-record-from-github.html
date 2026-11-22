@@ -270,5 +270,12 @@ fixdossier: fastify/fastify — {&quot;advisories&quot;:16,&quot;security_commit
       });
     })();
   </script>
+  <script>
+    /* Cookie-less page-view count: sends only this page's name; stores nothing in the browser. */
+    (function () {
+      if (navigator.doNotTrack === '1' || navigator.globalPrivacyControl === true || !window.fetch) return;
+      try { fetch('https://app.fixdossier.dev/b?p=docs-security-fix-record-from-github', { method: 'POST', mode: 'no-cors', credentials: 'omit', keepalive: true }); } catch (e) {}
+    })();
+  </script>
 </body>
 </html>
