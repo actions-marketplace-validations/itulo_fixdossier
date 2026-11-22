@@ -1,5 +1,11 @@
 # Landing page changelog
 
+## 2026-11-22 (v0.1.3)
+
+- No change to what the Action does or outputs. Marketplace metadata: `action.yml` name and description.
+- Commit-mode workflow examples (docs pages, `examples/workflow.yml`, landing Usage block) now check out the default branch (`ref: ${{ github.event.repository.default_branch }}`), because release-triggered runs start on a detached HEAD and the commit-back push failed there.
+- README rewritten (quickstart, sample image, Why section, Privacy section). `examples/axios-axios/` regenerated with v0.1.2 (max_pages=10). Privacy notice, self-hosted fonts and the PLD Art. 11(2) guide on the site.
+
 ## 2026-10-31 (v0.1.2)
 
 - Advisory `patched_versions` lists of several versions, separated by whitespace, commas, or `||` (for example `11.5.15 12.3.3`, or a bound such as `>= 1.2.3`), are parsed as separate versions. Each one maps to its own release tag. They are not concatenated into one bogus version such as `11.5.1512.3.3`.
