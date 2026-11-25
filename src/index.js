@@ -29,7 +29,7 @@ function arg(name, def = '') {
   };
   fs.writeFileSync(files.md, core.renderRecord(rec));
   fs.writeFileSync(files.json, JSON.stringify(rec, null, 2) + '\n');
-  fs.writeFileSync(files.support, core.renderSupport(rec, { supportMonths: months, eolDate: arg('eol_date'), contact: arg('contact'), product: arg('product_name') }));
+  fs.writeFileSync(files.support, core.renderSupport(rec, { supportMonths: months, eolDate: arg('eol_date'), contact: arg('contact'), product: arg('product_name'), includePrereleases: arg('include_prereleases', 'false') === 'true' }));
   console.log(`fixdossier: ${repo} — ${JSON.stringify(rec.summary)} — ${api.calls} API calls`);
   rec.gaps.forEach((g) => console.log(`::warning title=fixdossier gap::${g}`));
   if (process.env.GITHUB_OUTPUT) {

@@ -9,6 +9,7 @@ inputs:
   eol_date: { description: 'Optional end-of-life date (YYYY-MM-DD) that caps every support window.', default: '' }
   contact: { description: 'Where to report vulnerabilities (email or URL).', default: '' }
   product_name: { description: 'Name shown in SUPPORT.md. Defaults to the repo name.', default: '' }
+  include_prereleases: { description: 'If true, list GitHub pre-releases in a separate SUPPORT.md section. Default skips them.', default: 'false' }
   output_dir: { description: 'Directory for the generated files.', default: '.' }
   max_pages: { description: 'Max API pages (100 items each) per source. Raise for long histories.', default: '10' }
   mode: { description: '"artifact" (upload files), "commit" (commit them to the current branch), or "none".', default: 'artifact' }
@@ -36,6 +37,7 @@ runs:
         INPUT_EOL_DATE: ${{ inputs.eol_date }}
         INPUT_CONTACT: ${{ inputs.contact }}
         INPUT_PRODUCT_NAME: ${{ inputs.product_name }}
+        INPUT_INCLUDE_PRERELEASES: ${{ inputs.include_prereleases }}
         INPUT_OUTPUT_DIR: ${{ inputs.output_dir }}
         INPUT_MAX_PAGES: ${{ inputs.max_pages }}
         INPUT_FAIL_ON_GAPS: ${{ inputs.fail_on_gaps }}
