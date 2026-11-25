@@ -26,7 +26,7 @@ On each run it reads your repository's:
 It then generates:
 - **`SECURITY-RECORD.md`**: a dated log of security fixes, each mapped to the release that shipped it, plus bot dependency updates and a release list
 - **`security-record.json`**: the same data, machine-readable (`schema: fixdossier/v1`)
-- **`SUPPORT.md`**: a support-period policy built from your inputs (`support_period_months`, `eol_date`, `contact`), with a per-release "supported until" table
+- **`SUPPORT.md`**: a support-period policy built from your inputs (`support_period_months`, `eol_date`, `contact`, optional `include_prereleases`), with a per-release "supported until" table of stable releases
 
 See [`examples/`](examples/) for real output from axios/axios, fastify/fastify and vitejs/vite.
 
@@ -54,6 +54,7 @@ Full example: [`examples/workflow.yml`](examples/workflow.yml) (runs on release,
 | `repo` | current repo | `owner/name` |
 | `support_period_months` | `12` | security-update window per release |
 | `eol_date` | — | caps every window (YYYY-MM-DD) |
+| `include_prereleases` | `false` | if true, list GitHub pre-releases in a separate SUPPORT.md section |
 | `contact` | — | where to report vulnerabilities |
 | `product_name` | repo name | |
 | `output_dir` | `.` | |

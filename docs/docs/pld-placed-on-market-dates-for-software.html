@@ -167,7 +167,7 @@
         </ol>
 
         <h2>Where fixdossier fits (and where it does not)</h2>
-        <p>The free <a href="https://github.com/itulo/fixdossier">fixdossier GitHub Action</a> (MIT, current release v0.1.3, use <code>itulo/fixdossier@v0</code>) reads your GitHub Releases and tags, published security advisories, merged Dependabot and Renovate PRs, and security-looking commits. It writes a dated <code>SECURITY-RECORD.md</code>, <code>security-record.json</code>, and a <code>SUPPORT.md</code> with a “supported until” date per release. In commit mode, each state of the record is a dated git commit, so running it once before 9 December 2026 gives you a dated snapshot of your release and fix history as GitHub shows it:</p>
+        <p>The free <a href="https://github.com/itulo/fixdossier">fixdossier GitHub Action</a> (MIT, current release v0.1.4, use <code>itulo/fixdossier@v0</code>) reads your GitHub Releases and tags, published security advisories, merged Dependabot and Renovate PRs, and security-looking commits. It writes a dated <code>SECURITY-RECORD.md</code>, <code>security-record.json</code>, and a <code>SUPPORT.md</code> with a “supported until” date per release. In commit mode, each state of the record is a dated git commit, so running it once before 9 December 2026 gives you a dated snapshot of your release and fix history as GitHub shows it:</p>
         <div class="pre-wrap"><span class="lang">yaml</span><pre>name: security-record
 on:
   workflow_dispatch:        # run once now for a pre-cut-off snapshot

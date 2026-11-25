@@ -1,5 +1,11 @@
 # Landing page changelog
 
+## 2026-11-25 (v0.1.4)
+
+- SUPPORT.md still lists only stable GitHub releases by default.
+- If a repository has no stable releases, the file now says so and how many pre-releases were found, instead of leaving an empty table.
+- New input `include_prereleases` (default `false`). When true, a separate "Pre-releases" section lists GitHub pre-releases with the same support-window columns. They are not mixed into the stable table.
+
 ## 2026-11-22 (v0.1.3)
 
 - No change to what the Action does or outputs. Marketplace metadata: `action.yml` name and description.

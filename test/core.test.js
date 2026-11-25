@@ -99,6 +99,40 @@ test('renderers produce markdown with disclaimers and support windows', () => {
   assert.match(sup, /\| v1.1.0 \| 2026-03-01 \| 2026-08-01 \| ended \|/); // capped by EOL
   assert.match(sup, /\| v1.0.0 \| 2026-01-10 \| 2026-07-10 \| ended \|/);
   assert.doesNotMatch(sup, /rc\.1/);
+  assert.doesNotMatch(sup, /## Pre-releases/);
+});
+
+test('SUPPORT.md explains an empty stable table and omits pre-releases by default', () => {
+  const onlyPre = core.build({
+    releases: [
+      { tag_name: 'v1.0.0-beta.2', published_at: '2026-04-01T00:00:00Z', prerelease: true, html_url: 'b2' },
+      { tag_name: 'v1.0.0-beta.1', published_at: '2026-03-01T00:00:00Z', prerelease: true, html_url: 'b1' },
+    ],
+    tags: [], pulls: [], advisories: [], commits: [],
+  }, { repo: 'impierce/ssi-agent', now: NOW });
+  const sup = core.renderSupport(onlyPre, { supportMonths: 12 });
+  assert.match(sup, /No stable \(non-pre-release\) GitHub releases were found\. This repository has 2 pre-releases\./);
+  assert.doesNotMatch(sup, /beta\.1/);
+  assert.doesNotMatch(sup, /## Pre-releases/);
+});
+
+test('SUPPORT.md lists pre-releases in a separate section when includePrereleases is true', () => {
+  const r = core.build(mini, { repo: 'o/r', now: NOW });
+  const mixed = core.renderSupport(r, { supportMonths: 6, eolDate: '2026-08-01', includePrereleases: true });
+  assert.match(mixed, /\| v1\.1\.0 \| 2026-03-01 \| 2026-08-01 \| ended \|/);
+  assert.match(mixed, /## Pre-releases/);
+  assert.match(mixed, /\| v2\.0\.0-rc\.1 \| 2026-03-05 \| 2026-08-01 \| ended \|/);
+  assert.match(mixed, /include_prereleases=true/);
+  const onlyPre = core.build({
+    releases: [
+      { tag_name: 'v1.0.0-beta.1', published_at: '2026-03-01T00:00:00Z', prerelease: true, html_url: 'b1' },
+    ],
+    tags: [], pulls: [], advisories: [], commits: [],
+  }, { repo: 'impierce/ssi-agent', now: NOW });
+  const pre = core.renderSupport(onlyPre, { supportMonths: 12, includePrereleases: true });
+  assert.match(pre, /No stable \(non-pre-release\) GitHub releases were found\. This repository has 1 pre-release\./);
+  assert.match(pre, /## Pre-releases/);
+  assert.match(pre, /\| v1\.0\.0-beta\.1 \| 2026-03-01 \| 2027-03-01 \| supported \|/);
 });
 
 function fakeFetch(map) {

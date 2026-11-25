@@ -457,19 +457,39 @@ function renderRecord(rec, { maxRows = 200 } = {}) {
 
 function addMonths(iso, m) { const x = new Date(iso); x.setUTCMonth(x.getUTCMonth() + m); return x.toISOString().slice(0, 10); }
 
-function renderSupport(rec, { supportMonths = 12, eolDate = '', contact = '', product = '' } = {}) {
+function supportTableRow(r, supportMonths, eolDate, today) {
+  let until = addMonths(r.date, supportMonths);
+  if (eolDate && eolDate < until) until = eolDate;
+  return `| ${esc(r.tag)} | ${d(r.date)} | ${until} | ${until >= today ? 'supported' : 'ended'} |`;
+}
+
+function renderSupport(rec, { supportMonths = 12, eolDate = '', contact = '', product = '', includePrereleases = false } = {}) {
   const name = product || rec.repo;
   const L = [`# Support policy — ${name}`, ''];
   L.push(`Security updates are provided for each release for **${supportMonths} months** from its release date${eolDate ? `, and in any case not after **${eolDate}** (end of life)` : ''}.`, '');
   L.push(`Report vulnerabilities to: ${contact || '_(set the `contact` input)_'}. See SECURITY-RECORD.md for the dated history of security fixes.`, '');
-  L.push('| Release | Released | Security support until | Status |', '|---|---|---|---|');
   const today = rec.generated_at.slice(0, 10);
-  rec.releases.filter((r) => !r.prerelease).slice(0, 30).forEach((r) => {
-    let until = addMonths(r.date, supportMonths);
-    if (eolDate && eolDate < until) until = eolDate;
-    L.push(`| ${esc(r.tag)} | ${d(r.date)} | ${until} | ${until >= today ? 'supported' : 'ended'} |`);
-  });
-  L.push('', `_Generated ${rec.generated_at} by fixdossier from inputs support_period_months=${supportMonths}${eolDate ? `, eol_date=${eolDate}` : ''}. This is a statement of intent written by the maintainer, not legal advice._`, '');
+  const stable = rec.releases.filter((r) => !r.prerelease);
+  const prereleases = rec.releases.filter((r) => r.prerelease);
+  if (stable.length) {
+    L.push('| Release | Released | Security support until | Status |', '|---|---|---|---|');
+    stable.slice(0, 30).forEach((r) => L.push(supportTableRow(r, supportMonths, eolDate, today)));
+  } else {
+    const n = prereleases.length;
+    L.push(n
+      ? `No stable (non-pre-release) GitHub releases were found. This repository has ${n} pre-release${n === 1 ? '' : 's'}.`
+      : 'No GitHub releases were found.');
+  }
+  if (includePrereleases && prereleases.length) {
+    L.push('', '## Pre-releases', '');
+    L.push('These are GitHub pre-releases (for example betas and release candidates). They are listed separately from stable releases. Support windows use the same `support_period_months` input.', '');
+    L.push('| Release | Released | Security support until | Status |', '|---|---|---|---|');
+    prereleases.slice(0, 30).forEach((r) => L.push(supportTableRow(r, supportMonths, eolDate, today)));
+  }
+  const extras = [];
+  if (eolDate) extras.push(`eol_date=${eolDate}`);
+  if (includePrereleases) extras.push('include_prereleases=true');
+  L.push('', `_Generated ${rec.generated_at} by fixdossier from inputs support_period_months=${supportMonths}${extras.length ? `, ${extras.join(', ')}` : ''}. This is a statement of intent written by the maintainer, not legal advice._`, '');
   return L.join('\n');
 }
 

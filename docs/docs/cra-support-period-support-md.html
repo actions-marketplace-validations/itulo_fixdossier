@@ -130,10 +130,11 @@ jobs:
 
         <h2>How the dates are computed</h2>
         <ul>
-          <li>For each <strong>stable</strong> GitHub Release (pre-releases and drafts are skipped), “Security support until” is the release date plus <code>support_period_months</code> months.</li>
+          <li>For each <strong>stable</strong> GitHub Release (pre-releases and drafts are skipped by default), “Security support until” is the release date plus <code>support_period_months</code> months.</li>
           <li>If <code>eol_date</code> is set and is earlier, it replaces that date.</li>
           <li>“Status” is <code>supported</code> if the end date is on or after the generation date, otherwise <code>ended</code>. Re-run the workflow (for example weekly) to keep it current.</li>
-          <li>The table lists the 30 most recent stable releases.</li>
+          <li>The stable table lists the 30 most recent stable releases. If there are none, the file says so and how many pre-releases were found, instead of leaving an empty table.</li>
+          <li>Set <code>include_prereleases: true</code> to add a separate “Pre-releases” section with the same window calculation. Pre-releases are not mixed into the stable table.</li>
           <li><code>contact</code> is printed as the reporting address; if empty, the file says “(set the `contact` input)”.</li>
           <li><code>product_name</code> is used as the heading; it falls back to <code>owner/name</code>.</li>
         </ul>
@@ -168,6 +169,7 @@ Report vulnerabilities to: security@example.com. See SECURITY-RECORD.md for the 
           <li>It does not write <code>SECURITY.md</code> (your vulnerability disclosure policy) or a coordinated vulnerability disclosure process.</li>
           <li>It does not report anything to ENISA or a CSIRT under Article 14.</li>
           <li>It does not know which release lines you actually maintain. Every stable release gets the same window, so if you only patch the latest minor, edit the period or the wording accordingly.</li>
+          <li>It does not treat a GitHub pre-release as a stable product. The optional pre-release section is labelled separately and uses the same window only if you turn it on.</li>
         </ul>
 
         <h2>Monorepos</h2>
